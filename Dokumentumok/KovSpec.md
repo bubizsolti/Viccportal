@@ -1,3 +1,5 @@
+#Jelenlegi helyzet leírása
+
 Az internet elterjedésével a humorforrások is átalakultak, és a viccportálok népszerűsége egyre nőtt. Az emberek szívesen keresnek fel ilyen oldalakat, hogy oldják a stresszt és felviduljanak a mindennapokban. 
 
 Azonban a viccportálok kezelése, frissítése és karbantartása nem kis feladat. A rendszeres tartalomfeltöltés érdekében az adminisztrátoroknak naponta több órát kell eltölteniük új viccek, mémek és humoros tartalmak keresésével, moderálásával, valamint a felhasználói visszajelzések kezelésével.
@@ -19,3 +21,15 @@ Mindeközben fontos, hogy a viccportálok:
 - Kerüljék az érzékeny témák megsértését és a nem megfelelő tartalmak megjelenését.
 
 A viccportálok számára a relevancia fenntartása kulcsfontosságú, hiszen az online világban a felhasználók gyorsan elpártolnak, ha egy oldal nem frissül rendszeresen, vagy a tartalmak nem tükrözik a legújabb trendeket. 
+
+Ezért a humoros tartalmak szerkesztőinek:
+
+- Folyamatosan követniük kell a közösségi média platformokat és az aktuális mémeket,
+- Naprakész anyagokat kell kínálniuk.
+
+Az ilyen portálok hosszú távú fenntarthatóságát befolyásolja az is, hogy miként képesek bevételt generálni, például hirdetéseken keresztül. Ez újabb kihívást jelent, hiszen:
+
+- Meg kell találni az egyensúlyt a felhasználói élmény és a reklámok mennyisége között,
+- Ügyelni kell arra, hogy a látogatók ne érezzék túlzsúfoltnak az oldalt.
+
+A folyamatos fejlődés és alkalmazkodás tehát kulcsfontosságú ahhoz, hogy a viccportálok a digitális világban is megőrizzék népszerűségüket.
