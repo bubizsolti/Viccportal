@@ -53,3 +53,13 @@ Viccek Megtekintése és Keresése
 - Keresőfunkció, amely lehetővé teszi a felhasználóknak, hogy kulcsszavak alapján   keressenek vicceket.
 - Szűrő opciók: kategória, időszak (pl. "legfrissebb", "legnépszerűbb"), vicc típusa (szöveges, képes).
 - Véletlenszerű vicc funkció, amely egy véletlenszerűen kiválasztott viccet jelenít meg a felhasználónak.
+
+Viccek Értékelése és Kommentelése
+- A felhasználók szavazhatnak a viccekre (pl. "Tetszik" vagy "Nem tetszik"), ami befolyásolja a vicc láthatóságát.
+- A viccekhez kommenteket fűzhetnek, amelyeket más felhasználók is értékelhetnek.
+- A rendszer képes legyen az értékelések alapján rangsorolni a vicceket, és a legnépszerűbb vicceket kiemelni a főoldalon.
+
+Közösségi Funkciók
+- Felhasználói profiloldalak, ahol láthatóak a beküldött viccek, a kapott szavazatok, és a kommentek.
+- Felhasználói rangrendszer a beküldött és értékelt viccek alapján (pl. "Kezdő Humorista", "ViccMester").
+- Közösségi kihívások és versenyek szervezése, ahol a felhasználók bizonyos időszak alatt a legtöbb szavazatot gyűjthetik.
