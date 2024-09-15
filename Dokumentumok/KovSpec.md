@@ -36,19 +36,19 @@ A folyamatos fejlődés és alkalmazkodás tehát kulcsfontosságú ahhoz, hogy 
 
 ##  Rendszer Funkcionális Követelmények:
 
-### Felhasználói Regisztráció és Bejelentkezés
+Felhasználói Regisztráció és Bejelentkezés
     - A felhasználók regisztrálhatnak e-mail cím és jelszó megadásával, vagy külső fiókok (pl. Facebook, Google) használatával.
     - E-mail megerősítés a regisztráció során a felhasználók hitelesítéséhez.
     - Jelszó-visszaállítási lehetőség e-mailes értesítéssel.
     - A felhasználók bejelentkezés után személyes profilt hozhatnak létre, ahol     megtekinthetik a beküldött vicceiket és a kapott szavazataikat.
 
-### Viccek Beküldése és Kategorizálása
+Viccek Beküldése és Kategorizálása
     - A felhasználók beküldhetnek vicceket szöveges vagy képes formában.
     - A beküldött vicceket kategóriákba kell sorolni (pl. "Szőke nős viccek", "Mórickás   viccek", "Felnőtt viccek").
     - Az új viccek beküldése előtt a felhasználóknak el kell fogadniuk a felhasználási  feltételeket és az irányelveket.
     - A moderátorok átnézik és jóváhagyják a beküldött vicceket, mielőtt azok megjelennek a  portálon.
 
-### Viccek Megtekintése és Keresése
+Viccek Megtekintése és Keresése
     - A felhasználók böngészhetnek a viccek között kategóriák vagy népszerűség szerint.
     - Keresőfunkció, amely lehetővé teszi a felhasználóknak, hogy kulcsszavak alapján   keressenek vicceket.
     - Szűrő opciók: kategória, időszak (pl. "legfrissebb", "legnépszerűbb"), vicc típusa (szöveges, képes).
