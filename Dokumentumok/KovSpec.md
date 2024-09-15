@@ -43,23 +43,19 @@ Felhasználói Regisztráció és Bejelentkezés
 - A felhasználók bejelentkezés után személyes profilt hozhatnak létre, ahol     megtekinthetik a beküldött vicceiket és a kapott szavazataikat.
 
 Viccek Beküldése és Kategorizálása
-- A felhasználók beküldhetnek vicceket szöveges vagy képes formában.
+- A felhasználók beküldhetnek vicceket szöveges formában
 - A beküldött vicceket kategóriákba kell sorolni (pl. "Szőke nős viccek", "Mórickás   viccek", "Felnőtt viccek").
-- Az új viccek beküldése előtt a felhasználóknak el kell fogadniuk a felhasználási  feltételeket és az irányelveket.
 - A moderátorok átnézik és jóváhagyják a beküldött vicceket, mielőtt azok megjelennek a  portálon.
 
 Viccek Megtekintése és Keresése
 - A felhasználók böngészhetnek a viccek között kategóriák vagy népszerűség szerint.
 - Keresőfunkció, amely lehetővé teszi a felhasználóknak, hogy kulcsszavak alapján   keressenek vicceket.
-- Szűrő opciók: kategória, időszak (pl. "legfrissebb", "legnépszerűbb"), vicc típusa (szöveges, képes).
+- Szűrő opciók: kategória, időszak (pl. "legfrissebb", "legnépszerűbb").
 - Véletlenszerű vicc funkció, amely egy véletlenszerűen kiválasztott viccet jelenít meg a felhasználónak.
 
-Viccek Értékelése és Kommentelése
+Viccek Értékelése 
 - A felhasználók szavazhatnak a viccekre (pl. "Tetszik" vagy "Nem tetszik"), ami befolyásolja a vicc láthatóságát.
-- A viccekhez kommenteket fűzhetnek, amelyeket más felhasználók is értékelhetnek.
 - A rendszer képes legyen az értékelések alapján rangsorolni a vicceket, és a legnépszerűbb vicceket kiemelni a főoldalon.
 
-Közösségi Funkciók
-- Felhasználói profiloldalak, ahol láthatóak a beküldött viccek, a kapott szavazatok, és a kommentek.
-- Felhasználói rangrendszer a beküldött és értékelt viccek alapján (pl. "Kezdő Humorista", "ViccMester").
-- Közösségi kihívások és versenyek szervezése, ahol a felhasználók bizonyos időszak alatt a legtöbb szavazatot gyűjthetik.
+Moderátorok számára elérhető felület, ahol jóváhagyhatják, szerkeszthetik, vagy törölhetik a beküldött vicceket.
+- Moderálási eszközök a nem megfelelő tartalmak (pl. sértő, jogsértő viccek) kezelésére, beleértve a felhasználói jelentéseket is.
