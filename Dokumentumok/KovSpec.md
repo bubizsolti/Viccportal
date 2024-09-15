@@ -12,7 +12,7 @@ Mivel az internetes humor gyorsan változik, a trendek követése és az új hum
 
 A modern felhasználók számára az okostelefon ugyanis az elsődleges eszköz a viccek fogyasztására, így a weboldalaknak reszponzív, mobilbarát felülettel kell rendelkezniük.
 
-A viccportálok közönsége nagyrészt digitális bennszülöttekből áll, akik nem csak passzív fogyasztói a tartalomnak, hanem szívesen osztják meg saját humoros alkotásaikat is. A felhasználók részvétele és a közösségi interakciók folyamatos odafigyelést és moderálást igényelnek. 
+A viccportálok közönsége nagyrészt nem csak passzív fogyasztói a tartalomnak, hanem szívesen osztják meg saját humoros alkotásaikat is. A felhasználók részvétele és a közösségi interakciók folyamatos odafigyelést és moderálást igényelnek. 
 
 Mindeközben fontos, hogy a viccportálok:
 
@@ -32,7 +32,6 @@ Az ilyen portálok hosszú távú fenntarthatóságát befolyásolja az is, hogy
 - Meg kell találni az egyensúlyt a felhasználói élmény és a reklámok mennyisége között,
 - Ügyelni kell arra, hogy a látogatók ne érezzék túlzsúfoltnak az oldalt.
 
-A folyamatos fejlődés és alkalmazkodás tehát kulcsfontosságú ahhoz, hogy a viccportálok a digitális világban is megőrizzék népszerűségüket.
 
 #  Rendszer Funkcionális Követelmények:
 
