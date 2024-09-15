@@ -58,3 +58,25 @@ Viccek Értékelése
 
 Moderátorok számára elérhető felület, ahol jóváhagyhatják, szerkeszthetik, vagy törölhetik a beküldött vicceket.
 - Moderálási eszközök a nem megfelelő tartalmak (pl. sértő, jogsértő viccek) kezelésére, beleértve a felhasználói jelentéseket is.
+
+# Nem Funkcionális Követelmények
+
+Teljesítmény
+- Az oldalnak képesnek kell lennie legalább 100 egyidejű felhasználó kiszolgálására.
+- A rendszernek a viccek beküldését, megtekintését, és értékelését 5 másodpercen belül kell feldolgoznia, még csúcsidőben is.
+- Gyors és hatékony keresési és szűrési funkciók, amelyek nagy mennyiségű adat esetén is jól működnek.
+
+Biztonság
+- Az adatokat biztonságosan kell tárolni és titkosítani (pl. jelszavak hash-elése).
+- A felhasználói adatok védelme és GDPR-megfelelés biztosítása.
+- Rendszeres biztonsági mentések és lehetőség az adatok visszaállítására.
+
+Felhasználói Élmény
+- Reszponzív design, amely jól működik asztali gépeken.
+- Egyszerű és átlátható navigáció, gyors hozzáférés a különböző vicckategóriákhoz.
+- Intuitív felület a viccek beküldésére és a közösségi funkciók használatára (pl. szavazás, kommentelés).
+
+# Adatbázis és Tárolás
+
+Az adatbázis tárolja a felhasználói profilokat, vicceket, kommenteket, értékeléseket, kategóriákat, és a moderációs műveleteket.
+Olyan adatbázis-struktúra kialakítása, amely támogatja a skálázhatóságot és a nagy mennyiségű adat kezelését (pl. MySQL, PostgreSQL).
