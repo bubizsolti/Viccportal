@@ -1,4 +1,4 @@
-#Jelenlegi helyzet leírása
+# Jelenlegi helyzet leírása
 
 Az internet elterjedésével a humorforrások is átalakultak, és a viccportálok népszerűsége egyre nőtt. Az emberek szívesen keresnek fel ilyen oldalakat, hogy oldják a stresszt és felviduljanak a mindennapokban. 
 
