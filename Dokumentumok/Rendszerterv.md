@@ -18,11 +18,11 @@ Tárolja a felhasználók által beküldött vicceket.
 | Oszlop neve  | Típus  | Leírás  |
 |--------------|--------|---------|
 | `vicc_id`    | INT    | Egyedi vicc azonosító (Elsődleges kulcs) |
-| `felhasznalo_id`    | INT    | A viccet beküldő felhasználó (Külső kulcs a `users` táblára) |
+| `felhasznalo_id`    | INT    | A viccet beküldő felhasználó (Külső kulcs a `felhasznalok` táblára) |
 | `kategoria_id`| INT    | A vicc kategóriája (Külső kulcs a `kategoriak` táblára) |
 | `vicc_szovege`  | TEXT   | Maga a vicc |
 | `letrehozva` | TIMESTAMP | Beküldés időpontja |
-| `jovahagyo_id`| INT    | Moderátor, aki jóváhagyta (Külső kulcs a `users` táblára) |
+| `jovahagyo_id`| INT    | Moderátor, aki jóváhagyta (Külső kulcs a `felhasznalok` táblára) |
 | `jovahagyott`| BOOLEAN | Jóváhagyás állapota |
 
 ### 3. `kategoriak` 
@@ -31,3 +31,13 @@ Tárolja a viccek kategóriáit.
 |--------------|--------|---------|
 | `kategoria_id`| INT    | Kategória azonosító (Elsődleges kulcs) |
 | `kategoria_neve` | VARCHAR | A vicc kategóriájának a neve |
+
+### 4. `ertekelesek` 
+A viccekhez adott értékelések (pl. tetszik/nem tetszik).
+| Oszlop neve  | Típus  | Leírás  |
+|--------------|--------|---------|
+| `ertekeles_id`  | INT    | Egyedi értékelés azonosító (Elsődleges kulcs) |
+| `vicc_id`    | INT    | Értékelt vicc (Külső kulcs a `viccek` táblára) |
+| `felhasznalo_id`    | INT    | Értékelést adó felhasználó (Külső kulcs a `felhasznalok` táblára) |
+| `ertekeles` | INT  | Értékelés értéke (1-5) |
+| `ertekeles_idopontja` | TIMESTAMP | Az értékelésnek az időpontja |
