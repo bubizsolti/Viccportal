@@ -7,10 +7,7 @@ Azonban a viccportálok kezelése, frissítése és karbantartása nem kis felad
 Mivel az internetes humor gyorsan változik, a trendek követése és az új humorstílusok integrálása elengedhetetlen, hogy a portálok vonzóak maradjanak. A látogatók elvárják:
 
 - A gyors frissítést,
-- A humoros tartalmak széles választékát,
-- A mobil eszközökön való azonnali elérhetőséget.
-
-A modern felhasználók számára az okostelefon ugyanis az elsődleges eszköz a viccek fogyasztására, így a weboldalaknak reszponzív, mobilbarát felülettel kell rendelkezniük.
+- A humoros tartalmak széles választékát
 
 A viccportálok közönsége nagyrészt nem csak passzív fogyasztói a tartalomnak, hanem szívesen osztják meg saját humoros alkotásaikat is. A felhasználók részvétele és a közösségi interakciók folyamatos odafigyelést és moderálást igényelnek. 
 
@@ -72,6 +69,7 @@ Biztonság
 - Rendszeres biztonsági mentések és lehetőség az adatok visszaállítására.
 
 Felhasználói Élmény
+
 - Reszponzív design, amely jól működik asztali gépeken.
 - Egyszerű és átlátható navigáció, gyors hozzáférés a különböző vicckategóriákhoz.
 - Intuitív felület a viccek beküldésére és a közösségi funkciók használatára (pl. szavazás, kommentelés).
