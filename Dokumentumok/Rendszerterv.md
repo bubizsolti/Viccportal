@@ -10,7 +10,7 @@ Tárolja a regisztrált felhasználók adatait, beleértve az adminokat és mode
 | `felhasznalonev`   | VARCHAR| A felhasználók által használt név |
 | `email`      | VARCHAR| A felhasználók e-mail címe |
 | `jelszo`   | VARCHAR| A felhasználók jelszava elszó (HASH-elve) |
-| `szerep`       | ENUM   | Felhasználói szerepkör (admin, moderátor, felhasználó) |
+| `csoport`       | ENUM   | Felhasználói szerepkör (admin, moderátor, felhasználó) |
 | `mikor_regisztralt` | TIMESTAMP | Regisztráció időpontja |
 
 ### 2. `viccek` 
@@ -22,8 +22,8 @@ Tárolja a felhasználók által beküldött vicceket.
 | `kategoria_id`| INT    | A vicc kategóriája (Külső kulcs a `kategoriak` táblára) |
 | `vicc_szovege`  | TEXT   | Maga a vicc |
 | `letrehozva` | TIMESTAMP | Beküldés időpontja |
-| `jovahagyo_id`| INT    | Moderátor, aki jóváhagyta (Külső kulcs a `felhasznalok` táblára) |
 | `jovahagyott`| BOOLEAN | Jóváhagyás állapota |
+| `jovahagyo_id`| INT    | Moderátor, aki jóváhagyta (Külső kulcs a `felhasznalok` táblára) |
 
 ### 3. `kategoriak` 
 Tárolja a viccek kategóriáit.
@@ -41,3 +41,7 @@ A viccekhez adott értékelések (pl. tetszik/nem tetszik).
 | `felhasznalo_id`    | INT    | Értékelést adó felhasználó (Külső kulcs a `felhasznalok` táblára) |
 | `ertekeles` | INT  | Értékelés értéke (1-5) |
 | `ertekeles_idopontja` | TIMESTAMP | Az értékelésnek az időpontja |
+
+Itt látható ERD-diagram formában.
+
+![ERD-diagram](Képek/ERD-diagram.jfif)
