@@ -42,7 +42,7 @@
     - **Szűrés:** Szűrő funkciók elérhetők időszak szerint (pl. "legfrissebb", "legnépszerűbb").
     - **Véletlenszerű Vicc:** Véletlenszerű vicc funkció, amely egy random viccet jelenít meg.
 
-
+  ![Beléptetési felület](Képek/Folyamatábra.png)
 
     
   #### **Viccek Értékelése**
