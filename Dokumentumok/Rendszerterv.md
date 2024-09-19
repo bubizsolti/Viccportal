@@ -142,5 +142,5 @@ A viccekhez adott értékelések (pl. tetszik/nem tetszik).
 
 Itt látható ERD-diagram formában.
 
-![ERD-diagram](Képek/ERD-diagram.jfif)
+![ERD-diagram](Képek/ERD-diagram.png)
 
