@@ -65,6 +65,8 @@
 - **Könnyű navigáció:** A webes felület egyszerű, letisztult dizájnt használ, ahol gyorsan elérhetők a kategóriák, friss viccek, és a legnépszerűbb tartalmak.
 - **Keresési funkció:** Kulcsszavak alapján lehet keresni vicceket.
 
+![Beléptetési felület](Képek/Belépési_minta.png)
+
   
 #### 4. **Vicctípusok és kategóriák**
 - **Különböző vicctípusok támogatása:**
