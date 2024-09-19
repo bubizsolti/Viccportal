@@ -1,77 +1,92 @@
-# Rendszerspecifikáció
+### Rendszerspecifikáció - Viccportál
 
-## Felhasználói Regisztráció és Hitelesítés
+#### 1. **Általános követelmények**
 
-**Funkciók:**
+  Funkciók:
 
-- **Regisztrációs Módszerek:** A felhasználók regisztrálhatnak e-mail cím és jelszó megadásával.
-- **E-mail Megerősítés:** Regisztráció során kötelező az e-mail cím megerősítése a felhasználói fiók aktiválásához.
-- **Jelszó-Visszaállítás:** Jelszó-visszaállító funkció, amely e-mailen keresztül küld egy linket a jelszó módosításához.
+  - **Regisztrációs Módszerek: A felhasználók regisztrálhatnak e-mail cím és jelszó megadásával.
+  - **E-mail Megerősítés: Regisztráció során kötelező az e-mail cím megerősítése a felhasználói fiók aktiválásához.
+  - **Felhasználói hitelesítés:** A rendszer funkciói nagy részét csak bejelentkezett felhasználók érhetik el, mint például viccek posztolása.
+  - **Jelszó-Visszaállítás: Jelszó-visszaállító funkció, amely e-mailen keresztül küld egy linket a jelszó módosításához.
+  - **Platformok:** 
+  - Webes felület minden funkcióhoz.
+  - **Adattárolás:** A rendszer MySQL adatbázist használ a felhasználói adatok, viccek és tárolására.
 
-**Rendszer Komponens:**
+Rendszer Komponens:
 
-- Hitelesítési modul
+  - **Hitelesítési modul
 
-## Felhasználói Profil
+#### 2. **Funkcionális követelmények**
 
-**Funkciók:**
+Rendszer Komponens:
 
-- **Profil Készítése:** Regisztrált felhasználók személyes profilt hozhatnak létre.
-- **Profil Tartalom:** A felhasználói profil tartalmazza a beküldött vicceket és azok értékeléseit.
-- **Profil Módosítás:** Felhasználók módosíthatják személyes adataikat, jelszavukat, és kezelhetik saját vicceiket.
+  - **Profilkezelő modul
 
-**Rendszer Komponens:**
+##### 2.1. **Felhasználókezelés**
+- **Profil Készítése: Regisztrált felhasználók személyes profilt hozhatnak létre.
+- **Profil Tartalom: A felhasználói profil tartalmazza a beküldött vicceket és azok értékeléseit.
+- **Profil Módosítás: Felhasználók módosíthatják személyes adataikat, jelszavukat, és kezelhetik saját vicceiket.
+- **Felhasználói típusok:**
+  - **Regisztrált felhasználó:** Posztolhat vicceket és értékelhet más vicceket.
+  - **Vendég felhasználó:** Vicceket böngészhet, de nem posztolhat vagy kommentelhet.
 
-- Profilkezelő modul
 
-## Viccek Beküldése
+##### 2.2. **Admin által elérhető funkciók**
+- **Tartalom moderálása:** Az adminisztrátor törölhet vagy szerkeszthet vicceket és ha azok nem felelnek meg a közösségi irányelveknek.
+- **Felhasználók kezelése:** A felhasználók blokkolása vagy figyelmeztetések küldése a szabálysértések esetén.
 
-**Funkciók:**
+  
+##### 2.3. **Regisztrált felhasználók által elérhető funkciók és viccek Beküldése**
+  Funkciók:
+    - **Vicc beküldése:** A felhasználók vicceket tölthetnek fel különböző kategóriákba (pl. szőke viccek, szóviccek, állatos viccek).
+    - **Vicc értékelése:** Lehetőség van a viccek tetszési index szerinti értékelésére (pl. 1-től 5 csillagig).
+    - **Kategorizálás: Minden vicc előre definiált kategóriák szerint kategorizálható (pl. "Felnőtt viccek", "Szőke nős viccek").
+    - **Kategória kiválasztása:** A felhasználók kiválaszthatják, milyen típusú vicceket szeretnének látni.
+    - **Moderálás: Beküldött vicceket a moderátorok előszűrik, mielőtt azok megjelennek az oldalon.
+    - **Jelentések Kezelése: Moderátorok kezelhetik a felhasználói jelentéseket és eltávolíthatják a nem megfelelő tartalmakat.
+    - **Szűrés és Figyelmeztetés: Szűrési és figyelmeztetési funkciók a jogsértő tartalmak ellen.
+    - **Böngészés: Felhasználók böngészhetnek a viccek között kategóriák és népszerűség alapján.
+    - **Keresés: Kulcsszavas keresési funkció biztosítja a viccek gyors keresését.
+    - **Szűrés: Szűrő funkciók elérhetők időszak szerint (pl. "legfrissebb", "legnépszerűbb").
+    - **Véletlenszerű Vicc: Véletlenszerű vicc funkció, amely egy random viccet jelenít meg.
 
-- **Viccek Beküldése:** Felhasználók szöveges formában küldhetnek be vicceket.
-- **Kategorizálás:** Minden vicc előre definiált kategóriák szerint kategorizálható (pl. "Felnőtt viccek", "Szőke nős viccek").
-- **Moderálás:** Beküldött vicceket a moderátorok előszűrik, mielőtt azok megjelennek az oldalon.
 
-**Rendszer Komponens:**
 
-- Beküldési és kategorizálási modul
+    
+  Viccek Értékelése
 
-## Viccek Megtekintése és Keresése
+  Funkciók:
 
-**Funkciók:**
+  - **Értékelés: Felhasználók szavazhatnak viccekre ("Tetszik" vagy "Nem tetszik").
+  - **Rangsorolás: Viccek láthatósága és rangsorolása a szavazatok számától függ.
+  - **Kiemelés: A legnépszerűbb viccek kiemelten jelennek meg a főoldalon.
 
-- **Böngészés:** Felhasználók böngészhetnek a viccek között kategóriák és népszerűség alapján.
-- **Keresés:** Kulcsszavas keresési funkció biztosítja a viccek gyors keresését.
-- **Szűrés:** Szűrő funkciók elérhetők időszak szerint (pl. "legfrissebb", "legnépszerűbb").
-- **Véletlenszerű Vicc:** Véletlenszerű vicc funkció, amely egy random viccet jelenít meg.
 
-**Rendszer Komponens:**
 
-- Kereső és szűrő modul
+##### 2.4. **Vendég felhasználók által elérhető funkciók**
+- **Viccek böngészése:** A vendég felhasználók szabadon böngészhetik a vicceket, de nem posztolhatnak és nem értékelhetnek.
 
-## Viccek Értékelése
+  
+#### 3. **Felülettel szemben támasztott követelmények**
 
-**Funkciók:**
+##### 3.1. **Webes felület**
+- **Könnyű navigáció:** A webes felület egyszerű, letisztult dizájnt használ, ahol gyorsan elérhetők a kategóriák, friss viccek, és a legnépszerűbb tartalmak.
+- **Keresési funkció:** Kulcsszavak alapján lehet keresni vicceket.
 
-- **Értékelés:** Felhasználók szavazhatnak viccekre ("Tetszik" vagy "Nem tetszik").
-- **Rangsorolás:** Viccek láthatósága és rangsorolása a szavazatok számától függ.
-- **Kiemelés:** A legnépszerűbb viccek kiemelten jelennek meg a főoldalon.
+  
+#### 4. **Vicctípusok és kategóriák**
+- **Különböző vicctípusok támogatása:**
+  - Rövid viccek
+  - Szóviccek
+  - Szituációs viccek
+  - Szarkasztikus és ironikus viccek
 
-**Rendszer Komponens:**
-
-- Értékelési modul
-
-## Moderáció
-
-**Funkciók:**
-
-- **Moderátori Adminisztráció:** Moderátorok adminisztrációs felületen jóváhagyhatják, szerkeszthetik, vagy törölhetik a vicceket.
-- **Jelentések Kezelése:** Moderátorok kezelhetik a felhasználói jelentéseket és eltávolíthatják a nem megfelelő tartalmakat.
-- **Szűrés és Figyelmeztetés:** Szűrési és figyelmeztetési funkciók a jogsértő tartalmak ellen.
-
-**Rendszer Komponens:**
-
-- Moderátoroknak szánt admin felület
+#### 5. **Adatvédelem**
+- A felhasználói adatok védelmét biztosítani kell (pl. jelszavak titkosítása, adatvédelmi szabályok betartása).
+  
+#### 6. **Hardver és szoftver követelmények**
+- **Webes szerver:** Nginx webserver használata.
+- **Adatbázis:** MySQL adatbázis szükséges a viccek és felhasználói adatok tárolására.
 
 
 
