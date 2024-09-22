@@ -69,20 +69,8 @@
 
   
 #### 4. **Vicctípusok és kategóriák**
-- **Különböző vicctípusok támogatása:**
-  - Morbid humor
-  - Fárasztó viccek
-  - Szóviccek
-  - Chuck Norris viccek
-  - Móricka viccek
-  - Szőke nős viccek
-  - Állatos viccek
-  - Erotikus viccek
-  - Anyós viccek
-  - Cigány viccek
-  - Munkahely viccek
-  - Rendőr viccek
-  - Néger viccek
+
+![Vicckategóriák](Képek/kategóriák.png)
 
 ### 5. **Adatvédelem**
 - A felhasználói adatok védelmét biztosítani kell (pl. jelszavak titkosítása, adatvédelmi szabályok betartása).
