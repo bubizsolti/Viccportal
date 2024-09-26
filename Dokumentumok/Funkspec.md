@@ -78,3 +78,12 @@ Felhasználói Élmény
 
 Az adatbázis tárolja a felhasználói profilokat, vicceket, kommenteket, értékeléseket, kategóriákat, és a moderációs műveleteket.
 Olyan adatbázis-struktúra kialakítása, amely támogatja a skálázhatóságot és a nagy mennyiségű adat kezelését (pl. MySQL, PostgreSQL).
+
+# Mellékletek és illusztrációk
+
+![Beléptetési felület](Képek/Belépési_minta.png)
+![Vicckategóriák](Képek/kategóriák.png)
+
+# Felhasználó szemszög – Viccportál
+
+Ádám egy hosszú munkanap után szeretne egy kicsit kikapcsolódni, ezért fellép a kedvenc viccportáljára. Miután végigböngészi az új vicceket, talál egyet, amin különösen jól szórakozik, és úgy dönt, hogy megosztja barátaival. Mielőtt ezt megtenné, regisztrál a portálra egy gyors folyamat során, majd a bejelentkezés után lájkolja és kommenteli a viccet. Ezután könnyedén megosztja a poént a közösségi média fiókjain keresztül. Annyira megtetszik neki a portál, hogy ő maga is beküld egy viccet, amelyet néhány óra múlva a moderátor jóváhagy, és kikerül a főoldalra. Ádám izgatottan várja, hogy mennyi pozitív visszajelzést kap a viccére!
