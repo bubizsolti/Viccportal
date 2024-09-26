@@ -56,6 +56,12 @@ Viccek Értékelése
 Moderátorok számára elérhető felület, ahol jóváhagyhatják, szerkeszthetik, vagy törölhetik a beküldött vicceket.
 - Moderálási eszközök a nem megfelelő tartalmak (pl. sértő, jogsértő viccek) kezelésére, beleértve a felhasználói jelentéseket is.
 
+# Megfelelés a jogi szabályoknak
+
+A magyar GDPR-szabályoknak megfelelően a viccportál nem tárol telefonszámokat és e-mail címeket a felhasználó kifejezett hozzájárulása és jogos cél nélkül. A GDPR értelmében az olyan személyes adatok, mint a telefonszámok és az e-mail címek, érzékeny adatnak minősülnek, és csak akkor gyűjthetők, ha azok kifejezetten szükségesek, például a felhasználók regisztrációja vagy értesítése céljából. A viccportál biztosítja, hogy a felhasználók előre tájékoztatást kapjanak arról, hogyan kerülnek felhasználásra az adataik, és a gyűjtés előtt megkapja a szükséges hozzájárulásokat.
+
+Az adatok védelme érdekében a weboldal szigorú biztonsági intézkedéseket alkalmaz. A felhasználóknak jogukban áll bármikor hozzáférni az adataikhoz, kérhetik azok módosítását vagy törlését. Az adatmegőrzési gyakorlatok a GDPR-irányelveknek megfelelően történnek, így minden elavult vagy már nem szükséges adatot biztonságosan törölnek, miután a céljukat betöltötték.
+
 # Nem Funkcionális Követelmények
 
 Teljesítmény
