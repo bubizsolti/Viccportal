@@ -192,4 +192,4 @@ function testDisplaySingleJoke() {
 
 testDisplaySingleJoke();
 
-
+/* Vicc beküldési funkció */
