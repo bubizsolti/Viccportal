@@ -66,6 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+    document.getElementById("login-button").addEventListener("click", function() {
+        window.location.href = "belepes.html";
+    });
+    
 
     function getStoredRandomJokes() {
         if (storedRandomJokes) {
