@@ -128,4 +128,46 @@ function testUpdateJokeRating() {
 testUpdateJokeRating();
 
 
+/* 5. Teszt: getRandomJokes funkció helyes működése */
+
+function getRandomJokes() {
+    const allJokes = JSON.parse(localStorage.getItem('jokes')) || [];
+    const randomJokes = [];
+    
+    while (randomJokes.length < 10 && allJokes.length > 0) {
+        const randomIndex = Math.floor(Math.random() * allJokes.length);
+        const joke = allJokes[randomIndex];
+
+        if (!randomJokes.includes(joke)) {
+            randomJokes.push(joke);
+        }
+    }
+    return randomJokes;
+}
+
+// Tesztelési lépés
+function testGetRandomJokes() {
+    const jokes = [
+        { title: 'Vicc 1', content: 'Vicces szöveg 1' },
+        { title: 'Vicc 2', content: 'Vicces szöveg 2' },
+        { title: 'Vicc 3', content: 'Vicces szöveg 3' },
+        { title: 'Vicc 4', content: 'Vicces szöveg 4' },
+        { title: 'Vicc 5', content: 'Vicces szöveg 5' },
+        { title: 'Vicc 6', content: 'Vicces szöveg 6' },
+        { title: 'Vicc 7', content: 'Vicces szöveg 7' },
+        { title: 'Vicc 8', content: 'Vicces szöveg 8' },
+        { title: 'Vicc 9', content: 'Vicces szöveg 9' },
+        { title: 'Vicc 10', content: 'Vicces szöveg 10' }
+    ];
+    
+    localStorage.setItem('jokes', JSON.stringify(jokes));
+    const randomJokes = getRandomJokes();
+    
+    console.assert(randomJokes.length === 10, 'Tíz véletlenszerű viccnek kell lennie.');
+    console.log('Random Jokes:', randomJokes);
+}
+
+testGetRandomJokes();
+
+
 
