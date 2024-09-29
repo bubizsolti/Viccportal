@@ -72,5 +72,32 @@ testDisplayTopJokes();
 testRandomJokesStorage();
 
 
+/* 3. Teszt: getJokeOfTheDay funkció helyes működése */
+
+function getJokeOfTheDay() {
+    const today = new Date().toDateString();
+    const jokeOfTheDay = JSON.parse(localStorage.getItem('jokeOfTheDay'));
+
+    if (!jokeOfTheDay || jokeOfTheDay.date !== today) {
+        const newJoke = { title: 'Új vicc', content: 'Ez a nap vicce.' }; // Generálj egy új viccet
+        localStorage.setItem('jokeOfTheDay', JSON.stringify({ date: today, joke: newJoke }));
+        return newJoke;
+    }
+    return jokeOfTheDay.joke;
+}
+
+// Tesztelési lépés
+function testGetJokeOfTheDay() {
+    localStorage.removeItem('jokeOfTheDay'); // Törölje a korábbi viccet
+    const joke = getJokeOfTheDay();
+    console.assert(joke.title === 'Új vicc', 'Új viccnek kellene lennie.');
+
+    // Frissítse az oldalt és ellenőrizze
+    const jokeAgain = getJokeOfTheDay();
+    console.assert(jokeAgain.title === 'Új vicc', 'Ugyanazt a viccet kellene visszaadni a mai napon.');
+}
+
+testGetJokeOfTheDay();
+
 
 
