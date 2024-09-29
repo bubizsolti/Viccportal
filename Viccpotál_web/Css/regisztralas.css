@@ -1,84 +1,87 @@
 /* Alap stílusok */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Világos szürke háttér */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-}
-
-/* Regisztrációs doboz középen */
-.register-container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-h2 {
-    color: #333; /* Sötét szürke szöveg */
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc; /* Világos szürke keret */
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #007bff; /* Fókusz szín: kék */
-}
-
-button {
-    background-color: #007bff; /* Gomb színe: kék */
-    color: white;
-    padding: 12px;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: #0056b3; /* Hover szín: sötétebb kék */
-}
-
-p {
-    margin-top: 15px;
-    color: #555; /* Közepesen szürke szöveg */
-    font-size: 14px;
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0; /* Világos szürke háttér */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+  }
+  
+  /* Regisztrációs doboz középen */
+  .register-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+  }
+  
+  h2 {
+      color: #333; /* Sötét szürke szöveg */
+      margin-bottom: 20px;
+      font-size: 24px;
+  }
+  
+  .input-group {
+      margin-bottom: 15px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {  /* Az email input stílusa is itt van */
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc; /* Világos szürke keret */
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus {  /* Az email input fókusz színe */
+      border-color: #ff9933; /* Fókusz szín: narancssárga */
+  }
+  
+  button {
+      background-color: #ff9933; /* Gomb színe: narancssárga */
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+  }
+  
+  button:hover {
+      background-color: #cc6600; /* Hover szín: sötétebb narancssárga */
+  }
+  
+  p {
+      margin-top: 15px;
+      color: #555; /* Közepesen szürke szöveg */
+      font-size: 14px;
+  }
+  
+  a {
+      color: #ff9933; /* Narancssárga link */
+      text-decoration: none;
+  }
+  
+  a:hover {
+      text-decoration: underline;
+  }
+  
