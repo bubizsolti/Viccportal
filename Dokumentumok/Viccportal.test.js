@@ -170,4 +170,26 @@ function testGetRandomJokes() {
 testGetRandomJokes();
 
 
+/* 7. Teszt: displaySingleJoke funkció egy vicc megjelenítése */
+
+function displaySingleJoke(joke) {
+    const popularJokesContainer = document.getElementById('popular-jokes');
+    popularJokesContainer.innerHTML = ''; // Ürítse ki a konténert
+
+    const jokeElement = createJokeElement(joke);
+    popularJokesContainer.appendChild(jokeElement);
+}
+
+// Tesztelési lépés
+function testDisplaySingleJoke() {
+    const joke = { title: 'Kiválasztott vicc', content: 'Ez a kiválasztott vicc szövege.' };
+    displaySingleJoke(joke);
+
+    const popularJokesContainer = document.getElementById('popular-jokes');
+    console.assert(popularJokesContainer.children.length === 1, 'Csak egy viccnek kellene megjelennie.');
+    console.assert(popularJokesContainer.children[0].querySelector('h3').textContent === joke.title, 'A kiválasztott vicc címe nem megfelelő.');
+}
+
+testDisplaySingleJoke();
+
 
