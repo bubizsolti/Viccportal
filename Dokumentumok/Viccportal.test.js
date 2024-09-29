@@ -100,4 +100,32 @@ function testGetJokeOfTheDay() {
 testGetJokeOfTheDay();
 
 
+/* 4. Teszt: Vicc értékelés frissítése (rating update) */
+
+function updateJokeRating(jokeId, newRating) {
+    const jokes = JSON.parse(localStorage.getItem('jokes'));
+    const joke = jokes.find(j => j.id === jokeId);
+    
+    if (joke) {
+        joke.rating = newRating;
+        joke.votes = (joke.votes || 0) + 1; // Növeld a szavazatszámot
+        localStorage.setItem('jokes', JSON.stringify(jokes));
+    }
+}
+
+// Tesztelési lépés
+function testUpdateJokeRating() {
+    const jokes = [{ id: 1, title: 'Vicces vicc', rating: 3, votes: 0 }];
+    localStorage.setItem('jokes', JSON.stringify(jokes));
+
+    updateJokeRating(1, 5);
+    const updatedJokes = JSON.parse(localStorage.getItem('jokes'));
+
+    console.assert(updatedJokes[0].rating === 5, 'A vicc értékelésének frissülnie kell.');
+    console.assert(updatedJokes[0].votes === 1, 'A szavazatszámnak 1-nek kell lennie.');
+}
+
+testUpdateJokeRating();
+
+
 
