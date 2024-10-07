@@ -61,3 +61,37 @@ Teszt lépések:
 Válassz ki egy viccet a „top-jokes-list” elemből.
 Ellenőrizd, hogy a „popular-jokes” konténer tartalma törlődik, és csak az egy vicc jelenik meg.
 Ezek a tesztek lefedik a legfontosabb funkciókat és interakciókat a kódban. A tesztelés során érdemes figyelni a konzolra és a böngésző hibakeresőjére, hogy minden funkció megfelelően működik-e.
+
+# 8. Teszt: Vicc kategóriák kattinthatósága
+Elvárt eredmény: Ha rámegyünk az egyik vicc katgóriára, új HTML oldal jelenik meg.
+
+Teszt eredmény: Sikeresen HTML oldalt vált, ha rámegyünk a linkre.
+
+# 9. Teszt: Vicc kategóriák szűrése
+Elárt eredmény: Ha rámegyünk akár melyik Vicc kategóriára, akkor csak az olyan típúsú vicceket töltse be.
+Teszt eredmény: Csak azokat a vicc kategóriájú vicceket tölti be.
+
+# 10. Teszt: Feliratkozás a hírlevélre
+Elvárt eredmény: Ha feliratkozunk a hírlevlére és megadjuk az emailünket, akkor a hét viccét elküldi nekünk
+Teszt eredmény: A feliratkozási div megjelenik és írhatunk is bele, de nem működik az email küldés, sem a feliratkozási gomb.
+
+# 11. Teszt: Bejelentkezés
+Elvárt eredmény: Ha korábban már regisztrált felhasználó belép, akkor értékelheti a vicceket és küldhet is be vicceket
+Teszt eredmény: Sikeresen megjelenik a bejelentkezés gomb és kattintásra a bejelentkezési oldalra kerülünk, de nem lehet bejelentkezni.
+
+# 12. Teszt: Regisztráció
+Elvárt eredmény: Ha a regisztációs gombra kattintunk akkor megjelenik regisztrációs oldal. Lehet regisztrálni emaillel és jelszóval. Ha regisztráltunk vicceket küldhetünk be, értékelhetünk vicceket.
+Teszt eredmény: Sikeresen megjelenik a regisztrációs gomb. Kattintásra a regisztrációs oldalra visz minket. A regisztráció nem működik.
+
+# 13. Teszt: Következő 10 vicc gomb
+Elvárt eredmény: Ha rámegyünk a "következő 10 vicc gombra", akkor a következő 10 viccet jeleníti meg. Ha a főoldalon megyünk rá, akkor az összes viccekre dob át és ott tudjuk megjeleníteni a következő 10 viccet. Ha egy vicc kategóriában megyünk rá, akkor csak az adott típusu viccek jelenhetnek meg.
+Teszt eredmény: Megjelenik a következő 10 vicc gomb. Ha a föoldalon megyek rá, akkor az összes vicc oldalra visz rá, de újabb 10 viccet nem tud megjeleníteni.
+
+#  14. Teszt: Előző 10 vicc gomb
+Elvárt eredmény: Ha egyszer rámegyünk a következő 10 vicc gombra akkor megjelenik mellette és ha megnyomjuk, akkor vissza hozza az előző 10 viccet.
+Teszt eredmény: Ha rámegyünk a következő 10 vicc gombra megjelenik a gomb, de nem tudja vissza hozni az előző 10 viccet.
+
+#  15. Teszt: Breadcrumb
+Elvárt eredmény: A breadcrumb megmutatja,hogy jelenleg melyik oldalon vagyunk és annak az elérési útját is. Ha rákattintunk a breadcrumb valamelyik útvonal állomására, akkor arra az oldalra kerülünk
+Teszt eredmény: A breadcrumb sikeresen megjelenik és ténylegesen mutatja az elérési űtvonalat. Kattintásra arra az oldalra ugrunk amelyikre kattintottunk.
+
