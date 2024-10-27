@@ -45,3 +45,6 @@ A fenti funkcionális követelmények figyelembevételével a viccportál képes
 
 #  Rendszer Funkcionális Követelmények:
 
+- **Regisztráció e-mail és jelszó megadásával**: A felhasználók új fiókot hozhatnak létre a rendszerben e-mail cím és jelszó megadásával. Az e-mail címek egyediek lesznek, így a rendszer nem engedi, hogy ugyanazt az e-mail címet többször használják.
+- **Személyes profil létrehozása**: Bejelentkezés után a felhasználók személyes profilt hozhatnak létre, ahol megtekinthetik és kezelhetik a beküldött vicceiket és az általuk kapott szavazatokat. A profil egy központi helyet biztosít az aktivitásuk nyomon követésére.
+
