@@ -48,5 +48,9 @@ A fenti elemek figyelembevételével a viccportál képes biztosítani a hosszú
 ## 1. Felhasználói Regisztráció és Bejelentkezés
 - **Regisztráció e-mail és jelszó megadásával**:
 A rendszer lehetőséget biztosít a felhasználóknak, hogy e-mail cím és jelszó megadásával regisztráljanak, és így egyéni fiókot hozzanak létre.
- A regisztráció során megadott e-mail címek egyedi azonosítóként működnek, így a rendszer minden e-mail címet csak egyszer fogad el, ezáltal kiküszöbölve a duplikált fiókok lehetőségét.
-  A regisztrációs folyamat során a felhasználónak:
+A regisztráció során megadott e-mail címek egyedi azonosítóként működnek, így a rendszer minden e-mail címet csak egyszer fogad el, ezáltal kiküszöbölve a duplikált fiókok lehetőségét.
+
+- **A regisztrációs folyamat során a felhasználónak**:
+                            - **Egy jelszót kell választania**: A jelszóval kapcsolatos minimális biztonsági követelményeket (pl. legalább 8 karakter hosszú, kis- és nagybetűk, számok és speciális karakterek használata) a rendszer ellenőrzi.
+                            - **E-mail cím megerősítése**: A felhasználók a megadott e-mail címre egy megerősítő linket kapnak, amelyre kattintva hitelesítik az e-mail címüket. Ez a lépés kötelező a regisztráció sikeres befejezéséhez és a fiók aktiválásához.
+                            - **Elfelejtett jelszó funkció**: Az elfelejtett jelszavú felhasználók számára jelszó-visszaállítási lehetőség is biztosított, amely során egy egyszer használatos hivatkozást kapnak e-mailben a jelszó megváltoztatásához.
