@@ -40,4 +40,4 @@ A hosszú távú működés érdekében meg kell találni az egyensúlyt a felha
 - **Hirdetések Integrációja**: A rendszernek úgy kell elhelyeznie a reklámokat, hogy azok ne zavarják a humoros tartalmak fogyasztását.
 - **Következetes Frissítés**: A portálnak rendszeresen frissülnie kell az oldalon, hogy megfeleljen az aktuális humortrendeknek és elvárásoknak.
 
-A fenti funkcionális követelmények figyelembevételével a viccportál képes biztosítani a hosszú távú népszerűséget és relevanciát, mindemellett olyan felhasználói élményt nyújt, amely összhangban van a látogatók igényeivel.
+A fenti funkcionális követelmények figyelembevételével a viccportál képes biztosítani a hosszú távú népszerűséget és relevanciát, mindemellett olyan felhasználói élményt nyújt, amely helyt áll a többi weboldallal szemben is.
