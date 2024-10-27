@@ -5,8 +5,11 @@ Az internet terjedésével egyre több humorportál jött létre, amelyek a lát
 A jelenlegi viccportál felépítése már kialakult:
 
     Kialakult Weblap Stílus: A portál rendelkezik egységes, könnyen kezelhető felhasználói felülettel.
-    Navigáció és Oldalváltó Gombok: A látogatók könnyen váltogathatnak az oldalak között a különböző tartalmak gyors elérése érdekében.
-    Felhasználói Kezelőfelület: Bejelentkezési és regisztrációs funkciók, melyek lehetővé teszik az új felhasználók egyszerű csatlakozását és a visszatérő látogatók számára a könnyű belépést.
+    Navigáció: A vicc kategóriák között könnyen váltogathat a felhasználó, valamint a top vicceket is megtekintheti.
+    Oldalváltó gombok: Megjelennek a gombok ám jelenleg funcióval nem rendelkeznek.
+    Felhasználói Kezelőfelület: A regisztrációs ás Bejelentkezési gombok megjelennek és funkcionálnak, új oldalra navigálnak,ahol a reisztráció és a bejelentkezés megtörténik.
+    Regisztráció és bejelentkezés: Jelenleg nem lehet, sem regisztrálni sem bejelentkezni. 
+    
 
 2. Felhasználói Elvárások és Tartalmak
 
