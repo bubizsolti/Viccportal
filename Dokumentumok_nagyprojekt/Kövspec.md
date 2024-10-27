@@ -41,3 +41,12 @@ A hosszú távú működés érdekében meg kell találni az egyensúlyt a felha
 - **Következetes Frissítés**: A látogatók megtartása érdekében rendszeresen frissíteni kell az oldalt, hogy megfeleljen az aktuális humortrendeknek és elvárásoknak.
 
 A fenti elemek figyelembevételével a viccportál képes biztosítani a hosszú távú népszerűséget és relevanciát, mindemellett olyan felhasználói élményt nyújt, amely összhangban van a látogatók igényeivel.
+
+
+#  Rendszer Funkcionális Követelmények:
+
+## 1. Felhasználói Regisztráció és Bejelentkezés
+- **Regisztráció e-mail és jelszó megadásával**:
+A rendszer lehetőséget biztosít a felhasználóknak, hogy e-mail cím és jelszó megadásával regisztráljanak, és így egyéni fiókot hozzanak létre.
+ A regisztráció során megadott e-mail címek egyedi azonosítóként működnek, így a rendszer minden e-mail címet csak egyszer fogad el, ezáltal kiküszöbölve a duplikált fiókok lehetőségét.
+  A regisztrációs folyamat során a felhasználónak:
