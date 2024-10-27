@@ -96,3 +96,5 @@ A kategorizálás lehetővé teszi, hogy a felhasználók könnyebben böngéssz
 
 - **Népszerű viccek és kategóriák elemzése**: A rendszer adminisztrátorai számára elemzési eszközök biztosítják a legnépszerűbb viccek és kategóriák nyomon követését, így könnyebben azonosíthatják, hogy mely tartalmak népszerűek és melyek igényelnek több figyelmet.
 
+
+
