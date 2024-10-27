@@ -1,5 +1,4 @@
 # Követelmény specifikáció
-<div style="text-align: center;">Követelmény specifikáció</div>
 
 ## 1. Jelenlegi helyzet leírása
 
