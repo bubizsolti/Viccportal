@@ -84,3 +84,9 @@ A kategorizálás lehetővé teszi, hogy a felhasználók könnyebben böngéssz
 - **Szavazási lehetőség**: A felhasználók szavazhatnak a viccekre, például "Tetszik" vagy "Nem tetszik" opciókkal. Ez a funkció visszajelzést nyújt a beküldők számára, és segíti a rendszer népszerű viccek rangsorolásában.
 
 - **Viccek rangsorolása és kiemelése**: A rendszer az értékelések alapján rangsorolja a vicceket. A legnépszerűbb vicceket kiemelheti a főoldalon, ezzel ösztönözve a felhasználókat, hogy szavazataikkal támogassák a legjobb tartalmakat.
+
+
+## 7. Felhasználói Szintű Gamifikáció és Jutalmazás
+- **Jutalmazási rendszer és szintek**: A rendszer egy pont- és jutalmazási rendszert alkalmaz, amelyben a felhasználók pontokat gyűjthetnek különböző tevékenységeikért (pl. viccek beküldése, szavazás, hozzászólás). Ezen pontok alapján különböző szinteket érhetnek el (pl. kezdő, haladó, profi viccmester), amelyeket profiljukban megjeleníthetnek.
+
+- **Különleges jelvények és kitüntetések**: A felhasználók különféle jelvényeket (pl. "Heti Legjobb Vicc Beküldője", "Vicckedvelő", "Megosztási Mester") szerezhetnek, amelyek motiválják őket a rendszer használatára és aktivitásra. Ezek a jelvények a profiljukon láthatók lesznek.
