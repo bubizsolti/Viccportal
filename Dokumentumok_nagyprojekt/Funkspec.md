@@ -53,5 +53,5 @@ A fenti funkcionális követelmények figyelembevételével a viccportál képes
 ## 2. Viccek Beküldése és Kategorizálása
 - **Viccek beküldése szöveges formában**: A felhasználók lehetőséget kapnak saját viccek beküldésére. Ezeket szöveges formátumban adhatják meg, amit a rendszer a megfelelő formázással jelenít meg a portálon.
 - **Viccek kategóriákba sorolása**: Minden vicc egy vagy több kategóriába sorolható. Kategóriák például: "Szőke nős viccek", "Mórickás viccek", "Felnőtt viccek". A kategorizálás lehetővé teszi, hogy a felhasználók könnyebben böngésszenek a számukra érdekes témák között.
-
+- **Moderáció és jóváhagyás**: Mielőtt a beküldött viccek megjelennek a portálon, moderátorok ellenőrzik őket. Az ellenőrzés során figyelembe veszik a viccek tartalmának minőségét és megfelelőségét, hogy kiszűrjék a nem megfelelő vagy sértő tartalmakat. Csak a moderátorok által jóváhagyott viccek kerülnek nyilvánosságra.
 
