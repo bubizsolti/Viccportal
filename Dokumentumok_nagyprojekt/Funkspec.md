@@ -41,3 +41,7 @@ A hosszú távú működés érdekében meg kell találni az egyensúlyt a felha
 - **Következetes Frissítés**: A portálnak rendszeresen frissülnie kell az oldalon, hogy megfeleljen az aktuális humortrendeknek és elvárásoknak.
 
 A fenti funkcionális követelmények figyelembevételével a viccportál képes biztosítani a hosszú távú népszerűséget és relevanciát, mindemellett olyan felhasználói élményt nyújt, amely helyt áll a többi weboldallal szemben is.
+
+
+#  Rendszer Funkcionális Követelmények:
+
