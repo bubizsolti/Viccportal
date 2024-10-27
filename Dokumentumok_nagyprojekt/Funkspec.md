@@ -45,6 +45,13 @@ A fenti funkcionális követelmények figyelembevételével a viccportál képes
 
 #  Rendszer Funkcionális Követelmények:
 
+## 1. Felhasználói Regisztráció és Bejelentkezés
+
 - **Regisztráció e-mail és jelszó megadásával**: A felhasználók új fiókot hozhatnak létre a rendszerben e-mail cím és jelszó megadásával. Az e-mail címek egyediek lesznek, így a rendszer nem engedi, hogy ugyanazt az e-mail címet többször használják.
 - **Személyes profil létrehozása**: Bejelentkezés után a felhasználók személyes profilt hozhatnak létre, ahol megtekinthetik és kezelhetik a beküldött vicceiket és az általuk kapott szavazatokat. A profil egy központi helyet biztosít az aktivitásuk nyomon követésére.
+
+## 2. Viccek Beküldése és Kategorizálása
+- **Viccek beküldése szöveges formában**: A felhasználók lehetőséget kapnak saját viccek beküldésére. Ezeket szöveges formátumban adhatják meg, amit a rendszer a megfelelő formázással jelenít meg a portálon.
+- **Viccek kategóriákba sorolása**: Minden vicc egy vagy több kategóriába sorolható. Kategóriák például: "Szőke nős viccek", "Mórickás viccek", "Felnőtt viccek". A kategorizálás lehetővé teszi, hogy a felhasználók könnyebben böngésszenek a számukra érdekes témák között.
+
 
