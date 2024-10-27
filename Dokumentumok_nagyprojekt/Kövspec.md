@@ -54,3 +54,7 @@ A regisztráció során megadott e-mail címek egyedi azonosítóként működne
                             - **Egy jelszót kell választania**: A jelszóval kapcsolatos minimális biztonsági követelményeket (pl. legalább 8 karakter hosszú, kis- és nagybetűk, számok és speciális karakterek használata) a rendszer ellenőrzi.
                             - **E-mail cím megerősítése**: A felhasználók a megadott e-mail címre egy megerősítő linket kapnak, amelyre kattintva hitelesítik az e-mail címüket. Ez a lépés kötelező a regisztráció sikeres befejezéséhez és a fiók aktiválásához.
                             - **Elfelejtett jelszó funkció**: Az elfelejtett jelszavú felhasználók számára jelszó-visszaállítási lehetőség is biztosított, amely során egy egyszer használatos hivatkozást kapnak e-mailben a jelszó megváltoztatásához.
+
+
+- **Személyes profil létrehozása**:
+Sikeres regisztráció és bejelentkezés után a felhasználók személyes profilt hozhatnak létre. A profil egy központi helyet biztosít számukra, ahol elérhetik és kezelhetik a saját aktivitásukkal kapcsolatos információkat, beleértve:
