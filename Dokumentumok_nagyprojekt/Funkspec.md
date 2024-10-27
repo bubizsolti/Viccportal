@@ -57,11 +57,14 @@ Az e-mail címek egyediek lesznek, így a rendszer nem engedi, hogy ugyanazt az 
 ## 2. Viccek Beküldése és Kategorizálása
 
 
-- **Viccek beküldése szöveges formában**: A felhasználók lehetőséget kapnak saját viccek beküldésére. Ezeket szöveges formátumban adhatják meg, amit a rendszer a megfelelő formázással jelenít meg a portálon.
+- **Viccek beküldése szöveges formában**: A felhasználók lehetőséget kapnak saját viccek beküldésére. 
+Ezeket szöveges formátumban adhatják meg, amit a rendszer a megfelelő formázással jelenít meg a portálon.
 
-- **Viccek kategóriákba sorolása**: Minden vicc egy vagy több kategóriába sorolható. Kategóriák például: "Szőke nős viccek", "Mórickás viccek", "Felnőtt viccek". A kategorizálás lehetővé teszi, hogy a felhasználók könnyebben böngésszenek a számukra érdekes témák között.
+- **Viccek kategóriákba sorolása**: Minden vicc egy vagy több kategóriába sorolható. Kategóriák például: "Szőke nős viccek", "Mórickás viccek", "Felnőtt viccek". 
+A kategorizálás lehetővé teszi, hogy a felhasználók könnyebben böngésszenek a számukra érdekes témák között.
 
-- **Moderáció és jóváhagyás**: Mielőtt a beküldött viccek megjelennek a portálon, moderátorok ellenőrzik őket. Az ellenőrzés során figyelembe veszik a viccek tartalmának minőségét és megfelelőségét, hogy kiszűrjék a nem megfelelő vagy sértő tartalmakat. Csak a moderátorok által jóváhagyott viccek kerülnek nyilvánosságra.
+- **Moderáció és jóváhagyás**: Mielőtt a beküldött viccek megjelennek a portálon, moderátorok ellenőrzik őket. Az ellenőrzés során figyelembe veszik a viccek tartalmának minőségét és megfelelőségét,
+ hogy kiszűrjék a nem megfelelő vagy sértő tartalmakat. Csak a moderátorok által jóváhagyott viccek kerülnek nyilvánosságra.
 
 ## 3. Viccek Megtekintése és Keresése
 
@@ -73,3 +76,11 @@ Az e-mail címek egyediek lesznek, így a rendszer nem engedi, hogy ugyanazt az 
 - **Szűrők és rendezési opciók**: A felhasználók különböző szűrő opciókat használhatnak, például kategóriák és időszakok alapján (pl. "legfrissebb" vagy "legnépszerűbb"), hogy még pontosabban találják meg a keresett vicceket.
 
 - **Véletlenszerű vicc funkció**: A rendszer képes egy véletlenszerű viccet megjeleníteni a felhasználónak, ami azok számára hasznos, akiknek nincs konkrét keresési szándéka, de szeretnének új viccekkel találkozni.
+
+
+## 4. Viccek Értékelése
+
+
+- **Szavazási lehetőség**: A felhasználók szavazhatnak a viccekre, például "Tetszik" vagy "Nem tetszik" opciókkal. Ez a funkció visszajelzést nyújt a beküldők számára, és segíti a rendszer népszerű viccek rangsorolásában.
+
+- **Viccek rangsorolása és kiemelése**: A rendszer az értékelések alapján rangsorolja a vicceket. A legnépszerűbb vicceket kiemelheti a főoldalon, ezzel ösztönözve a felhasználókat, hogy szavazataikkal támogassák a legjobb tartalmakat.
