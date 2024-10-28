@@ -81,8 +81,10 @@ A beküldött vicceknek minden esetben kategóriát kell választani, amely seg�
                         - **Több kategória választásának lehetősége**: Egyes viccek több kategóriába is illeszkedhetnek, ezért a felhasználók lehetőséget kapnak, hogy több kategóriát válasszanak ki beküldéskor. Ezzel a módszerrel növelhető az adott vicc elérhetősége és kereshetősége a portálon.
                         - **Új kategóriák javaslata**: A felhasználók javasolhatnak új kategóriákat, amennyiben úgy érzik, hogy a meglévő kategóriák nem fedik le teljesen a beküldendő vicc témáját. Ezeket a javaslatokat a moderátorok bírálják el, és dönthetnek arról, hogy a javasolt kategória bekerül-e a rendszerbe.
 
- **Viccek megtekintése és keresése**:
+ ## 3. Viccek megtekintése és keresése
 
                         - Az oldalt látogatók böngészhetnek a kiírt viccek között kategória és népszerűség szerint. Ha valakinek van egy kedvenc fajtája, vagy csak kíváncsi, hogy mik a legfelkapottabb viccek, akkor azok alapján tekintheti meg őket.
+                     
                         - A felhasználóknak lehetősége van egy keresőfunkció használatára, amellyel kulcsszavak alapján is kereshetnek általuk látni kívánt vicceket.
+                         
                         - Véletlenszerűen is meg lehet tekinteni a vicceket. Ez egy külön gomb segítségével valósítható meg.
