@@ -85,3 +85,4 @@ A beküldött vicceknek minden esetben kategóriát kell választani, amely seg�
 
                         - Az oldalt látogatók böngészhetnek a kiírt viccek között kategória és népszerűség szerint. Ha valakinek van egy kedvenc fajtája, vagy csak kíváncsi, hogy mik a legfelkapottabb viccek, akkor azok alapján tekintheti meg őket.
                         - A felhasználóknak lehetősége van egy keresőfunkció használatára, amellyel kulcsszavak alapján is kereshetnek általuk látni kívánt vicceket.
+                        - Véletlenszerűen is meg lehet tekinteni a vicceket. Ez egy külön gomb segítségével valósítható meg.
