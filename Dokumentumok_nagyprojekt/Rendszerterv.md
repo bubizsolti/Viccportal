@@ -25,3 +25,9 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
     Adatvédelem: Az adatbázisban tárolt személyes adatokat titkosítással és anonimizálási technikákkal védik az adatbiztonsági előírásoknak megfelelően.
 
 
+  ![Adatbázis terv](Képek/Adatbkesz.png)
+
+- **Moderáció és Tartalomszűrés:**
+A moderátorok jogosultságot kapnak a felhasználók által beküldött tartalmak felülvizsgálatára és szükség esetén törlésére.
+
+
