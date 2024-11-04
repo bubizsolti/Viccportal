@@ -18,6 +18,8 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
 - Webes felület minden funkcióhoz.
   Adminisztrációs Felület: A rendszergazdák számára külön adminisztrációs felület érhető el, amely lehetőséget biztosít a felhasználói fiókok kezelésére, a moderációra, és a tartalmak ellenőrzésére.
 
+  ![Beléptetési felület](Képek/Belépési_minta.png)
+
 - **Adattárolás:**
 
     MySQL Adatbázis: A rendszer egy MySQL adatbázist használ a felhasználói adatok, viccek és egyéb kapcsolódó információk tárolására.
