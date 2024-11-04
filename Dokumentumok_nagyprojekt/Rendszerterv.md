@@ -18,7 +18,11 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
 - Webes felület minden funkcióhoz.
   Adminisztrációs Felület: A rendszergazdák számára külön adminisztrációs felület érhető el, amely lehetőséget biztosít a felhasználói fiókok kezelésére, a moderációra, és a tartalmak ellenőrzésére.
 
+
+
   ![Beléptetési felület](Képek/Belépési_minta.png)
+
+
 
 - **Adattárolás:**
 
@@ -32,4 +36,7 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
 - **Moderáció és Tartalomszűrés:**
 A moderátorok jogosultságot kapnak a felhasználók által beküldött tartalmak felülvizsgálatára és szükség esetén törlésére.
 
+
+- **Felhasználói Interakciók**:
+Viccek Posztolása és Értékelése: A felhasználók saját vicceket posztolhatnak, illetve értékelhetik mások vicceit kedvelésekkel vagy visszajelzésekkel.
 
