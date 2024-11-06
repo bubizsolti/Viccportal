@@ -112,3 +112,7 @@ A beküldött vicceknek minden esetben kategóriát kell választani, amely seg�
 - **Viccek értékelése**:
   - A felhasználók szavazhatnak a viccekre, például pozitív vagy negatív reakciókat adhatnak.
   - Az értékelési rendszer segíti a népszerű viccek kiemelését.
+
+- **Kommentelési lehetőség**:
+  - A felhasználók megjegyzéseket fűzhetnek a viccekhez, lehetőséget adva a humoros véleménynyilvánításra és interakcióra.
+  - Az adminisztrátoroknak lehetőségük van kommentek moderálására.
