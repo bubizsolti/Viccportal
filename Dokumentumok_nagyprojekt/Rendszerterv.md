@@ -33,6 +33,7 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
 
 #### 2.2. **Admin által elérhető funkciók**
 - **Tartalom moderálása:** Az adminisztrátor törölhet vagy szerkeszthet vicceket és ha azok nem felelnek meg a közösségi irányelveknek.
+- **Tartalom moderálása:** Melőtta vicc megjelenik az oldalon az adminisztrátornak kel jóváhagyni a viccet.
 - **Felhasználók kezelése:** A felhasználók blokkolása vagy figyelmeztetések küldése a szabálysértések esetén.
 
   
