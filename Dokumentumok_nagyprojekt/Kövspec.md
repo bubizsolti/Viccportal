@@ -116,3 +116,7 @@ A beküldött vicceknek minden esetben kategóriát kell választani, amely seg�
 - **Kommentelési lehetőség**:
   - A felhasználók megjegyzéseket fűzhetnek a viccekhez, lehetőséget adva a humoros véleménynyilvánításra és interakcióra.
   - Az adminisztrátoroknak lehetőségük van kommentek moderálására.
+
+## 5. Adminisztrációs Felület
+
+Az adminisztrációs felület biztosítja, hogy az oldal üzemeltetői gyorsan és hatékonyan végezhessék el a szükséges feladatokat.
