@@ -43,6 +43,7 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
 - **Vicc beküldése:** A felhasználók vicceket tölthetnek fel különböző kategóriákba (pl. szőke viccek, szóviccek, állatos viccek).
     - **Vicc értékelése:** Lehetőség van a viccek tetszési index szerinti értékelésére (pl.     1-től 5 csillagig).
     - **Kategorizálás:** Minden vicc előre definiált kategóriák szerint kategorizálható (pl. "Felnőtt viccek", "Szőke nős viccek").
+    ![Beléptetési felület](Képek/Folyamatábra.png)
     - **Kategória kiválasztása:** A felhasználók kiválaszthatják, milyen típusú vicceket szeretnének látni.
     - **Moderálás:** Beküldött vicceket a moderátorok előszűrik, mielőtt azok megjelennek az oldalon.
     - **Jelentések Kezelése:** Moderátorok kezelhetik a felhasználói jelentéseket és eltávolíthatják a nem megfelelő tartalmakat.
@@ -53,7 +54,7 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
     - **Véletlenszerű Vicc:** Véletlenszerű vicc funkció, amely egy random viccet jelenít meg.
 
 
-    ![Beléptetési felület](Képek/Folyamatábra.png)
+    ![Beléptetési felület](Képek/Vicc_kategóriák.png)
 
 - **Adattárolás:**
 
