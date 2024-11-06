@@ -120,3 +120,8 @@ A beküldött vicceknek minden esetben kategóriát kell választani, amely seg�
 ## 5. Adminisztrációs Felület
 
 Az adminisztrációs felület biztosítja, hogy az oldal üzemeltetői gyorsan és hatékonyan végezhessék el a szükséges feladatokat.
+
+### Adminisztrátori funkciók
+
+- **Tartalom Moderálása**:
+  - Az adminok megtekinthetik az összes beküldött viccet és hozzászólást, ezáltal gyors döntést hozhatnak azok jóváhagyásáról vagy elutasításáról.
