@@ -61,8 +61,7 @@ A regisztrációs folyamat során a felhasználónak:
 Sikeres regisztráció és bejelentkezés után a felhasználók személyes profilt hozhatnak létre. A profil egy központi helyet biztosít számukra, ahol elérhetik és kezelhetik a saját aktivitásukkal kapcsolatos információkat, beleértve:
 - **Beküldött viccek listája**: A felhasználók megtekinthetik az általuk beküldött vicceket, azok státuszát (pl. elfogadott, moderálás alatt, elutasított) és azok megtekintési és értékelési statisztikáit.
 
-- **Értékelések és szavazatok nyomon követése**: A felhasználók láthatják a vicceikre kapott visszajelzéseket, például az adott viccre érkezett szavazatok és értékelések számát és arányát.
-                                                 Ez motiválhatja őket a további tartalom létrehozására és a közösség aktív részvételére.
+- **Értékelések és szavazatok nyomon követése**: A felhasználók láthatják a vicceikre kapott visszajelzéseket, például az adott viccre érkezett szavazatok és értékelések számát és arányát. Ez motiválhatja őket a további tartalom létrehozására és a közösség aktív részvételére.
 
 - **Profilkép és bemutatkozás szerkesztése**: A felhasználók személyre szabhatják profiljukat profilképpel és rövid bemutatkozó szöveggel, amely az interakcióik során láthatóvá válik a közösség számára.
 
