@@ -132,3 +132,6 @@ Az adminisztrációs felület biztosítja, hogy az oldal üzemeltetői gyorsan �
   - Az adminok hozzáadhatnak új kategóriákat, módosíthatják a meglévőket, vagy akár teljes kategóriákat törölhetnek.
 
 - **Felhasználói javaslatok kezelése**: Az adminok megnézhetik a felhasználók által javasolt új kategóriákat és eldönthetik azok elfogadását vagy elutasítását.
+
+- **Felhasználói visszajelzések kezelése**:
+  - Az adminok hozzáférnek a felhasználók által beküldött visszajelzésekhez és kérdésekhez, valamint lehetőségük van ezek megválaszolására.
