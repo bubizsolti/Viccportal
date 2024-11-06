@@ -125,3 +125,5 @@ Az adminisztrációs felület biztosítja, hogy az oldal üzemeltetői gyorsan �
 
 - **Tartalom Moderálása**:
   - Az adminok megtekinthetik az összes beküldött viccet és hozzászólást, ezáltal gyors döntést hozhatnak azok jóváhagyásáról vagy elutasításáról.
+
+- **Tartalom elrejtése vagy törlése**: Az adminisztrátorok bármilyen, szabályzatba ütköző tartalmat elrejthetnek vagy véglegesen törölhetnek az oldalról.
