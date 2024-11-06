@@ -7,9 +7,13 @@ Az internet terjedésével egyre több humorportál jött létre, amelyek a lát
 A jelenlegi viccportál felépítése már kialakult:
 
 - **Kialakult Weblap Stílus**: A portál rendelkezik egységes, könnyen kezelhető felhasználói felülettel.
+
 - **Navigáció**: A vicc kategóriák között könnyen váltogathat a felhasználó, valamint a top vicceket is megtekintheti.
+
 - **Oldalváltó gombok**: Megjelennek a gombok, ám jelenleg funkcióval nem rendelkeznek.
+
 - **Felhasználói Kezelőfelület**: A regisztrációs és Bejelentkezési gombok megjelennek és funkcionálnak, új oldalra navigálnak, ahol a regisztráció és a bejelentkezés megtörténik.
+
 - **Regisztráció és bejelentkezés**: Jelenleg nem lehet sem regisztrálni, sem bejelentkezni.
 
 ## 2. Felhasználói Elvárások és Tartalmak
@@ -17,6 +21,7 @@ A jelenlegi viccportál felépítése már kialakult:
 A felhasználók naprakész, változatos humorforrást keresnek, amely követi a legújabb trendeket, valamint biztosítja számukra a következőket:
 
 - **Széleskörű Tartalmi Kínálat**: Többféle vicc és humoros tartalom, amely minden felhasználó igényeit kielégíti.
+
 - **Interaktív Funkciók**: Lehetőség saját tartalmak megosztására és értékelésére, ami közösségi élményt nyújt a látogatóknak.
 
 ## 3. Kihívások és Tartalomkezelési Igények
@@ -24,6 +29,7 @@ A felhasználók naprakész, változatos humorforrást keresnek, amely követi a
 A humor gyorsan változó természete állandó figyelmet követel meg, így a következő feladatokat is meg kell oldani:
 
 - **Trendek követése**: Folyamatosan figyelni a közösségi médiát és új humorforrásokat.
+
 - **Tartalmi Frissítések**: Az adminisztrátoroknak naponta kell új vicceket és mémeket feltölteniük, valamint kezelni a felhasználói visszajelzéseket.
 
 ## 4. Közösségi Biztonság és Moderáció
@@ -31,6 +37,7 @@ A humor gyorsan változó természete állandó figyelmet követel meg, így a k
 A portál közösségi élményének biztosítása érdekében ügyelni kell:
 
 - **Biztonságos Közegre**: Az érzékeny tartalmak kezelése és a nem megfelelő anyagok kiszűrése kiemelt prioritás.
+
 - **Aktív Moderálás**: A látogatóknak olyan helyet kell biztosítani, ahol szabadon és biztonságosan kommunikálhatnak.
 
 ## 5. Bevétel és Fenntarthatóság
@@ -38,6 +45,7 @@ A portál közösségi élményének biztosítása érdekében ügyelni kell:
 A hosszú távú működés érdekében meg kell találni az egyensúlyt a felhasználói élmény és a bevételtermelés között:
 
 - **Hirdetések Integrációja**: Úgy kell elhelyezni a reklámokat, hogy azok ne zavarják a humoros tartalmak fogyasztását.
+
 - **Következetes Frissítés**: A látogatók megtartása érdekében rendszeresen frissíteni kell az oldalt, hogy megfeleljen az aktuális humortrendeknek és elvárásoknak.
 
 A fenti elemek figyelembevételével a viccportál képes biztosítani a hosszú távú népszerűséget és relevanciát, mindemellett olyan felhasználói élményt nyújt, amely összhangban van a látogatók igényeivel.
@@ -52,13 +60,14 @@ A rendszer lehetőséget biztosít a felhasználóknak, hogy e-mail cím és jel
 A regisztráció során megadott e-mail címek egyedi azonosítóként működnek, így a rendszer minden e-mail címet csak egyszer fogad el, ezáltal kiküszöbölve a duplikált fiókok lehetőségét.
 
 A regisztrációs folyamat során a felhasználónak:
-- **Egy jelszót kell választania**: A jelszóval kapcsolatos minimális biztonsági követelményeket (pl. legalább 8 karakter hosszú, kis- és nagybetűk, 
-                            számok és speciális karakterek használata) a rendszer ellenőrzi.
-- **Elfelejtett jelszó funkció**: Az elfelejtett jelszavú felhasználók számára jelszó-visszaállítási lehetőség is biztosított,
-                             amely során egy egyszer használatos hivatkozást kapnak e-mailben a jelszó megváltoztatásához.
+
+- **Egy jelszót kell választania**: A jelszóval kapcsolatos minimális biztonsági követelményeket (pl. legalább 8 karakter hosszú, kis- és nagybetűk, számok és speciális karakterek használata) a rendszer ellenőrzi.
+
+- **Elfelejtett jelszó funkció**: Az elfelejtett jelszavú felhasználók számára jelszó-visszaállítási lehetőség is biztosított, amely során egy egyszer használatos hivatkozást kapnak e-mailben a jelszó megváltoztatásához.
 
 - **Személyes profil létrehozása**:
 Sikeres regisztráció és bejelentkezés után a felhasználók személyes profilt hozhatnak létre. A profil egy központi helyet biztosít számukra, ahol elérhetik és kezelhetik a saját aktivitásukkal kapcsolatos információkat, beleértve:
+
 - **Beküldött viccek listája**: A felhasználók megtekinthetik az általuk beküldött vicceket, azok státuszát (pl. elfogadott, moderálás alatt, elutasított) és azok megtekintési és értékelési statisztikáit.
 
 - **Értékelések és szavazatok nyomon követése**: A felhasználók láthatják a vicceikre kapott visszajelzéseket, például az adott viccre érkezett szavazatok és értékelések számát és arányát. Ez motiválhatja őket a további tartalom létrehozására és a közösség aktív részvételére.
