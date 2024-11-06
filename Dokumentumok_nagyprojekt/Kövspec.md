@@ -106,3 +106,9 @@ A beküldött vicceknek minden esetben kategóriát kell választani, amely seg�
 - A felhasználóknak lehetősége van egy keresőfunkció használatára, amellyel kulcsszavak alapján is kereshetnek általuk látni kívánt vicceket.
 
 - Véletlenszerűen is meg lehet tekinteni a vicceket. Ez egy külön gomb segítségével valósítható meg.
+
+## 4. Viccek Értékelése és Kommentelés
+
+- **Viccek értékelése**:
+  - A felhasználók szavazhatnak a viccekre, például pozitív vagy negatív reakciókat adhatnak.
+  - Az értékelési rendszer segíti a népszerű viccek kiemelését.
