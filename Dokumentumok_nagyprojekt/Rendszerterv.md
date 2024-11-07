@@ -37,8 +37,6 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
 
 ### 2.3. **Regisztrált felhasználók által elérhető funkciók és viccek Beküldése**
 
-#### Funkciók:
-
 - **Vicc beküldése:** A felhasználók vicceket tölthetnek fel különböző kategóriákba (pl. szőke viccek, szóviccek, állatos viccek).
 - **Vicc értékelése:** Lehetőség van a viccek tetszési index szerinti értékelésére (pl.     1-től 5 csillagig).
     ![Beléptetési felület](Képek/vicc_értékelés.png)
