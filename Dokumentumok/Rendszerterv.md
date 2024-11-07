@@ -8,10 +8,9 @@
   - **E-mail Megerősítés:** Regisztráció során kötelező az e-mail cím megerősítése a felhasználói fiók aktiválásához.
   - **Felhasználói hitelesítés:** A rendszer funkciói nagy részét csak bejelentkezett felhasználók érhetik el, mint például viccek posztolása.
   - **Jelszó-Visszaállítás:** Jelszó-visszaállító funkció, amely e-mailen keresztül küld egy linket a jelszó módosításához.
-  - **Platformok:** 
+  - **Platformok:**
     - Webes felület minden funkcióhoz.
     - **Adattárolás:** A rendszer MySQL adatbázist használ a felhasználói adatok, viccek és tárolására.
-
 
 #### 2.1. **Felhasználókezelés**
 - **Profil Készítése:** Regisztrált felhasználók személyes profilt hozhatnak létre.
@@ -21,12 +20,10 @@
   - **Regisztrált felhasználó:** Posztolhat vicceket és értékelhet más vicceket.
   - **Vendég felhasználó:** Vicceket böngészhet, de nem posztolhat vagy kommentelhet.
 
-
 #### 2.2. **Admin által elérhető funkciók**
 - **Tartalom moderálása:** Az adminisztrátor törölhet vagy szerkeszthet vicceket és ha azok nem felelnek meg a közösségi irányelveknek.
 - **Felhasználók kezelése:** A felhasználók blokkolása vagy figyelmeztetések küldése a szabálysértések esetén.
 
-  
 #### 2.3. **Regisztrált felhasználók által elérhető funkciók és viccek Beküldése**
   Funkciók:
 
@@ -44,7 +41,6 @@
 
   ![Beléptetési felület](Képek/Folyamatábra.png)
 
-    
   #### **Viccek Értékelése**
 
   **Funkciók:**
@@ -53,12 +49,9 @@
   - **Rangsorolás:** Viccek láthatósága és rangsorolása a szavazatok számától függ.
   - **Kiemelés:** A legnépszerűbb viccek kiemelten jelennek meg a főoldalon.
 
-
-
 #### 2.4. **Vendég felhasználók által elérhető funkciók**
 - **Viccek böngészése:** A vendég felhasználók szabadon böngészhetik a vicceket, de nem posztolhatnak és nem értékelhetnek.
 
-  
 #### 3. **Felülettel szemben támasztott követelmények**
 
 #### 3.1. **Webes felület**
@@ -67,22 +60,16 @@
 
 ![Beléptetési felület](Képek/Belépési_minta.png)
 
-  
 #### 4. **Vicctípusok és kategóriák**
 
 ![Vicckategóriák](Képek/kategóriák.png)
 
 ### 5. **Adatvédelem**
 - A felhasználói adatok védelmét biztosítani kell (pl. jelszavak titkosítása, adatvédelmi szabályok betartása).
-  
+
 ### 6. **Hardver és szoftver követelmények**
 - **Webes szerver:** Nginx webserver használata.
 - **Adatbázis:** MySQL adatbázis szükséges a viccek és felhasználói adatok tárolására.
-
-
-
-
-
 
 # Viccportál Adatbázis Terv
 
@@ -99,7 +86,7 @@ Tárolja a regisztrált felhasználók adatait, beleértve az adminokat és mode
 | `csoport`       | ENUM   | Felhasználói szerepkör (admin, moderátor, felhasználó) |
 | `mikor_regisztralt` | TIMESTAMP | Regisztráció időpontja |
 
-### 2. `viccek` 
+### 2. `viccek`
 Tárolja a felhasználók által beküldött vicceket.
 | Oszlop neve  | Típus  | Leírás  |
 |--------------|--------|---------|
@@ -111,14 +98,14 @@ Tárolja a felhasználók által beküldött vicceket.
 | `jovahagyott`| BOOLEAN | Jóváhagyás állapota |
 | `jovahagyo_id`| INT    | Moderátor, aki jóváhagyta (Külső kulcs a `felhasznalok` táblára) |
 
-### 3. `kategoriak` 
+### 3. `kategoriak`
 Tárolja a viccek kategóriáit.
 | Oszlop neve  | Típus  | Leírás  |
 |--------------|--------|---------|
 | `kategoria_id`| INT    | Kategória azonosító (Elsődleges kulcs) |
 | `kategoria_neve` | VARCHAR | A vicc kategóriájának a neve |
 
-### 4. `ertekelesek` 
+### 4. `ertekelesek`
 A viccekhez adott értékelések (pl. tetszik/nem tetszik).
 | Oszlop neve  | Típus  | Leírás  |
 |--------------|--------|---------|
@@ -131,4 +118,3 @@ A viccekhez adott értékelések (pl. tetszik/nem tetszik).
 Itt látható ERD-diagram formában.
 
 ![ERD-diagram](Képek/ERD-diagram.png)
-

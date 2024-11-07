@@ -18,8 +18,6 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
 - Webes felület minden funkcióhoz.
   Adminisztrációs Felület: A rendszergazdák számára külön adminisztrációs felület érhető el, amely lehetőséget biztosít a felhasználói fiókok kezelésére, a moderációra, és a tartalmak ellenőrzésére.
 
-
-
   ![Beléptetési felület](Képek/Belépési_minta.png)
 
 #### 2.1. **Felhasználókezelés**
@@ -30,13 +28,11 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
   - **Regisztrált felhasználó:** Posztolhat vicceket és értékelhet más vicceket.
   - **Vendég felhasználó:** Vicceket böngészhet, de nem posztolhat vagy kommentelhet.
 
-
 #### 2.2. **Admin által elérhető funkciók**
 - **Tartalom moderálása:** Az adminisztrátor törölhet vagy szerkeszthet vicceket és ha azok nem felelnek meg a közösségi irányelveknek.
 - **Tartalom moderálása:** Melőtta vicc megjelenik az oldalon az adminisztrátornak kel jóváhagyni a viccet.
 - **Felhasználók kezelése:** A felhasználók blokkolása vagy figyelmeztetések küldése a szabálysértések esetén.
 
-  
 #### 2.3. **Regisztrált felhasználók által elérhető funkciók és viccek Beküldése**
   Funkciók:
 
@@ -54,7 +50,6 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
     - **Szűrés:** Szűrő funkciók elérhetők időszak szerint (pl. "legfrissebb", "legnépszerűbb").
     - **Véletlenszerű Vicc:** Véletlenszerű vicc funkció, amely egy random viccet jelenít meg.
 
-
     ![Beléptetési felület](Képek/Folyamatábra.png)
 
 - **Adattárolás:**
@@ -63,13 +58,10 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
     Biztonsági Mentés: Rendszeres adatbázis-biztonsági mentések készülnek az adatvesztés elkerülése érdekében.
     Adatvédelem: Az adatbázisban tárolt személyes adatokat titkosítással és anonimizálási technikákkal védik az adatbiztonsági előírásoknak megfelelően.
 
-
   ![Adatbázis terv](Képek/Adatbkesz.png)
 
 - **Moderáció és Tartalomszűrés:**
 A moderátorok jogosultságot kapnak a felhasználók által beküldött tartalmak felülvizsgálatára és szükség esetén törlésére.
 
-
 - **Felhasználói Interakciók**:
 Viccek Posztolása és Értékelése: A felhasználók saját vicceket posztolhatnak, illetve értékelhetik mások vicceit kedvelésekkel vagy visszajelzésekkel.
-
