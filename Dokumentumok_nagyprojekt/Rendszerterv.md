@@ -89,6 +89,8 @@ Automatikus Moderációs Szűrők: Az algoritmusok automatikusan szűrhetik a vu
 
 Bug vagy hiba jelentése a weboldalon, adminok és tulajdonosok számára egy gombnyomással és rövid leírással.
 
+![Hiba jelentése](Képek/Hibajelentés.jpg)
+
 Moderátori Jogosultságok: A moderátorok számára különböző jogosultságokat adhatunk:
 
 - **Kommentek törlésének joga**
