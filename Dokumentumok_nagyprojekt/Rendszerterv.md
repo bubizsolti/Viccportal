@@ -76,3 +76,21 @@ Viccek Szűrési Funkciók:
 Értékelés szerinti szűrés: A felhasználók szűrhetik a vicceket a csillagértékelés alapján (pl. legjobb, legrosszabb viccek).
 
 Böngészés időpontok szerint: Lehetővé kell tenni a viccek böngészését időbeli szűrőkkel (pl. "7 napos legnépszerűbb viccek").
+
+### **Moderáció és Közösségi Funkciók**
+
+Viccek és Kommentek Jelentése:
+
+A felhasználók jelezhetik a sértő vagy nem megfelelő vicceket, amelyek a moderátorok számára figyelmeztetést generálnak.
+
+Lehetőség van a kommentek jelentésére is, ha azok sértőek vagy trollkodásra utalnak.
+
+Automatikus Moderációs Szűrők: Az algoritmusok automatikusan szűrhetik a vulgáris szavakat és kifejezéseket a viccekben és kommentekben. A rendszerben használt szabályok az adminisztrátorok által testreszabhatóak.
+
+Moderátori Jogosultságok: A moderátorok számára különböző jogosultságokat adhatunk:
+
+- **Kommentek törlésének joga**
+- **Vicc törlésének és szerkesztésének joga**
+- **Felhasználók figyelmeztetése vagy blokkolása**
+- **Jelentések kezelése**
+- **Közösségi Irányelvek: A felhasználóknak elérhetővé kell tenni a közösségi irányelveket és a rendszer biztosítja, hogy azoknak megfelelő tartalmak kerüljenek csak ki.**
