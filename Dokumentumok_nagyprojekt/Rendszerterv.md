@@ -87,6 +87,8 @@ Lehetőség van a kommentek jelentésére is, ha azok sértőek vagy trollkodás
 
 Automatikus Moderációs Szűrők: Az algoritmusok automatikusan szűrhetik a vulgáris szavakat és kifejezéseket a viccekben és kommentekben. A rendszerben használt szabályok az adminisztrátorok által testreszabhatóak.
 
+Bug vagy hiba jelentése a weboldalon, adminok és tulajdonosok számára egy gombnyomással és rövid leírással.
+
 Moderátori Jogosultságok: A moderátorok számára különböző jogosultságokat adhatunk:
 
 - **Kommentek törlésének joga**
