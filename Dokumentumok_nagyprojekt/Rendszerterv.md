@@ -59,10 +59,20 @@ Webes Felület: A rendszer webes felületén a felhasználók regisztrálhatnak,
     Biztonsági Mentés: Rendszeres adatbázis-biztonsági mentések készülnek az adatvesztés elkerülése érdekében.
     Adatvédelem: Az adatbázisban tárolt személyes adatokat titkosítással és anonimizálási technikákkal védik az adatbiztonsági előírásoknak megfelelően.
 
-  ![Adatbázis terv](Képek/Adatbkesz.png)
+  ![Adatbázis terv](Képek/adatbkesz.png)
 
 - **Moderáció és Tartalomszűrés:**
 A moderátorok jogosultságot kapnak a felhasználók által beküldött tartalmak felülvizsgálatára és szükség esetén törlésére.
 
 - **Felhasználói Interakciók**:
 Viccek Posztolása és Értékelése: A felhasználók saját vicceket posztolhatnak, illetve értékelhetik mások vicceit kedvelésekkel vagy visszajelzésekkel.
+
+### 4. **Felhasználói Élmény (UX) és Felület Kiegészítések**
+
+Responsive Design: A webes felület legyen reszponzív, hogy a felhasználók zökkenőmentesen böngészhessenek a vicceken különböző eszközökön (mobil, tablet, desktop).
+
+Viccek Szűrési Funkciók:
+
+Értékelés szerinti szűrés: A felhasználók szűrhetik a vicceket a csillagértékelés alapján (pl. legjobb, legrosszabb viccek).
+
+Böngészés időpontok szerint: Lehetővé kell tenni a viccek böngészését időbeli szűrőkkel (pl. "7 napos legnépszerűbb viccek").
