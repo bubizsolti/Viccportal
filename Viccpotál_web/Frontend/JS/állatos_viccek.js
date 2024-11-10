@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             function displaySingleJoke(joke) {
                 const jokeContainer = document.getElementById("all-jokes");
-                jokeContainer.innerHTML = ""; // Korábbi vicc törlése
+                jokeContainer.innerHTML = ""; 
 
                 const jokeElement = document.createElement("div");
                 jokeElement.classList.add("joke", "joke-box");
