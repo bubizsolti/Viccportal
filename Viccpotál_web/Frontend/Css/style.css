@@ -1,0 +1,292 @@
+/* Reset, dobozmodell alkalmazása */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffcc66;
+    color: #333;
+}
+
+.joke {
+    margin-bottom: 20px;
+    background-color: #fff; /* Fehér háttér a viccekhez */
+    padding: 15px;
+    border: 2px solid #cc6600;
+}
+
+.joke h3 {
+    text-align: center; /* Vicc címének középre igazítása */
+    background-color: #ff9933;
+    color: aliceblue; /* Cím színe */
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0 0 10px 0; /* Tetején nincs margó, alul 10px */
+    padding: 4px;
+}
+
+.joke p {
+    margin-top: 5px; /* Vicc szövege közelebb a címhez */
+    line-height: 1.5; /* Sorok közötti térköz növelése */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black; /* Szöveg színe fekete */
+}
+
+.rating {
+    cursor: pointer; /* Kattinthatóvá tétele */
+    display: flex;
+    justify-content: center; /* Középre igazítás */
+    gap: 5px; /* Távolság a pontozási elemek között */
+    margin-top: 10px;
+}
+
+.rate {
+    padding: 5px 10px;
+    background-color: #ff9933;
+    color: white; /* Gomb szövegének színe fehér */
+    cursor: pointer;
+    border-radius: 5px; /* Lekerekített sarkok */
+    transition: background-color 0.3s; /* Zökkenőmentes színváltás */
+}
+
+.rate:hover {
+    background-color: #cc6600; /* Színváltás hover esetén */
+}
+
+.average-rating,
+.vote-count {
+    text-align: center; /* Szöveg középre igazítása */
+    margin-top: 5px;
+    color: black;
+}
+
+.breadcrumb {
+    background-color: #ff9933;
+    text-align: center;
+    margin: 8px auto;
+    width: 40%; /* Breadcrumb szélesség */
+    border: 1px solid black;
+    display: flex;
+    align-items: center; /* Vertikális középre igazítás */
+    padding: 4px;
+}
+
+.breadcrumb a {
+    color: aliceblue; /* Link színe */
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    background-color: #ff9933;
+    padding: 20px;
+    border-bottom: 5px solid #cc6600;
+}
+
+.header h1 {
+    color: #663300;
+    font-size: 36px;
+}
+
+.header p {
+    color: #cc3300;
+    font-style: italic;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.sidebar-left,
+.sidebar-right {
+    width: 20%;
+    background-color: #ffcc99;
+    padding: 20px;
+    border: 2px solid #cc6600;
+}
+
+.sidebar-left h3,
+.sidebar-right h3 {
+    color: #663300;
+    margin-bottom: 10px;
+}
+
+.sidebar-left ul {
+    list-style-type: none;
+}
+
+.sidebar-left ul li {
+    margin-bottom: 10px;
+    color: #cc3300;
+}
+
+.newsletter {
+    margin-bottom: 20px;
+}
+
+.newsletter input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.newsletter button {
+    width: 100%;
+    padding: 10px;
+    background-color: #cc6600;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #ff9933;
+}
+
+.content {
+    width: 55%;
+    background-color: #ffebcc;
+    padding: 20px;
+    border: 2px solid #cc6600;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ff9933;
+    border-top: 5px solid #cc6600;
+    margin-top: 20px;
+    color: white;
+}
+
+.h2_cim {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.day-joke {
+    background-color: aliceblue;
+    padding: 0;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.nap_vicce_h2 {
+    text-align: center;
+    margin: 0;
+    background-color: red;
+    padding: 10px 0;
+    color: black;
+}
+
+#random-joke {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-jokes {
+    border: 1px solid black;
+    background-color: aliceblue;
+    padding: 10px;
+}
+
+.top_10_vicc_h2 {
+    text-align: center;
+    background-color: #ff9933;
+    color: black;
+    padding: 10px 0;
+}
+
+#top-jokes-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#top-jokes-list li {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #ff9933;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#top-jokes-list li:hover {
+    background-color: #cc6600;
+}
+
+#top-jokes-list li a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+}
+
+#top-jokes-list li a:hover {
+    text-decoration: underline;
+    color: #ccc;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.next-jokes {
+    display: flex; /* Flexbox használata */
+    justify-content: center; /* Középre igazítás */
+    align-items: center; /* Függőleges középre igazítás */
+    margin: 20px 0; /* Függőleges margó */
+}
+
+#next-jokes-button, 
+#previous-jokes-button {
+    width: 20%; /* 20% széles */
+    background-color:  #ff9933; /* Narancssárga háttér */
+    color: white; /* Fehér felirat */
+    padding: 10px; /* Belső margó */
+    border: none; /* Nincs keret */
+    cursor: pointer; /* Kéz kurzor */
+    text-align: center; /* Középre zárt szöveg */
+    border-radius: 5px; /* Lekerekített sarkok */
+    transition: background-color 0.3s; /* Áttűnés */
+    margin: 0 10px; /* Közötti távolság */
+}
+
+#next-jokes-button:hover, 
+#previous-jokes-button:hover {
+    background-color:  rgba(0, 0, 0, 0.1); /* Sötétebb narancssárga hover állapotban */
+    text-decoration: underline;
+}
+
+#login-button {
+    background-color: #ff9933;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#login-button:hover {
+    background-color: #cc6600;
+}
