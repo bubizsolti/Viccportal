@@ -169,6 +169,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
 
+            // Véletlenszerű vicc (Nap vicce) megjelenítése
+            function displayDailyJoke() {
+                const lastSeenDate = localStorage.getItem('lastSeenDate');
+                const todayDate = new Date().toDateString();
+
+                // Ha nem volt még nap vicce, vagy tegnap látta
+                if (lastSeenDate !== todayDate) {
+                    const randomJoke = getRandomJokes(currentJokesStack, 1)[0];
+                    displaySingleJoke(randomJoke);  // Véletlenszerű vicc megjelenítése
+
+                    // Mentés a helyi tárolóba, hogy mikor látta a nap viccét
+                    localStorage.setItem('lastSeenDate', todayDate);
+                }
+            }
+
+            // Nap vicc megjelenítése
+            displayDailyJoke();
+
             // Véletlenszerű viccek megjelenítése
             displayRandomJokes();
 
