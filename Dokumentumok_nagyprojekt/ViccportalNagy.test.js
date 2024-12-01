@@ -66,7 +66,7 @@ function displayTopJokes() {
         return allJokes[randomIndex];
     }
 
-    /6. Teszt: Viccek tárolása és betöltése a localStorage-ból */
+    //6. Teszt: Viccek tárolása és betöltése a localStorage-ból
 
     function testRandomJokesStorage() {
         localStorage.removeItem('randomJokes'); // Üres localStorage
@@ -86,6 +86,25 @@ function displayTopJokes() {
     }
 
     testRandomJokesStorage();
+
+    //7. Teszt: Hibakezelés – Hiányzó vicc ID
+
+    function testUpdateJokeRatingWithMissingID() {
+        const jokes = [
+            { id: 1, title: 'Vicc 1', content: 'Ez az első vicc.', rating: 3, votes: 0 }
+        ];
+        localStorage.setItem('jokes', JSON.stringify(jokes));
+
+        try {
+            updateJokeRating(2, 5); // A vicc ID nem létezik
+            console.error('Hiba: A függvény nem dobott hibát, amikor nem létező viccet próbált frissíteni.');
+        } catch (e) {
+            console.assert(e.message === 'A vicc nem található.', 'Hibát kellett volna dobni a nem létező vicc ID miatt.');
+            console.log('updateJokeRatingWithMissingID teszt sikeresen lefutott.');
+        }
+    }
+
+    testUpdateJokeRatingWithMissingID();
 
 
 }
