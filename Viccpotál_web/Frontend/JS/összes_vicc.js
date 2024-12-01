@@ -25,6 +25,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     jokeElement.innerHTML = `<a href="#" data-title="${joke.nev}" class="top-joke-link">${index + 1}. ${joke.nev}</a>`;
                     topJokesList.appendChild(jokeElement);
                 });
+                // "A nap vicce" funkció
+                function displayDayJoke(jokes) {
+                    const randomIndex = Math.floor(Math.random() * jokes.length);
+                    const randomJoke = jokes[randomIndex];
+                    const randomJokeContainer = document.getElementById("random-joke");
+
+                    if (randomJoke && randomJoke.vicc) {
+                        randomJokeContainer.innerHTML = `
+            <h3>A nap vicce</h3>
+            <p>${randomJoke.vicc.replace("\n", "<br>")}</p>
+        `;
+                    } else {
+                        randomJokeContainer.innerHTML = "<p>Nem sikerült betölteni a nap viccét.</p>";
+                    }
+                }
 
                 // Kattintás esemény hozzáadása a top viccek linkjeihez
                 document.querySelectorAll(".top-joke-link").forEach(link => {
