@@ -29,4 +29,16 @@ function displayTopJokes() {
             alert('Érvénytelen értékelés! Kérlek, adj meg egy értéket 1 és 5 között.');
         }
     }
+    // 3. Teszt: Vicc értékelés frissítése (rating update)
+    function updateJokeRating(jokeId, newRating) {
+        const jokes = JSON.parse(localStorage.getItem('jokes'));
+        const joke = jokes.find(j => j.id === jokeId);
+
+        if (joke) {
+            // Az új értékelés átlagolása
+            joke.rating = ((joke.rating * joke.votes) + newRating) / (joke.votes + 1);
+            joke.votes += 1; // Növeld a szavazatszámot
+            localStorage.setItem('jokes', JSON.stringify(jokes));
+        }
+    }
 }
