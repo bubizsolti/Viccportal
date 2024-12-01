@@ -65,4 +65,27 @@ function displayTopJokes() {
         const randomIndex = Math.floor(Math.random() * allJokes.length);
         return allJokes[randomIndex];
     }
+
+    /6. Teszt: Viccek tárolása és betöltése a localStorage-ból */
+
+    function testRandomJokesStorage() {
+        localStorage.removeItem('randomJokes'); // Üres localStorage
+
+        // Generálj új vicceket és tárold el
+        const randomJokes = [
+            { title: 'Vicc 1', content: 'Vicces szöveg 1' },
+            { title: 'Vicc 2', content: 'Vicces szöveg 2' }
+        ];
+        localStorage.setItem('randomJokes', JSON.stringify(randomJokes));
+
+        // Frissítsd az oldalt
+        const loadedJokes = JSON.parse(localStorage.getItem('randomJokes'));
+
+        // Ellenőrizd, hogy a viccek visszatöltődnek
+        console.assert(loadedJokes.length === 2, 'Két viccnek kellene lennie a localStorage-ból.');
+    }
+
+    testRandomJokesStorage();
+
+
 }
