@@ -54,4 +54,15 @@ function displayTopJokes() {
     `;
         popularJokesContainer.appendChild(jokeElement);
     }
+    // 5. Teszt: Egy vicc véletlenszerű kiválasztása és megjelenítése
+    function getRandomJoke() {
+        const allJokes = JSON.parse(localStorage.getItem('jokes')) || [];
+        if (allJokes.length === 0) {
+            alert('Nincsenek viccek a rendszerben!');
+            return;
+        }
+
+        const randomIndex = Math.floor(Math.random() * allJokes.length);
+        return allJokes[randomIndex];
+    }
 }
