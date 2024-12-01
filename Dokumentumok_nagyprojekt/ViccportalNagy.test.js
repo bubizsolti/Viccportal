@@ -106,5 +106,25 @@ function displayTopJokes() {
 
     testUpdateJokeRatingWithMissingID();
 
+    // 8. Teszt: Adatok frissítése több szavazattal
+
+    function testMultipleVotes() {
+        const jokes = [
+            { id: 5, title: 'Teszt vicc', content: 'Ez egy teszt vicc.', rating: 3, votes: 0 }
+        ];
+        localStorage.setItem('jokes', JSON.stringify(jokes));
+
+        // Szavazás több alkalommal
+        updateJokeRating(5, 4);
+        updateJokeRating(5, 5);
+
+        const updatedJokes = JSON.parse(localStorage.getItem('jokes'));
+        console.assert(updatedJokes[0].rating === 5, 'Az értékelésnek 5-nek kell lennie a több szavazat után.');
+        console.assert(updatedJokes[0].votes === 2, 'A szavazatszámnak 2-nek kell lennie.');
+        console.log('testMultipleVotes teszt sikeresen lefutott.');
+    }
+
+    testMultipleVotes();
+
 
 }
