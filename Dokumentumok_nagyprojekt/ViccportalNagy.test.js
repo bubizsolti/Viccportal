@@ -41,4 +41,17 @@ function displayTopJokes() {
             localStorage.setItem('jokes', JSON.stringify(jokes));
         }
     }
+    // 4. Teszt: displaySingleJoke funkció egy vicc megjelenítése
+    function displaySingleJoke(joke) {
+        const popularJokesContainer = document.getElementById('popular-jokes');
+        popularJokesContainer.innerHTML = ''; // Ürítse ki a konténert
+
+        const jokeElement = document.createElement('div');
+        jokeElement.innerHTML = `
+        <h3>${joke.title}</h3>
+        <p>${joke.content}</p>
+        <p><strong>Értékelés:</strong> ${joke.rating.toFixed(1)} (Szavazatok: ${joke.votes})</p>
+    `;
+        popularJokesContainer.appendChild(jokeElement);
+    }
 }
