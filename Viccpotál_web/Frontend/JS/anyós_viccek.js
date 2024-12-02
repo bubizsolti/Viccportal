@@ -1,185 +1,70 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Szerverről kérjük le a vicceket
-    fetch('http://localhost:3000/api/jokes') // Cseréld le a megfelelő API végpontra
+    fetch('http://localhost:3000/api/jokes?category=Anyós viccek')
         .then(response => response.json())
         .then(jokes => {
-            console.log(jokes);
-            let currentJokesStack = jokes.filter(joke => joke.kategoriak === "Anyós viccek"); // Csak az Anyós viccek
-            let displayedJokes = new Set(); // Megjelenített viccek nyilvántartása
-            const today = new Date().toDateString(); // Mai dátum
+            const jokeContainer = document.getElementById("popular-jokes");
+            jokeContainer.innerHTML = ''; // Clear existing content
 
-            currentJokesStack.forEach(joke => displayedJokes.add(joke.nev)); // Megjelenített viccek inicializálása
-
-            function displayTopJokes() {
-                const topJokesList = document.getElementById("top-jokes-list");
-                topJokesList.innerHTML = "";
-                // Szűrés és rendezés az összes vicc alapján
-                const topJokes = currentJokesStack.slice().sort((a, b) => {
-                    const ratingA = parseFloat(a.ertekeles) || 0;
-                    const ratingB = parseFloat(b.ertekeles) || 0;
-                    return ratingB - ratingA;
-                }).slice(0, 10);
-
-                topJokes.forEach((joke, index) => {
-                    const jokeElement = document.createElement("li");
-                    jokeElement.innerHTML = `<a href="#" data-title="${joke.nev}" class="top-joke-link">${index + 1}. ${joke.nev}</a>`;
-                    topJokesList.appendChild(jokeElement);
-                });
-
-                // Kattintás esemény hozzáadása a top viccek linkjeihez
-                document.querySelectorAll(".top-joke-link").forEach(link => {
-                    link.addEventListener("click", function(event) {
-                        event.preventDefault();
-                        const title = this.getAttribute("data-title");
-                        const selectedJoke = currentJokesStack.find(j => j.nev === title);
-                        if (selectedJoke) {
-                            displaySingleJoke(selectedJoke);
-                        }
-                    });
-                });
-            }
-
-            function displaySingleJoke(joke) {
-                const jokeContainer = document.getElementById("all-jokes");
-                jokeContainer.innerHTML = "";
-
+            jokes.forEach(joke => {
                 const jokeElement = document.createElement("div");
-                jokeElement.classList.add("joke", "joke-box");
-
-                // Biztosítjuk, hogy a "ertekeles" és "ertekelesek_szama" számok
-                const rating = parseFloat(joke.ertekeles) || 0;  // Ha nem szám, akkor alapértelmezetten 0
-                const voteCount = parseInt(joke.ertekelesek_szama) || 0;  // Ha nem szám, akkor alapértelmezetten 0
-
-                jokeElement.setAttribute("data-rating", rating);
-                jokeElement.setAttribute("data-vote-count", voteCount);
-
+                jokeElement.classList.add("joke");
+                
                 jokeElement.innerHTML = `
                     <h3>${joke.nev}</h3>
-                    <p>${joke.vicc.replace("\n", "<br>")}</p>
-                    <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${rating.toFixed(1)}</span></p>
-                    <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${voteCount}</span></p>
-                `;
-
-                // Hozzáadjuk az értékelés lehetőségeit
-                const ratingContainer = document.createElement("div");
-                ratingContainer.classList.add("rating");
-                ratingContainer.style.textAlign = "center";
-                ratingContainer.style.marginTop = "10px";
-
-                for (let i = 1; i <= 5; i++) {
-                    const rateElement = document.createElement("span");
-                    rateElement.classList.add("rate");
-                    rateElement.setAttribute("data-value", i);
-                    rateElement.textContent = i;
-                    rateElement.style.cursor = "pointer";
-                    ratingContainer.appendChild(rateElement);
-
-                    // Értékelés kezelése
-                    rateElement.addEventListener("click", function() {
-                        const rating = parseInt(this.getAttribute("data-value"));
-                        const currentRating = parseFloat(jokeElement.getAttribute("data-rating"));
-                        const currentVoteCount = parseInt(jokeElement.getAttribute("data-vote-count"));
-
-                        const newVoteCount = currentVoteCount + 1;
-                        const newRating = ((currentRating * currentVoteCount) + rating) / newVoteCount;
-
-                        // Adatok frissítése az oldalon
-                        jokeElement.setAttribute("data-rating", newRating);
-                        jokeElement.setAttribute("data-vote-count", newVoteCount);
-                        jokeElement.querySelector(".average-rating").innerText = newRating.toFixed(1);
-                        jokeElement.querySelector(".vote-count").innerText = newVoteCount;
-
-                        // Adatok frissítése a currentJokesStack-ben
-                        const jokeIndex = currentJokesStack.findIndex(j => j.nev === joke.nev);
-                        if (jokeIndex !== -1) {
-                            currentJokesStack[jokeIndex].ertekeles = newRating;
-                            currentJokesStack[jokeIndex].ertekelesek_szama = newVoteCount;
-                        }
-
-                        // Top viccek frissítése
-                        displayTopJokes(); // Frissítve a top viccek listája
-                    });
-                }
-
-                jokeElement.appendChild(ratingContainer);
-                jokeContainer.appendChild(jokeElement);
-            }
-
-            function displayRandomJokes() {
-                const jokeContainer = document.getElementById("all-jokes");
-                jokeContainer.innerHTML = "";
-
-                // Véletlenszerűen kiválasztott 10 vicc
-                const randomJokes = getRandomJokes(currentJokesStack, 10);
-
-                randomJokes.forEach(joke => {
-                    const jokeElement = document.createElement("div");
-                    jokeElement.classList.add("joke", "joke-box");
-
-                    // Biztosítjuk, hogy a "ertekeles" és "ertekelesek_szama" számok
-                    const rating = parseFloat(joke.ertekeles) || 0;  // Ha nem szám, akkor alapértelmezetten 0
-                    const voteCount = parseInt(joke.ertekelesek_szama) || 0;  // Ha nem szám, akkor alapértelmezetten 0
-
-                    jokeElement.setAttribute("data-rating", rating);
-                    jokeElement.setAttribute("data-vote-count", voteCount);
-
-                    jokeElement.innerHTML = `
-                        <h3>${joke.nev}</h3>
-                        <p>${joke.vicc.replace("\n", "<br>")}</p>
-                        <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${rating.toFixed(1)}</span></p>
-                        <div class="rating" style="text-align: center; margin-top: 10px;">
-                            <span class="rate" data-value="1">1</span>
-                            <span class="rate" data-value="2">2</span>
-                            <span class="rate" data-value="3">3</span>
-                            <span class="rate" data-value="4">4</span>
-                            <span class="rate" data-value="5">5</span>
+                    <p>${joke.vicc}</p>
+                    <div class="rating-container">
+                        <p>Értékelés: ${joke.ertekeles.toFixed(1)}</p>
+                        <p>Szavazatok száma: ${joke.ertekelesek_szama}</p>
+                        <div class="rating">
+                            ${generateRatingStars()}
                         </div>
-                        <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${voteCount}</span></p>
-                    `;
+                    </div>
+                `;
+                
+                jokeContainer.appendChild(jokeElement);
 
-                    // Értékelés kezelése
-                    jokeElement.querySelectorAll(".rate").forEach(rateElement => {
-                        rateElement.addEventListener("click", function() {
-                            const rating = parseInt(this.getAttribute("data-value"));
-                            const currentRating = parseFloat(jokeElement.getAttribute("data-rating"));
-                            const currentVoteCount = parseInt(jokeElement.getAttribute("data-vote-count"));
-
-                            const newVoteCount = currentVoteCount + 1;
-                            const newRating = ((currentRating * currentVoteCount) + rating) / newVoteCount;
-
-                            // Adatok frissítése az oldalon
-                            jokeElement.setAttribute("data-rating", newRating);
-                            jokeElement.setAttribute("data-vote-count", newVoteCount);
-                            jokeElement.querySelector(".average-rating").innerText = newRating.toFixed(1);
-                            jokeElement.querySelector(".vote-count").innerText = newVoteCount;
-
-                            // Adatok frissítése a currentJokesStack-ben
-                            const jokeIndex = currentJokesStack.findIndex(j => j.nev === joke.nev);
-                            if (jokeIndex !== -1) {
-                                currentJokesStack[jokeIndex].ertekeles = newRating;
-                                currentJokesStack[jokeIndex].ertekelesek_szama = newVoteCount;
-                            }
-
-                            // Top viccek frissítése
-                            displayTopJokes(); // Frissítve a top viccek listája
-                        });
-                    });
-
-                    jokeContainer.appendChild(jokeElement);
-                });
-            }
-
-            // Véletlenszerű viccek megjelenítése
-            displayRandomJokes();
-
-            // Top viccek megjelenítése
-            displayTopJokes();
+                // Add rating functionality
+                const ratingDiv = jokeElement.querySelector('.rating');
+                if (ratingDiv) {
+                    setupRatingListeners(ratingDiv, joke.id);
+                }
+            });
         })
-        .catch(error => console.error("Hiba a viccek betöltésekor:", error));
+        .catch(error => console.error('Error:', error));
 });
 
-// Véletlenszerű viccek kiválasztása
-function getRandomJokes(jokes, count) {
-    const shuffled = [...jokes].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
+function generateRatingStars() {
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        starsHtml += `<span class="rate" data-value="${i}">${i}</span>`;
+    }
+    return starsHtml;
+}
+
+function setupRatingListeners(ratingDiv, jokeId) {
+    const stars = ratingDiv.querySelectorAll('.rate');
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            const rating = parseInt(this.getAttribute('data-value'));
+            updateJokeRating(jokeId, rating);
+        });
+    });
+}
+
+function updateJokeRating(jokeId, rating) {
+    fetch(`http://localhost:3000/api/jokes/${jokeId}/rate`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ rating })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Refresh the jokes display
+            location.reload();
+        }
+    })
+    .catch(error => console.error('Error updating rating:', error));
 }
