@@ -1,70 +1,183 @@
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('http://localhost:3000/api/jokes?category=Anyós viccek')
-        .then(response => response.json())
-        .then(jokes => {
-            const jokeContainer = document.getElementById("popular-jokes");
-            jokeContainer.innerHTML = ''; // Clear existing content
+document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date().toDateString();
+    let storedRandomJokes = JSON.parse(localStorage.getItem("randomJokes"));
+    let storedRandomJokesDate = localStorage.getItem("randomJokesDate");
+    let storedJokeOfTheDay = JSON.parse(localStorage.getItem("jokeOfTheDay"));
+    let storedJokeOfTheDayDate = localStorage.getItem("jokeOfTheDayDate");
+    let jokes = []; // Global variable initialization
 
-            jokes.forEach(joke => {
-                const jokeElement = document.createElement("div");
-                jokeElement.classList.add("joke");
-                
-                jokeElement.innerHTML = `
-                    <h3>${joke.nev}</h3>
-                    <p>${joke.vicc}</p>
-                    <div class="rating-container">
-                        <p>Értékelés: ${joke.ertekeles.toFixed(1)}</p>
-                        <p>Szavazatok száma: ${joke.ertekelesek_szama}</p>
-                        <div class="rating">
-                            ${generateRatingStars()}
-                        </div>
-                    </div>
-                `;
-                
-                jokeContainer.appendChild(jokeElement);
+    // Clear stored data if the date doesn't match today
+    if (storedRandomJokesDate !== today || storedJokeOfTheDayDate !== today) {
+        localStorage.removeItem("randomJokes");
+        localStorage.removeItem("randomJokesDate");
+        localStorage.removeItem("jokeOfTheDay");
+        localStorage.removeItem("jokeOfTheDayDate");
+    }
 
-                // Add rating functionality
-                const ratingDiv = jokeElement.querySelector('.rating');
-                if (ratingDiv) {
-                    setupRatingListeners(ratingDiv, joke.id);
+    // Display top jokes sorted by rating
+    function displayTopJokes() {
+        const topJokesList = document.getElementById("top-jokes-list");
+        if (!topJokesList) {
+            console.error("Top jokes list element not found!");
+            return;
+        }
+        topJokesList.innerHTML = ""; 
+
+        if (!jokes || jokes.length === 0) {
+            console.error("No jokes available to display top 10");
+            return;
+        }
+
+        const topJokes = jokes.slice()
+            .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+            .slice(0, 10);
+
+        console.log("Total jokes:", jokes.length);
+        console.log("Top jokes:", topJokes);
+
+        topJokes.forEach((joke, index) => {
+            const jokeElement = document.createElement("li");
+            jokeElement.innerHTML = `<a href="#" class="top-joke-link" data-title="${joke.title}">${index + 1}. ${joke.title}</a>`;
+            topJokesList.appendChild(jokeElement);
+        });
+
+        // Add click events to top joke links
+        document.querySelectorAll(".top-joke-link").forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                const title = this.getAttribute("data-title");
+                const selectedJoke = jokes.find(j => j.title === title);
+                if (selectedJoke) {
+                    displaySingleJoke(selectedJoke);
                 }
             });
-        })
-        .catch(error => console.error('Error:', error));
-});
-
-function generateRatingStars() {
-    let starsHtml = '';
-    for (let i = 1; i <= 5; i++) {
-        starsHtml += `<span class="rate" data-value="${i}">${i}</span>`;
-    }
-    return starsHtml;
-}
-
-function setupRatingListeners(ratingDiv, jokeId) {
-    const stars = ratingDiv.querySelectorAll('.rate');
-    stars.forEach(star => {
-        star.addEventListener('click', function() {
-            const rating = parseInt(this.getAttribute('data-value'));
-            updateJokeRating(jokeId, rating);
         });
-    });
-}
+    }
 
-function updateJokeRating(jokeId, rating) {
-    fetch(`http://localhost:3000/api/jokes/${jokeId}/rate`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ rating })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Refresh the jokes display
-            location.reload();
+    // Get random jokes from localStorage or generate new ones
+    function getStoredRandomJokes() {
+        if (storedRandomJokes) {
+            return storedRandomJokes;
         }
-    })
-    .catch(error => console.error('Error updating rating:', error));
-}
+        const randomJokes = getRandomJokes();
+        localStorage.setItem("randomJokes", JSON.stringify(randomJokes));
+        localStorage.setItem("randomJokesDate", today);
+        return randomJokes;
+    }
+
+    // Shuffle jokes and pick top 10
+    function getRandomJokes() {
+        const shuffled = jokes.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, 10);
+    }
+
+    // Get joke of the day from localStorage or generate new one
+    function getJokeOfTheDay() {
+        if (storedJokeOfTheDay) {
+            return storedJokeOfTheDay;
+        }
+        const jokeOfTheDay = jokes[Math.floor(Math.random() * jokes.length)];
+        localStorage.setItem("jokeOfTheDay", JSON.stringify(jokeOfTheDay));
+        localStorage.setItem("jokeOfTheDayDate", today);
+        return jokeOfTheDay;
+    }
+
+    // Create a joke element for display
+    function createJokeElement(joke) {
+        const jokeElement = document.createElement("div");
+        jokeElement.classList.add("joke");
+        jokeElement.setAttribute("data-title", joke.title);
+        jokeElement.setAttribute("data-rating", joke.rating || 0);
+        jokeElement.setAttribute("data-vote-count", joke.voteCount || 0);
+        jokeElement.innerHTML = `
+            <h3>${joke.title}</h3>
+            <p>${joke.joke.replace("\n", "<br>")}</p>
+            <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${(joke.rating || 0).toFixed(1)}</span></p>
+            <div class="rating" style="text-align: center; margin-top: 10px;">
+                <span class="rate" data-value="1">1</span>
+                <span class="rate" data-value="2">2</span>
+                <span class="rate" data-value="3">3</span>
+                <span class="rate" data-value="4">4</span>
+                <span class="rate" data-value="5">5</span>
+            </div>
+            <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${joke.voteCount || 0}</span></p>
+        `;
+
+        // Add rating events
+        jokeElement.querySelectorAll(".rate").forEach(rateElement => {
+            rateElement.addEventListener("click", function () {
+                const rating = parseInt(this.getAttribute("data-value"));
+                const currentRating = parseFloat(jokeElement.getAttribute("data-rating")) || 0;
+                const currentVoteCount = parseInt(jokeElement.getAttribute("data-vote-count")) || 0;
+
+                const newVoteCount = currentVoteCount + 1;
+                const newRating = ((currentRating * currentVoteCount) + rating) / newVoteCount;
+
+                jokeElement.setAttribute("data-rating", newRating);
+                jokeElement.setAttribute("data-vote-count", newVoteCount);
+                jokeElement.querySelector(".average-rating").innerText = newRating.toFixed(1);
+                jokeElement.querySelector(".vote-count").innerText = newVoteCount;
+
+                const jokeIndex = jokes.findIndex(j => j.title === jokeElement.getAttribute("data-title"));
+                if (jokeIndex !== -1) {
+                    jokes[jokeIndex].rating = newRating;
+                    jokes[jokeIndex].voteCount = newVoteCount;
+                }
+
+                displayTopJokes(); // Update top 10 list
+            });
+        });
+
+        return jokeElement;
+    }
+
+    // Display a single joke
+    function displaySingleJoke(joke) {
+        const jokeContainer = document.getElementById("popular-jokes");
+        jokeContainer.innerHTML = ''; // Clear current jokes
+
+        const singleJokeElement = createJokeElement(joke);
+        jokeContainer.appendChild(singleJokeElement);
+    }
+
+    // Initialize jokes and display them
+    function initializeJokes(fetchedJokes) {
+        jokes = fetchedJokes.map(joke => ({
+            ...joke,
+            rating: joke.rating || 0,
+            voteCount: joke.voteCount || 0
+        }));
+
+        displayTopJokes(); 
+        
+        const randomJokes = getStoredRandomJokes();
+        const jokeOfTheDay = getJokeOfTheDay();
+
+        const randomJokeElement = document.getElementById("random-joke");
+        randomJokeElement.innerHTML = `<strong>A nap vicce:</strong> ${jokeOfTheDay.joke.replace("\n", "<br>")}`;
+
+        const jokeContainer = document.getElementById("popular-jokes");
+        randomJokes.forEach((joke, index) => {
+            if (joke.title !== jokeOfTheDay.title) {
+                const jokeElement = createJokeElement(joke);
+                jokeContainer.appendChild(jokeElement);
+            }
+        });
+
+        document.getElementById("next-jokes-button").addEventListener("click", function (event) {
+            event.preventDefault(); 
+            window.location.href = "Összes_vicc.html";
+        });
+    }
+
+    // Fetch jokes from the API
+    fetch('/api/jokes')
+        .then(response => response.json())
+        .then(initializeJokes)
+        .catch(error => console.error('Hiba a viccek betöltésekor:', error));
+
+    // Login button event
+    document.getElementById("login-button").addEventListener("click", function () {
+        window.location.href = "belepes.html";
+    });
+});
