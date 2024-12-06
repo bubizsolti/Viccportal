@@ -1,183 +1,220 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const today = new Date().toDateString();
-    let storedRandomJokes = JSON.parse(localStorage.getItem("randomJokes"));
-    let storedRandomJokesDate = localStorage.getItem("randomJokesDate");
-    let storedJokeOfTheDay = JSON.parse(localStorage.getItem("jokeOfTheDay"));
-    let storedJokeOfTheDayDate = localStorage.getItem("jokeOfTheDayDate");
-    let jokes = []; // Global variable initialization
+// Egyszer deklaráljuk és inicializáljuk a supabase klienst
+const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-    // Clear stored data if the date doesn't match today
-    if (storedRandomJokesDate !== today || storedJokeOfTheDayDate !== today) {
-        localStorage.removeItem("randomJokes");
-        localStorage.removeItem("randomJokesDate");
-        localStorage.removeItem("jokeOfTheDay");
-        localStorage.removeItem("jokeOfTheDayDate");
-    }
+// Track the page number for pagination
+let currentPage = 1;
+const jokesPerPage = 10;
 
-    // Display top jokes sorted by rating
-    function displayTopJokes() {
-        const topJokesList = document.getElementById("top-jokes-list");
-        if (!topJokesList) {
-            console.error("Top jokes list element not found!");
-            return;
-        }
-        topJokesList.innerHTML = ""; 
+// Function to fetch random jokes with pagination
+async function fetchRandomJokes(page = 1) {
+    try {
+        // Lekérjük az "Anyós viccek" kategóriájú vicceket a `Viccportál` táblából
+        const { data: jokesData, error } = await supabaseClient
+            .from("Viccportál")
+            .select("id, nev, vicc, ertekeles, ertekelesek_szama")
+            .eq("kategoriak", "Anyós viccek") // Csak az "Anyós viccek" kategóriát kérjük
+            .range((page - 1) * jokesPerPage, page * jokesPerPage - 1); // Lapozás
 
-        if (!jokes || jokes.length === 0) {
-            console.error("No jokes available to display top 10");
-            return;
+        if (error) {
+            console.error("Hiba az 'Anyós viccek' lekérésekor:", error.message);
+            return [];
         }
 
-        const topJokes = jokes.slice()
-            .sort((a, b) => (b.rating || 0) - (a.rating || 0))
-            .slice(0, 10);
+        return jokesData;
+    } catch (error) {
+        console.error("Hiba az 'Anyós viccek' lekérésekor:", error);
+        return [];
+    }
+}
 
-        console.log("Total jokes:", jokes.length);
-        console.log("Top jokes:", topJokes);
+// Function to display random jokes
+async function displayRandomJokes() {
+    const randomJokes = await fetchRandomJokes(currentPage);
 
-        topJokes.forEach((joke, index) => {
-            const jokeElement = document.createElement("li");
-            jokeElement.innerHTML = `<a href="#" class="top-joke-link" data-title="${joke.title}">${index + 1}. ${joke.title}</a>`;
-            topJokesList.appendChild(jokeElement);
+    const jokesContainer = document.getElementById('popular-jokes');
+    if (jokesContainer) {
+        jokesContainer.innerHTML = '';  // Töröljük a korábbi vicceket
+
+        randomJokes.forEach(joke => {
+            const jokeElement = createJokeElement(joke);  // Create the joke element
+            jokesContainer.appendChild(jokeElement);
         });
 
-        // Add click events to top joke links
-        document.querySelectorAll(".top-joke-link").forEach(link => {
-            link.addEventListener("click", function (event) {
-                event.preventDefault();
-                const title = this.getAttribute("data-title");
-                const selectedJoke = jokes.find(j => j.title === title);
-                if (selectedJoke) {
-                    displaySingleJoke(selectedJoke);
-                }
-            });
+        // Show or hide pagination buttons
+        togglePaginationButtons(randomJokes.length);
+    }
+}
+
+// Function to toggle pagination buttons visibility
+function togglePaginationButtons(currentJokesCount) {
+    const nextButton = document.getElementById('next-jokes-button');
+    const previousButton = document.getElementById('previous-jokes-button');
+
+    // If there are less than `jokesPerPage` jokes, hide the next button
+    if (currentJokesCount < jokesPerPage) {
+        nextButton.style.display = 'none';
+    } else {
+        nextButton.style.display = 'inline-block';
+    }
+
+    // If we are on the first page, hide the previous button
+    if (currentPage === 1) {
+        previousButton.style.display = 'none';
+    } else {
+        previousButton.style.display = 'inline-block';
+    }
+}
+
+// Function to handle the "Next" button click
+document.getElementById('next-jokes-button')?.addEventListener('click', async () => {
+    currentPage++;
+    await displayRandomJokes();
+});
+
+// Function to handle the "Previous" button click
+document.getElementById('previous-jokes-button')?.addEventListener('click', async () => {
+    if (currentPage > 1) {
+        currentPage--;
+        await displayRandomJokes();
+    }
+});
+
+// Function to create the joke element with the rating system
+function createJokeElement(joke) {
+    const jokeElement = document.createElement("div");
+    jokeElement.classList.add("joke");
+    jokeElement.setAttribute("data-id", joke.id); // Set the unique ID for this joke
+    jokeElement.setAttribute("data-title", joke.nev);
+    jokeElement.setAttribute("data-rating", joke.ertekeles || 0);
+    jokeElement.setAttribute("data-vote-count", joke.ertekelesek_szama || 0);
+
+    jokeElement.innerHTML = `
+        <h3>${joke.nev}</h3>
+        <p>${joke.vicc.replace("\n", "<br>")}</p>
+        <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${(joke.ertekeles || 0).toFixed(1)}</span></p>
+        <div class="rating" style="text-align: center; margin-top: 10px;">
+            <span class="rate" data-value="1">1</span>
+            <span class="rate" data-value="2">2</span>
+            <span class="rate" data-value="3">3</span>
+            <span class="rate" data-value="4">4</span>
+            <span class="rate" data-value="5">5</span>
+        </div>
+        <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${joke.ertekelesek_szama || 0}</span></p>
+    `;
+
+    // Add event listeners to the rating buttons
+    const rateButtons = jokeElement.querySelectorAll('.rate');
+    rateButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const ratingValue = parseInt(button.getAttribute('data-value'));
+            handleRatingClick(joke.id, ratingValue);
         });
-    }
-
-    // Get random jokes from localStorage or generate new ones
-    function getStoredRandomJokes() {
-        if (storedRandomJokes) {
-            return storedRandomJokes;
-        }
-        const randomJokes = getRandomJokes();
-        localStorage.setItem("randomJokes", JSON.stringify(randomJokes));
-        localStorage.setItem("randomJokesDate", today);
-        return randomJokes;
-    }
-
-    // Shuffle jokes and pick top 10
-    function getRandomJokes() {
-        const shuffled = jokes.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, 10);
-    }
-
-    // Get joke of the day from localStorage or generate new one
-    function getJokeOfTheDay() {
-        if (storedJokeOfTheDay) {
-            return storedJokeOfTheDay;
-        }
-        const jokeOfTheDay = jokes[Math.floor(Math.random() * jokes.length)];
-        localStorage.setItem("jokeOfTheDay", JSON.stringify(jokeOfTheDay));
-        localStorage.setItem("jokeOfTheDayDate", today);
-        return jokeOfTheDay;
-    }
-
-    // Create a joke element for display
-    function createJokeElement(joke) {
-        const jokeElement = document.createElement("div");
-        jokeElement.classList.add("joke");
-        jokeElement.setAttribute("data-title", joke.title);
-        jokeElement.setAttribute("data-rating", joke.rating || 0);
-        jokeElement.setAttribute("data-vote-count", joke.voteCount || 0);
-        jokeElement.innerHTML = `
-            <h3>${joke.title}</h3>
-            <p>${joke.joke.replace("\n", "<br>")}</p>
-            <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${(joke.rating || 0).toFixed(1)}</span></p>
-            <div class="rating" style="text-align: center; margin-top: 10px;">
-                <span class="rate" data-value="1">1</span>
-                <span class="rate" data-value="2">2</span>
-                <span class="rate" data-value="3">3</span>
-                <span class="rate" data-value="4">4</span>
-                <span class="rate" data-value="5">5</span>
-            </div>
-            <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${joke.voteCount || 0}</span></p>
-        `;
-
-        // Add rating events
-        jokeElement.querySelectorAll(".rate").forEach(rateElement => {
-            rateElement.addEventListener("click", function () {
-                const rating = parseInt(this.getAttribute("data-value"));
-                const currentRating = parseFloat(jokeElement.getAttribute("data-rating")) || 0;
-                const currentVoteCount = parseInt(jokeElement.getAttribute("data-vote-count")) || 0;
-
-                const newVoteCount = currentVoteCount + 1;
-                const newRating = ((currentRating * currentVoteCount) + rating) / newVoteCount;
-
-                jokeElement.setAttribute("data-rating", newRating);
-                jokeElement.setAttribute("data-vote-count", newVoteCount);
-                jokeElement.querySelector(".average-rating").innerText = newRating.toFixed(1);
-                jokeElement.querySelector(".vote-count").innerText = newVoteCount;
-
-                const jokeIndex = jokes.findIndex(j => j.title === jokeElement.getAttribute("data-title"));
-                if (jokeIndex !== -1) {
-                    jokes[jokeIndex].rating = newRating;
-                    jokes[jokeIndex].voteCount = newVoteCount;
-                }
-
-                displayTopJokes(); // Update top 10 list
-            });
-        });
-
-        return jokeElement;
-    }
-
-    // Display a single joke
-    function displaySingleJoke(joke) {
-        const jokeContainer = document.getElementById("popular-jokes");
-        jokeContainer.innerHTML = ''; // Clear current jokes
-
-        const singleJokeElement = createJokeElement(joke);
-        jokeContainer.appendChild(singleJokeElement);
-    }
-
-    // Initialize jokes and display them
-    function initializeJokes(fetchedJokes) {
-        jokes = fetchedJokes.map(joke => ({
-            ...joke,
-            rating: joke.rating || 0,
-            voteCount: joke.voteCount || 0
-        }));
-
-        displayTopJokes(); 
-        
-        const randomJokes = getStoredRandomJokes();
-        const jokeOfTheDay = getJokeOfTheDay();
-
-        const randomJokeElement = document.getElementById("random-joke");
-        randomJokeElement.innerHTML = `<strong>A nap vicce:</strong> ${jokeOfTheDay.joke.replace("\n", "<br>")}`;
-
-        const jokeContainer = document.getElementById("popular-jokes");
-        randomJokes.forEach((joke, index) => {
-            if (joke.title !== jokeOfTheDay.title) {
-                const jokeElement = createJokeElement(joke);
-                jokeContainer.appendChild(jokeElement);
-            }
-        });
-
-        document.getElementById("next-jokes-button").addEventListener("click", function (event) {
-            event.preventDefault(); 
-            window.location.href = "Összes_vicc.html";
-        });
-    }
-
-    // Fetch jokes from the API
-    fetch('/api/jokes')
-        .then(response => response.json())
-        .then(initializeJokes)
-        .catch(error => console.error('Hiba a viccek betöltésekor:', error));
-
-    // Login button event
-    document.getElementById("login-button").addEventListener("click", function () {
-        window.location.href = "belepes.html";
     });
+
+    return jokeElement;
+}
+
+// Function to handle rating clicks and update the database
+async function handleRatingClick(jokeId, ratingValue) {
+    try {
+        // Fetch the current joke data
+        const { data: jokeData, error: jokeError } = await supabaseClient
+            .from('Viccportál')
+            .select('*')
+            .eq('id', jokeId)
+            .single();
+
+        if (jokeError) throw jokeError;
+
+        // Calculate the new average rating and the new vote count
+        const newVoteCount = (jokeData.ertekelesek_szama || 0) + 1;
+        const newAverageRating = ((jokeData.ertekeles || 0) * jokeData.ertekelesek_szama + ratingValue) / newVoteCount;
+
+        // Update the joke in the database with the new rating and vote count
+        const { error: updateError } = await supabaseClient
+            .from('Viccportál')
+            .update({
+                ertekeles: newAverageRating,
+                ertekelesek_szama: newVoteCount
+            })
+            .eq('id', jokeId);
+
+        if (updateError) throw updateError;
+
+        // After updating the database, update the displayed rating
+        const jokeElement = document.querySelector(`.joke[data-id='${jokeId}']`);
+        if (jokeElement) {
+            // Update the displayed average rating and vote count
+            jokeElement.querySelector('.average-rating').textContent = newAverageRating.toFixed(1);
+            jokeElement.querySelector('.vote-count').textContent = newVoteCount;
+        }
+    } catch (error) {
+        console.error('Error handling rating:', error);
+    }
+}
+
+// Function to fetch the daily joke
+async function fetchDailyJoke() {
+    try {
+        const { data: dailyJokeData, error: dailyJokeError } = await supabaseClient
+            .from('daily_joke')
+            .select('joke_id')
+            .single();
+
+        if (dailyJokeError) throw dailyJokeError;
+
+        const { data: jokeDetails, error: jokeError } = await supabaseClient
+            .from('Viccportál')
+            .select('*')
+            .eq('id', dailyJokeData.joke_id)
+            .single();
+
+        if (jokeError) throw jokeError;
+
+        const randomJokeElement = document.getElementById('random-joke');
+        if (randomJokeElement) {
+            randomJokeElement.textContent = jokeDetails.vicc;
+        }
+    } catch (error) {
+        console.error('Error fetching daily joke:', error);
+    }
+}
+
+async function displayTopRatedJokes() {
+    const topJokes = await fetchTopRatedJokes();
+
+    const topJokesContainer = document.getElementById('top-jokes-list');
+    if (topJokesContainer) {
+        topJokesContainer.innerHTML = ''; // Töröljük a korábbi listát
+
+        topJokes.forEach(joke => {
+            const jokeElement = document.createElement("li");
+            jokeElement.innerHTML = `
+                <a href="#" onclick="displaySingleJoke(${joke.id})">${joke.nev}</a> - <strong>Értékelés: </strong>${(joke.ertekeles || 0).toFixed(1)} (Szavazatok száma: ${joke.ertekelesek_szama || 0})
+            `;
+            topJokesContainer.appendChild(jokeElement);
+        });
+    }
+}
+async function fetchTopRatedJokes() {
+    const { data, error } = await supabaseClient
+        .from("Viccportál")
+        .select("id, nev, vicc, ertekeles, ertekelesek_szama")
+        .order("ertekeles", { ascending: false })
+        .limit(10);
+
+    if (error) {
+        console.error("Hiba a top viccek lekérésekor:", error.message);
+        return [];
+    }
+
+    return data;
+}
+// Call the functions when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    fetchDailyJoke();  // A nap vicce
+    displayRandomJokes();  // Véletlenszerű viccek
+    displayTopRatedJokes();  // Legjobb 10 vicc
 });
