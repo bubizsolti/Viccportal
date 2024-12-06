@@ -27,15 +27,15 @@
             <!-- Bal oldalsáv -->
             <aside class="sidebar-left">
                 <div class="newsletter">
-                    <h3 class="h2_cim">Vicces Viccek hírlevél</h3>
+                    <h3 class="top_10_vicc_h2">Vicces Viccek hírlevél</h3>
                     <p>Minden héten megkapod a legeslegjobb vicceket e-mailben!</p>
                     <input type="email" placeholder="E-mail">
                     <button>Kérem a vicceket!</button>
                 </div>
 
                 <div class="category">
-                    <h3 class="h2_cim">Vicc kategóriák</h3>
-                    <ul>
+                    <h3 class="top_10_vicc_h2">Vicces Viccek hírlevél</h3>
+                    <ul id="category-list">
                         <li><a href="Összes_vicc.html">Összes</a></li>
                         <li><a href="Anyós_viccek.html">Anyós viccek</a></li>
                         <li><a href="Állatos_viccek.html">Állatos viccek</a></li>
@@ -57,7 +57,7 @@
             <!-- Fő tartalom -->
             <main class="content">
                 <h2 class="h2_cim">Néger viccek</h2>
-                <div id="all-jokes"></div>
+                <div id="popular-jokes"></div>
             </main>
 
             <!-- Jobb oldalsáv -->
@@ -85,6 +85,7 @@
             <p>&copy; 2024 ViccesViccek.hu</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="../JS/Néger_viccek.js"></script>
 </body>
 </html>
