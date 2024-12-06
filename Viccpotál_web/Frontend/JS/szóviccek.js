@@ -1,185 +1,220 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Szerverről kérjük le a vicceket
-    fetch('http://localhost:3000/api/jokes') // Cseréld le a megfelelő API végpontra
-        .then(response => response.json())
-        .then(jokes => {
-            console.log(jokes);
-            let currentJokesStack = jokes.filter(joke => joke.kategoriak === "Szóviccek"); // Csak az Erotikus viccek
-            let displayedJokes = new Set(); // Megjelenített viccek nyilvántartása
-            const today = new Date().toDateString(); // Mai dátum
+// Egyszer deklaráljuk és inicializáljuk a supabase klienst
+const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-            currentJokesStack.forEach(joke => displayedJokes.add(joke.nev)); // Megjelenített viccek inicializálása
+// Track the page number for pagination
+let currentPage = 1;
+const jokesPerPage = 10;
 
-            function displayTopJokes() {
-                const topJokesList = document.getElementById("top-jokes-list");
-                topJokesList.innerHTML = "";
-                // Szűrés és rendezés az összes vicc alapján
-                const topJokes = currentJokesStack.slice().sort((a, b) => {
-                    const ratingA = parseFloat(a.ertekeles) || 0;
-                    const ratingB = parseFloat(b.ertekeles) || 0;
-                    return ratingB - ratingA;
-                }).slice(0, 10);
+// Function to fetch random jokes with pagination
+async function fetchRandomJokes(page = 1) {
+    try {
+        // Lekérjük az "Szóviccek" kategóriájú vicceket a `Viccportál` táblából
+        const { data: jokesData, error } = await supabaseClient
+            .from("Viccportál")
+            .select("id, nev, vicc, ertekeles, ertekelesek_szama")
+            .eq("kategoriak", "Szóviccek") // Csak az "Szóviccek" kategóriát kérjük
+            .range((page - 1) * jokesPerPage, page * jokesPerPage - 1); // Lapozás
 
-                topJokes.forEach((joke, index) => {
-                    const jokeElement = document.createElement("li");
-                    jokeElement.innerHTML = `<a href="#" data-title="${joke.nev}" class="top-joke-link">${index + 1}. ${joke.nev}</a>`;
-                    topJokesList.appendChild(jokeElement);
-                });
+        if (error) {
+            console.error("Hiba az 'Szóviccek' lekérésekor:", error.message);
+            return [];
+        }
 
-                // Kattintás esemény hozzáadása a top viccek linkjeihez
-                document.querySelectorAll(".top-joke-link").forEach(link => {
-                    link.addEventListener("click", function(event) {
-                        event.preventDefault();
-                        const title = this.getAttribute("data-title");
-                        const selectedJoke = currentJokesStack.find(j => j.nev === title);
-                        if (selectedJoke) {
-                            displaySingleJoke(selectedJoke);
-                        }
-                    });
-                });
-            }
+        return jokesData;
+    } catch (error) {
+        console.error("Hiba az 'Szóviccek' lekérésekor:", error);
+        return [];
+    }
+}
 
-            function displaySingleJoke(joke) {
-                const jokeContainer = document.getElementById("all-jokes");
-                jokeContainer.innerHTML = "";
+// Function to display random jokes
+async function displayRandomJokes() {
+    const randomJokes = await fetchRandomJokes(currentPage);
 
-                const jokeElement = document.createElement("div");
-                jokeElement.classList.add("joke", "joke-box");
+    const jokesContainer = document.getElementById('popular-jokes');
+    if (jokesContainer) {
+        jokesContainer.innerHTML = '';  // Töröljük a korábbi vicceket
 
-                // Biztosítjuk, hogy a "ertekeles" és "ertekelesek_szama" számok
-                const rating = parseFloat(joke.ertekeles) || 0;  // Ha nem szám, akkor alapértelmezetten 0
-                const voteCount = parseInt(joke.ertekelesek_szama) || 0;  // Ha nem szám, akkor alapértelmezetten 0
+        randomJokes.forEach(joke => {
+            const jokeElement = createJokeElement(joke);  // Create the joke element
+            jokesContainer.appendChild(jokeElement);
+        });
 
-                jokeElement.setAttribute("data-rating", rating);
-                jokeElement.setAttribute("data-vote-count", voteCount);
+        // Show or hide pagination buttons
+        togglePaginationButtons(randomJokes.length);
+    }
+}
 
-                jokeElement.innerHTML = `
-                    <h3>${joke.nev}</h3>
-                    <p>${joke.vicc.replace("\n", "<br>")}</p>
-                    <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${rating.toFixed(1)}</span></p>
-                    <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${voteCount}</span></p>
-                `;
+// Function to toggle pagination buttons visibility
+function togglePaginationButtons(currentJokesCount) {
+    const nextButton = document.getElementById('next-jokes-button');
+    const previousButton = document.getElementById('previous-jokes-button');
 
-                // Hozzáadjuk az értékelés lehetőségeit
-                const ratingContainer = document.createElement("div");
-                ratingContainer.classList.add("rating");
-                ratingContainer.style.textAlign = "center";
-                ratingContainer.style.marginTop = "10px";
+    // If there are less than `jokesPerPage` jokes, hide the next button
+    if (currentJokesCount < jokesPerPage) {
+        nextButton.style.display = 'none';
+    } else {
+        nextButton.style.display = 'inline-block';
+    }
 
-                for (let i = 1; i <= 5; i++) {
-                    const rateElement = document.createElement("span");
-                    rateElement.classList.add("rate");
-                    rateElement.setAttribute("data-value", i);
-                    rateElement.textContent = i;
-                    rateElement.style.cursor = "pointer";
-                    ratingContainer.appendChild(rateElement);
+    // If we are on the first page, hide the previous button
+    if (currentPage === 1) {
+        previousButton.style.display = 'none';
+    } else {
+        previousButton.style.display = 'inline-block';
+    }
+}
 
-                    // Értékelés kezelése
-                    rateElement.addEventListener("click", function() {
-                        const rating = parseInt(this.getAttribute("data-value"));
-                        const currentRating = parseFloat(jokeElement.getAttribute("data-rating"));
-                        const currentVoteCount = parseInt(jokeElement.getAttribute("data-vote-count"));
-
-                        const newVoteCount = currentVoteCount + 1;
-                        const newRating = ((currentRating * currentVoteCount) + rating) / newVoteCount;
-
-                        // Adatok frissítése az oldalon
-                        jokeElement.setAttribute("data-rating", newRating);
-                        jokeElement.setAttribute("data-vote-count", newVoteCount);
-                        jokeElement.querySelector(".average-rating").innerText = newRating.toFixed(1);
-                        jokeElement.querySelector(".vote-count").innerText = newVoteCount;
-
-                        // Adatok frissítése a currentJokesStack-ben
-                        const jokeIndex = currentJokesStack.findIndex(j => j.nev === joke.nev);
-                        if (jokeIndex !== -1) {
-                            currentJokesStack[jokeIndex].ertekeles = newRating;
-                            currentJokesStack[jokeIndex].ertekelesek_szama = newVoteCount;
-                        }
-
-                        // Top viccek frissítése
-                        displayTopJokes(); // Frissítve a top viccek listája
-                    });
-                }
-
-                jokeElement.appendChild(ratingContainer);
-                jokeContainer.appendChild(jokeElement);
-            }
-
-            function displayRandomJokes() {
-                const jokeContainer = document.getElementById("all-jokes");
-                jokeContainer.innerHTML = "";
-
-                // Véletlenszerűen kiválasztott 10 vicc
-                const randomJokes = getRandomJokes(currentJokesStack, 10);
-
-                randomJokes.forEach(joke => {
-                    const jokeElement = document.createElement("div");
-                    jokeElement.classList.add("joke", "joke-box");
-
-                    // Biztosítjuk, hogy a "ertekeles" és "ertekelesek_szama" számok
-                    const rating = parseFloat(joke.ertekeles) || 0;  // Ha nem szám, akkor alapértelmezetten 0
-                    const voteCount = parseInt(joke.ertekelesek_szama) || 0;  // Ha nem szám, akkor alapértelmezetten 0
-
-                    jokeElement.setAttribute("data-rating", rating);
-                    jokeElement.setAttribute("data-vote-count", voteCount);
-
-                    jokeElement.innerHTML = `
-                        <h3>${joke.nev}</h3>
-                        <p>${joke.vicc.replace("\n", "<br>")}</p>
-                        <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${rating.toFixed(1)}</span></p>
-                        <div class="rating" style="text-align: center; margin-top: 10px;">
-                            <span class="rate" data-value="1">1</span>
-                            <span class="rate" data-value="2">2</span>
-                            <span class="rate" data-value="3">3</span>
-                            <span class="rate" data-value="4">4</span>
-                            <span class="rate" data-value="5">5</span>
-                        </div>
-                        <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${voteCount}</span></p>
-                    `;
-
-                    // Értékelés kezelése
-                    jokeElement.querySelectorAll(".rate").forEach(rateElement => {
-                        rateElement.addEventListener("click", function() {
-                            const rating = parseInt(this.getAttribute("data-value"));
-                            const currentRating = parseFloat(jokeElement.getAttribute("data-rating"));
-                            const currentVoteCount = parseInt(jokeElement.getAttribute("data-vote-count"));
-
-                            const newVoteCount = currentVoteCount + 1;
-                            const newRating = ((currentRating * currentVoteCount) + rating) / newVoteCount;
-
-                            // Adatok frissítése az oldalon
-                            jokeElement.setAttribute("data-rating", newRating);
-                            jokeElement.setAttribute("data-vote-count", newVoteCount);
-                            jokeElement.querySelector(".average-rating").innerText = newRating.toFixed(1);
-                            jokeElement.querySelector(".vote-count").innerText = newVoteCount;
-
-                            // Adatok frissítése a currentJokesStack-ben
-                            const jokeIndex = currentJokesStack.findIndex(j => j.nev === joke.nev);
-                            if (jokeIndex !== -1) {
-                                currentJokesStack[jokeIndex].ertekeles = newRating;
-                                currentJokesStack[jokeIndex].ertekelesek_szama = newVoteCount;
-                            }
-
-                            // Top viccek frissítése
-                            displayTopJokes(); // Frissítve a top viccek listája
-                        });
-                    });
-
-                    jokeContainer.appendChild(jokeElement);
-                });
-            }
-
-            // Véletlenszerű viccek megjelenítése
-            displayRandomJokes();
-
-            // Top viccek megjelenítése
-            displayTopJokes();
-        })
-        .catch(error => console.error("Hiba a viccek betöltésekor:", error));
+// Function to handle the "Next" button click
+document.getElementById('next-jokes-button')?.addEventListener('click', async () => {
+    currentPage++;
+    await displayRandomJokes();
 });
 
-// Véletlenszerű viccek kiválasztása
-function getRandomJokes(jokes, count) {
-    const shuffled = [...jokes].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
+// Function to handle the "Previous" button click
+document.getElementById('previous-jokes-button')?.addEventListener('click', async () => {
+    if (currentPage > 1) {
+        currentPage--;
+        await displayRandomJokes();
+    }
+});
+
+// Function to create the joke element with the rating system
+function createJokeElement(joke) {
+    const jokeElement = document.createElement("div");
+    jokeElement.classList.add("joke");
+    jokeElement.setAttribute("data-id", joke.id); // Set the unique ID for this joke
+    jokeElement.setAttribute("data-title", joke.nev);
+    jokeElement.setAttribute("data-rating", joke.ertekeles || 0);
+    jokeElement.setAttribute("data-vote-count", joke.ertekelesek_szama || 0);
+
+    jokeElement.innerHTML = `
+        <h3>${joke.nev}</h3>
+        <p>${joke.vicc.replace("\n", "<br>")}</p>
+        <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${(joke.ertekeles || 0).toFixed(1)}</span></p>
+        <div class="rating" style="text-align: center; margin-top: 10px;">
+            <span class="rate" data-value="1">1</span>
+            <span class="rate" data-value="2">2</span>
+            <span class="rate" data-value="3">3</span>
+            <span class="rate" data-value="4">4</span>
+            <span class="rate" data-value="5">5</span>
+        </div>
+        <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${joke.ertekelesek_szama || 0}</span></p>
+    `;
+
+    // Add event listeners to the rating buttons
+    const rateButtons = jokeElement.querySelectorAll('.rate');
+    rateButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const ratingValue = parseInt(button.getAttribute('data-value'));
+            handleRatingClick(joke.id, ratingValue);
+        });
+    });
+
+    return jokeElement;
 }
+
+// Function to handle rating clicks and update the database
+async function handleRatingClick(jokeId, ratingValue) {
+    try {
+        // Fetch the current joke data
+        const { data: jokeData, error: jokeError } = await supabaseClient
+            .from('Viccportál')
+            .select('*')
+            .eq('id', jokeId)
+            .single();
+
+        if (jokeError) throw jokeError;
+
+        // Calculate the new average rating and the new vote count
+        const newVoteCount = (jokeData.ertekelesek_szama || 0) + 1;
+        const newAverageRating = ((jokeData.ertekeles || 0) * jokeData.ertekelesek_szama + ratingValue) / newVoteCount;
+
+        // Update the joke in the database with the new rating and vote count
+        const { error: updateError } = await supabaseClient
+            .from('Viccportál')
+            .update({
+                ertekeles: newAverageRating,
+                ertekelesek_szama: newVoteCount
+            })
+            .eq('id', jokeId);
+
+        if (updateError) throw updateError;
+
+        // After updating the database, update the displayed rating
+        const jokeElement = document.querySelector(`.joke[data-id='${jokeId}']`);
+        if (jokeElement) {
+            // Update the displayed average rating and vote count
+            jokeElement.querySelector('.average-rating').textContent = newAverageRating.toFixed(1);
+            jokeElement.querySelector('.vote-count').textContent = newVoteCount;
+        }
+    } catch (error) {
+        console.error('Error handling rating:', error);
+    }
+}
+
+// Function to fetch the daily joke
+async function fetchDailyJoke() {
+    try {
+        const { data: dailyJokeData, error: dailyJokeError } = await supabaseClient
+            .from('daily_joke')
+            .select('joke_id')
+            .single();
+
+        if (dailyJokeError) throw dailyJokeError;
+
+        const { data: jokeDetails, error: jokeError } = await supabaseClient
+            .from('Viccportál')
+            .select('*')
+            .eq('id', dailyJokeData.joke_id)
+            .single();
+
+        if (jokeError) throw jokeError;
+
+        const randomJokeElement = document.getElementById('random-joke');
+        if (randomJokeElement) {
+            randomJokeElement.textContent = jokeDetails.vicc;
+        }
+    } catch (error) {
+        console.error('Error fetching daily joke:', error);
+    }
+}
+
+async function displayTopRatedJokes() {
+    const topJokes = await fetchTopRatedJokes();
+
+    const topJokesContainer = document.getElementById('top-jokes-list');
+    if (topJokesContainer) {
+        topJokesContainer.innerHTML = ''; // Töröljük a korábbi listát
+
+        topJokes.forEach(joke => {
+            const jokeElement = document.createElement("li");
+            jokeElement.innerHTML = `
+                <a href="#" onclick="displaySingleJoke(${joke.id})">${joke.nev}</a> - <strong>Értékelés: </strong>${(joke.ertekeles || 0).toFixed(1)} (Szavazatok száma: ${joke.ertekelesek_szama || 0})
+            `;
+            topJokesContainer.appendChild(jokeElement);
+        });
+    }
+}
+async function fetchTopRatedJokes() {
+    const { data, error } = await supabaseClient
+        .from("Viccportál")
+        .select("id, nev, vicc, ertekeles, ertekelesek_szama")
+        .order("ertekeles", { ascending: false })
+        .limit(10);
+
+    if (error) {
+        console.error("Hiba a top viccek lekérésekor:", error.message);
+        return [];
+    }
+
+    return data;
+}
+// Call the functions when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    fetchDailyJoke();  // A nap vicce
+    displayRandomJokes();  // Véletlenszerű viccek
+    displayTopRatedJokes();  // Legjobb 10 vicc
+});
