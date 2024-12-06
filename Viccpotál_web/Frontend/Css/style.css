@@ -290,3 +290,28 @@ body {
 #login-button:hover {
     background-color: #cc6600;
 }
+
+/* Kategória linkek megjelenítése dobozokban */
+.category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.category ul li {
+    margin-bottom: 5px; /* Kisebb margó */
+}
+
+.category a {
+    display: block; /* Linkek doboz formátumban történő megjelenítése */
+    background-color: #ff9933; /* Narancssárga háttér */
+    color: white; /* Fehér szöveg */
+    padding: 10px; /* Csökkentett padding */
+    text-align: center; /* Középre igazítás */
+    border-radius: 5px; /* Lekerekített sarkok */
+    transition: background-color 0.3s; /* Színváltás a hover hatásnál */
+    text-decoration: none; /* Link aláhúzás eltávolítása */
+}
+
+.category a:hover {
+    background-color: #cc6600; /* Hover hatás: sötétebb narancs */
+}
