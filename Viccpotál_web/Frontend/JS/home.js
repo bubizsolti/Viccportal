@@ -32,17 +32,42 @@ async function fetchDailyJoke() {
 
 // Function to fetch random jokes
 async function fetchRandomJokes() {
-    const { data, error } = await supabaseClient
-        .from("Viccportál")
-        .select("id, nev, vicc, ertekeles, ertekelesek_szama")
-        .limit(10);
+    try {
+        // Lekérjük a napi random viccek azonosítóit a `daily_random_jokes` táblából
+        const { data: dailyJokesData, error: dailyJokesError } = await supabaseClient
+            .from('daily_random_jokes')
+            .select('joke_ids')
+            .eq('date', new Date().toISOString().split('T')[0]) // A mai dátum
+            .single();  // Mivel egyetlen rekordra van szükség, használjuk a .single()
 
-    if (error) {
-        console.error("Hiba a véletlenszerű viccek lekérésekor:", error.message);
+        if (dailyJokesError || !dailyJokesData) {
+            console.error("Hiba a napi viccek lekérésében:", dailyJokesError);
+            return [];
+        }
+
+        const jokeIds = dailyJokesData.joke_ids;
+
+        if (!jokeIds || jokeIds.length === 0) {
+            console.log("Nincs elérhető napi vicc.");
+            return [];
+        }
+
+        // Lekérjük a vicceket a `Viccportál` táblából a lekért ID-k alapján
+        const { data: jokesData, error: jokesError } = await supabaseClient
+            .from('Viccportál')
+            .select('id, nev, vicc, ertekeles, ertekelesek_szama')
+            .in('id', jokeIds); // Az összes vicc, ami benne van a `joke_ids` tömbben
+
+        if (jokesError) {
+            console.error("Hiba a viccek lekérésekor:", jokesError);
+            return [];
+        }
+
+        return jokesData;
+    } catch (error) {
+        console.error('Hiba a véletlenszerű viccek lekérésekor:', error);
         return [];
     }
-
-    return data;
 }
 
 // Function to fetch top 10 jokes based on rating
