@@ -11,6 +11,13 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const password = document.getElementById('password').value;
     const email = document.getElementById('email').value;
 
+    // Email formátum ellenőrzése
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Egyszerű email minta
+    if (!emailRegex.test(email)) {
+        alert('Kérjük, érvényes email címet adjon meg!');
+        return;
+    }
+
     try {
         // Ellenőrizzük, hogy az email vagy a felhasználónév már létezik-e
         const { data: existingUser, error: checkError } = await supabaseClient
@@ -59,4 +66,3 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
         alert('Valami hiba történt, próbálja újra később.');
     }
 });
-
