@@ -6,7 +6,66 @@ const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 // Track the page number for pagination
 let currentPage = 1;
 const jokesPerPage = 10;
+async function fetchUserProfile() {
+    // Először ellenőrizzük, hogy van-e aktív bejelentkezett felhasználó
+    const { data: session, error: sessionError } = await supabaseClient.auth.getSession();
 
+    if (sessionError) {
+        console.error("Hiba a session lekérésekor:", sessionError);
+        return;
+    }
+
+    const profileNameElement = document.getElementById('profile-name');
+    
+    if (session && session.user) {
+        // Ha van aktív session, folytatjuk a felhasználói adatokat
+        const { data: userData, error } = await supabaseClient
+            .from('users')
+            .select('felhasználónev')
+            .eq('id', session.user.id)
+            .single();
+
+        if (error) {
+            console.error("Hiba a felhasználó adatainak lekérésekor:", error);
+        } else {
+            // Ha sikerült a lekérdezés, jelenítsük meg a felhasználó nevét
+            if (profileNameElement) {
+                profileNameElement.textContent = userData.felhasználónev;
+                profileNameElement.style.display = 'block'; // Mutassuk a nevet
+            }
+        }
+    } else {
+        // Ha nincs session, próbálkozzunk a sessionStorage-ból történő név lekérésével
+        const username = sessionStorage.getItem('username');
+        if (profileNameElement && username) {
+            profileNameElement.textContent = username;
+            profileNameElement.style.display = 'block'; // Mutassuk a nevet
+        } else {
+            console.log('Nincs bejelentkezett felhasználó.');
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchUserProfile(); // Hívjuk meg a funkciót a profil név megjelenítésére
+});
+
+
+
+
+// Supabase kliens inicializálása
+
+
+// Function to display the username if logged in
+function displayUsername() {
+    const username = sessionStorage.getItem('username');
+    const profileNameElement = document.getElementById('profile-name');
+
+    if (username && profileNameElement) {
+        profileNameElement.textContent = ` ${username}!`; // Felhasználó név megjelenítése
+        profileNameElement.style.display = 'block'; // Megjeleníti a profilt
+    }
+}
 // Function to fetch random jokes with pagination
 // Function to fetch "Chuck Norris viccek" with pagination
 async function fetchRandomJokes(page = 1) {

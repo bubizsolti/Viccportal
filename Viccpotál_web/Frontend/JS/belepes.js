@@ -22,6 +22,11 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         alert('Hiba a belépés során: ' + error.message);
     } else {
         alert('Sikeres belépés!');
-        window.location.href = 'Home.html'; // Céloldal megadása
+
+        // Felhasználó nevét elmentjük a sessionbe
+        sessionStorage.setItem('username', data.felhasználónev);
+
+        // Átirányítás a főoldalra
+        window.location.href = 'Home.html';
     }
 });

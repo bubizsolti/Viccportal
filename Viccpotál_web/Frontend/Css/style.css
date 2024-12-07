@@ -312,6 +312,32 @@ body {
     text-decoration: none; /* Link aláhúzás eltávolítása */
 }
 
-.category a:hover {
-    background-color: #cc6600; /* Hover hatás: sötétebb narancs */
+.login-profile-row {
+    display: flex;
+    justify-content: space-between; /* A bejelentkezési és profil szekciókat a két végére helyezi */
+    align-items: center; /* Vertikálisan középre igazítja az elemeket */
 }
+
+.login-section,
+.profile-section {
+    display: flex;
+    flex-direction: column; /* A profil kép és név függőlegesen legyenek elrendezve */
+    align-items: center; /* Képet és nevet középre igazítja */
+}
+
+#profile-picture {
+    width: 50px; /* Állítsd be a kívánt méretet */
+    height: 50px; /* Tartsd meg a négyzetes arányt */
+    border-radius: 50%; /* A profil kép kerekítése */
+    object-fit: cover; /* A kép illeszkedjen az egész területre anélkül, hogy torzulna */
+}
+
+#profile-name {
+    margin-top: 10px; /* Távolság a kép alatt */
+    text-align: center; /* Középre igazítja a nevet */
+    display: block; /* Alapértelmezett blokk elem, hogy a név ne legyen inline */
+}
+
+
+
+

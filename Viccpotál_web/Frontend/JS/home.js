@@ -1,7 +1,73 @@
-// Egyszer deklaráljuk és inicializáljuk a supabase klienst
+// Supabase kliens inicializálása
 const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+// Function to fetch the current user
+// Function to fetch the current user
+async function fetchUserProfile() {
+    // Először ellenőrizzük, hogy van-e aktív bejelentkezett felhasználó
+    const { data: session, error: sessionError } = await supabaseClient.auth.getSession();
+
+    if (sessionError) {
+        console.error("Hiba a session lekérésekor:", sessionError);
+        return;
+    }
+
+    const profileNameElement = document.getElementById('profile-name');
+    
+    if (session && session.user) {
+        // Ha van aktív session, folytatjuk a felhasználói adatokat
+        const { data: userData, error } = await supabaseClient
+            .from('users')
+            .select('felhasználónev')
+            .eq('id', session.user.id)
+            .single();
+
+        if (error) {
+            console.error("Hiba a felhasználó adatainak lekérésekor:", error);
+        } else {
+            // Ha sikerült a lekérdezés, jelenítsük meg a felhasználó nevét
+            if (profileNameElement) {
+                profileNameElement.textContent = userData.felhasználónev;
+                profileNameElement.style.display = 'block'; // Mutassuk a nevet
+            }
+        }
+    } else {
+        // Ha nincs session, próbálkozzunk a sessionStorage-ból történő név lekérésével
+        const username = sessionStorage.getItem('username');
+        if (profileNameElement && username) {
+            profileNameElement.textContent = username;
+            profileNameElement.style.display = 'block'; // Mutassuk a nevet
+        } else {
+            console.log('Nincs bejelentkezett felhasználó.');
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchUserProfile(); // Hívjuk meg a funkciót a profil név megjelenítésére
+});
+
+// Supabase kliens inicializálása
+
+
+// Function to display the username if logged in
+function displayUsername() {
+    const username = sessionStorage.getItem('username');
+    const profileNameElement = document.getElementById('profile-name');
+
+    if (username && profileNameElement) {
+        profileNameElement.textContent = ` ${username}!`; // Felhasználó név megjelenítése
+        profileNameElement.style.display = 'block'; // Megjeleníti a profilt
+    }
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    displayUsername(); // Felhasználó név megjelenítése a bejelentkezés után
+});
+
+
 
 // Function to fetch daily joke
 async function fetchDailyJoke() {
