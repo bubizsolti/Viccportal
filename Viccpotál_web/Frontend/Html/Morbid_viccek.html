@@ -39,7 +39,7 @@
                     <h3 class="top_10_vicc_h2">Vicces Viccek hírlevél</h3>
                     <p>Minden héten megkapod a legeslegjobb vicceket e-mailben!</p>
                     <input type="email" placeholder="E-mail">
-                    <button>Kérem a vicceket!</button>
+                    <button id="joke-button">Kérem a vicceket!</button>
                 </div>
 
                 <div class="category">
@@ -96,5 +96,10 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="../JS/morbid_viccek.js"></script>
+    <script>
+        document.getElementById('joke-button').addEventListener('click', () => {
+            window.location.href = 'viccbekuldese.html';
+        });
+    </script>
 </body>
 </html>
