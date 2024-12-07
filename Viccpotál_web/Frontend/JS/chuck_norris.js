@@ -36,7 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     displayRandomJokes();  // Csak "Chuck Norris viccek"
     displayTopRatedJokes();  // Legjobb 10 vicc
 });
-
+document.getElementById('login-button').addEventListener('click', () => {
+    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+});
 
 // Function to display random jokes
 async function displayRandomJokes() {

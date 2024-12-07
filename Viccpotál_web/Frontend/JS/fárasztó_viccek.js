@@ -28,7 +28,9 @@ async function fetchRandomJokes(page = 1) {
         return [];
     }
 }
-
+document.getElementById('login-button').addEventListener('click', () => {
+    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+});
 // Function to display random jokes
 async function displayRandomJokes() {
     const randomJokes = await fetchRandomJokes(currentPage);

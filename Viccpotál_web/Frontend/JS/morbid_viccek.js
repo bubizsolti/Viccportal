@@ -46,6 +46,9 @@ async function displayRandomJokes() {
         togglePaginationButtons(randomJokes.length);
     }
 }
+document.getElementById('login-button').addEventListener('click', () => {
+    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+});
 
 // Function to toggle pagination buttons visibility
 function togglePaginationButtons(currentJokesCount) {

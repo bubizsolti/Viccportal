@@ -265,6 +265,10 @@ async function displaySingleJoke(jokeId) {
         console.error('Hiba a vicc megjelenítésekor:', error);
     }
 }
+document.getElementById('login-button').addEventListener('click', () => {
+    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+});
+
 
 
 // Call the functions when the page loads
