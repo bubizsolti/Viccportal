@@ -12,26 +12,34 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const email = document.getElementById('email').value;
 
     try {
-        // Ellenőrizzük, hogy az e-mail cím már létezik-e
+        // Ellenőrizzük, hogy az email vagy a felhasználónév már létezik-e
         const { data: existingUser, error: checkError } = await supabaseClient
             .from('users') // Tábla neve
-            .select('email') // Csak az email mezőt kérjük
-            .eq('email', email) // Feltétel: egyezik az e-mail
-            .single(); // Egyedi eredmény szükséges
+            .select('felhasználónev, email') // Csak a szükséges mezők
+            .or(`email.eq.${email},felhasználónev.eq.${username}`); // Feltétel: email vagy felhasználónév egyezik
 
-        if (checkError && checkError.code !== 'PGRST116') { // Ha más hiba történt (pl. nem üres adatbázis-válasz)
+        if (checkError) { // Ha hiba történik az ellenőrzés során
             throw checkError;
         }
 
-        if (existingUser) {
-            // Ha már létezik az e-mail cím, hibaüzenet jelenik meg
-            alert('Ez az e-mail cím már regisztrálva van!');
-            return;
+        if (existingUser && existingUser.length > 0) {
+            // Ellenőrizzük, hogy mi létezik az adatbázisban
+            const emailExists = existingUser.some(user => user.email === email);
+            const usernameExists = existingUser.some(user => user.felhasználónev === username);
+
+            if (emailExists) {
+                alert('Ez az email cím már regisztrálva van!');
+                return;
+            }
+            if (usernameExists) {
+                alert('Ez a felhasználónév már foglalt!');
+                return;
+            }
         }
 
-        // Ha az e-mail nem létezik, folytatjuk a regisztrációt
+        // Ha nincs ütközés, folytatjuk a regisztrációt
         const { data, error } = await supabaseClient
-            .from('users') // Tábla neve
+            .from('users')
             .insert([
                 {
                     felhasználónev: username,
@@ -51,3 +59,4 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
         alert('Valami hiba történt, próbálja újra később.');
     }
 });
+
