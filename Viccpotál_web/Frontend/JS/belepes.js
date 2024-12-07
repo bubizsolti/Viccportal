@@ -1,29 +1,27 @@
-// Felhasználói adatok regisztrációjának tárolása
-function registerUser(username, password) {
-    // Ellenőrizzük, hogy már létezik-e a felhasználónév
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-    if (users.some(user => user.username === username)) {
-        alert("Ez a felhasználónév már foglalt!");
-        return false;
-    }
-    // Új felhasználó hozzáadása
-    users.push({ username: username, password: password });
-    localStorage.setItem("users", JSON.stringify(users));
-    alert("Sikeres regisztráció! Most már bejelentkezhet.");
-    return true;
-}
+// Supabase kliens inicializálása
+const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-// Belépés a felhasználónév és jelszó ellenőrzésével
-function loginUser(username, password) {
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-    let user = users.find(user => user.username === username && user.password === password);
+// Belépési esemény kezelése
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault(); // Megakadályozza az alapértelmezett form-küldést
 
-    if (user) {
-        alert("Sikeres bejelentkezés!");
-        // További kódok a belépés kezeléséhez
-        return true;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Itt történik az ellenőrzés a Supabase-ben
+    const { data, error } = await supabaseClient
+        .from('users')
+        .select('*')
+        .eq('felhasználónev', username)
+        .eq('jelszó', password)
+        .single();
+
+    if (error) {
+        alert('Hiba a belépés során: ' + error.message);
     } else {
-        alert("Hibás felhasználónév vagy jelszó!");
-        return false;
+        alert('Sikeres belépés!');
+        window.location.href = 'Home.html'; // Céloldal megadása
     }
-}
+});

@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regisztráció</title>
     <link rel="stylesheet" href="../Css/regisztralas.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> <!-- Supabase JS könyvtár -->
 </head>
 <body>
     <div class="register-container">
         <div class="register-box">
             <h2>Regisztráció</h2>
-            <form method="POST">
+            <form id="register-form">
                 <div class="input-group">
-                    <input type="text" name="username" placeholder="Felhasználónév" required>
+                    <input type="text" id="username" name="username" placeholder="Felhasználónév" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" name="password" placeholder="Jelszó" required>
+                    <input type="password" id="password" name="password" placeholder="Jelszó" required>
                 </div>
                 <div class="input-group">
-                    <input type="email" name="email" placeholder="Email cím" required>
+                    <input type="email" id="email" name="email" placeholder="Email cím" required>
                 </div>
                 <button type="submit">Regisztráció</button>
             </form>
             <p>Van már fiókja? <a href="belepes.html">Belépés itt</a>.</p>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="../JS/regisztracio.js"></script> <!-- Külső JavaScript fájl -->
 </body>
 </html>
