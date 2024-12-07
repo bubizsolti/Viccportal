@@ -8,7 +8,6 @@ let currentPage = 1;
 const jokesPerPage = 10;
 // Function to fetch the current user
 async function fetchUserProfile() {
-    // Először ellenőrizzük, hogy van-e aktív bejelentkezett felhasználó
     const { data: session, error: sessionError } = await supabaseClient.auth.getSession();
 
     if (sessionError) {
@@ -47,11 +46,10 @@ async function fetchUserProfile() {
     }
 }
 
+// Hívjuk meg a funkciót az oldal betöltődésekor
 document.addEventListener('DOMContentLoaded', () => {
     fetchUserProfile(); // Hívjuk meg a funkciót a profil név megjelenítésére
 });
-
-
 
 
 // Supabase kliens inicializálása
@@ -65,6 +63,66 @@ function displayUsername() {
     if (username && profileNameElement) {
         profileNameElement.textContent = ` ${username}!`; // Felhasználó név megjelenítése
         profileNameElement.style.display = 'block'; // Megjeleníti a profilt
+    }
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    displayUsername(); // Felhasználó név megjelenítése a bejelentkezés után
+});
+async function handleRatingClick(jokeId, ratingValue) {
+    try {
+        // Először ellenőrizzük, hogy be vagyunk-e jelentkezve
+        const { data: session } = await supabaseClient.auth.getSession();
+        
+        // Ha nincs session, próbálkozunk sessionStorage-ból történő lekéréssel
+        if (!session || !session.user) {
+            const username = sessionStorage.getItem('username');
+            if (username) {
+                console.log('Felhasználó neve: ', username);
+            } else {
+                alert("Kérlek, jelentkezz be, hogy értékelhesd a vicceket.");
+                return; // Ha nincs bejelentkezve a felhasználó, akkor nem engedjük az értékelést
+            }
+        }
+
+        // Fetch the current joke data
+        const { data: jokeData, error: jokeError } = await supabaseClient
+            .from('Viccportál')
+            .select('*')
+            .eq('id', jokeId)
+            .single();
+
+        if (jokeError) throw jokeError;
+
+        // Calculate the new average rating and the new vote count
+        const newVoteCount = (jokeData.ertekelesek_szama || 0) + 1;
+        const newAverageRating = ((jokeData.ertekeles || 0) * jokeData.ertekelesek_szama + ratingValue) / newVoteCount;
+
+        // Update the joke in the database with the new rating and vote count
+        const { error: updateError } = await supabaseClient
+            .from('Viccportál')
+            .update({
+                ertekeles: newAverageRating,
+                ertekelesek_szama: newVoteCount
+            })
+            .eq('id', jokeId);
+
+        if (updateError) throw updateError;
+
+        // After updating the database, update the displayed rating
+        const jokeElement = document.querySelector(`.joke[data-id='${jokeId}']`);
+        if (jokeElement) {
+            // Update the displayed average rating and vote count
+            jokeElement.querySelector('.average-rating').textContent = newAverageRating.toFixed(1);
+            jokeElement.querySelector('.vote-count').textContent = newVoteCount;
+        }
+
+        // After updating the rating, refresh the top rated jokes list
+        await displayTopRatedJokes();
+
+    } catch (error) {
+        console.error('Error handling rating:', error);
     }
 }
 // Function to fetch random jokes with pagination
@@ -177,43 +235,7 @@ function createJokeElement(joke) {
 }
 
 // Function to handle rating clicks and update the database
-async function handleRatingClick(jokeId, ratingValue) {
-    try {
-        // Fetch the current joke data
-        const { data: jokeData, error: jokeError } = await supabaseClient
-            .from('Viccportál')
-            .select('*')
-            .eq('id', jokeId)
-            .single();
 
-        if (jokeError) throw jokeError;
-
-        // Calculate the new average rating and the new vote count
-        const newVoteCount = (jokeData.ertekelesek_szama || 0) + 1;
-        const newAverageRating = ((jokeData.ertekeles || 0) * jokeData.ertekelesek_szama + ratingValue) / newVoteCount;
-
-        // Update the joke in the database with the new rating and vote count
-        const { error: updateError } = await supabaseClient
-            .from('Viccportál')
-            .update({
-                ertekeles: newAverageRating,
-                ertekelesek_szama: newVoteCount
-            })
-            .eq('id', jokeId);
-
-        if (updateError) throw updateError;
-
-        // After updating the database, update the displayed rating
-        const jokeElement = document.querySelector(`.joke[data-id='${jokeId}']`);
-        if (jokeElement) {
-            // Update the displayed average rating and vote count
-            jokeElement.querySelector('.average-rating').textContent = newAverageRating.toFixed(1);
-            jokeElement.querySelector('.vote-count').textContent = newVoteCount;
-        }
-    } catch (error) {
-        console.error('Error handling rating:', error);
-    }
-}
 
 // Function to fetch the daily joke
 async function fetchDailyJoke() {
