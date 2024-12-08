@@ -236,3 +236,51 @@ Próbáld meg nem létező felhasználónévvel belépni.
 A rendszer megfelelően kezeli-e ezt az esetet (pl. „A felhasználó nem található” üzenet).
 Szimulálj hálózati hibát, és ellenőrizd:
 A rendszer megjelenít-e hibaüzenetet („Nem sikerült csatlakozni, próbáld újra”).
+
+
+# #3 Teszt: Viccbeküldési funkció működésének ellenőrzése
+**Leírás:** Ellenőrzi, hogy a felhasználó helyes adatokkal tud-e viccet beküldeni, és a rendszer ellenőrzi-e a felhasználónevét és a kategóriát.
+
+**Elvárt eredmény:** A helyes adatokkal a vicc bekerül az adatbázisba, a hiányos vagy hibás adatokra pedig hibaüzenet jelenik meg.
+
+**Teszt lépések:**
+1. be egy regisztrált felhasználóval.
+2. Nyisd meg a viccbeküldési oldalt.
+3. Töltsd ki az űrlapot helyes adatokkal (felhasználónév, vicc szövege, kategória).
+4. Kattints a "Beküldés" gombra.
+ 
+**Ellenőrizd:**
+A beküldött vicc megjelenik-e az adatbázisban a megfelelő felhasználónévvel és kategóriával.
+A weboldalon megjelenik-e a „Beküldés sikeres” visszajelzés.
+Próbálj hiányos adatokkal beküldeni (pl. üres kategória vagy vicc szöveg).
+
+**Ellenőrizd:**
+A rendszer hibaüzenetet ad-e („A kategória kitöltése kötelező”).
+Próbálj nem létező kategóriát választani. Ellenőrizd:
+A rendszer figyelmeztet-e, hogy a kategória érvénytelen.
+
+**Szimulálj hálózati hibát, és ellenőrizd:**
+A rendszer megjelenít-e figyelmeztető üzenetet („Nem sikerült beküldeni, próbáld újra”).
+
+# #4 Teszt: Regisztrációs funkció helyes működésének ellenőrzése
+
+**Leírás:** Ellenőrzi, hogy a felhasználó megfelelő adatokkal regisztrálhat-e, és a rendszer biztosítja-e az e-mail és a felhasználónév egyediségét.
+
+**Elvárt eredmény:** A regisztráció sikeres helyes adatokkal, de azonos e-mail vagy felhasználónév esetén hibaüzenet jelenik meg.
+
+**Teszt lépések:**
+1. Nyisd meg a regisztrációs oldalt.
+2. Töltsd ki az űrlapot helyes adatokkal (név, e-mail, felhasználónév, jelszó).
+3. Kattints a "Regisztráció" gombra.
+
+**Ellenőrizd:**
+A felhasználó adatai bekerülnek-e az adatbázisba.
+A weboldalon megjelenik-e a „Regisztráció sikeres” üzenet.
+Próbáld meg ugyanazzal az e-mail címmel regisztrálni magad. 
+**Ellenőrizd:**
+A rendszer hibaüzenetet ad-e („Ezzel az e-mail címmel már regisztráltak”).
+Próbáld meg ugyanazzal a felhasználónévvel regisztrálni magad. 
+**Ellenőrizd:**
+A rendszer figyelmeztet-e, hogy a felhasználónév már foglalt.
+Szimulálj hálózati hibát, és ellenőrizd:
+Megjelenik-e a „Nem sikerült regisztrálni, próbáld újra” üzenet.
