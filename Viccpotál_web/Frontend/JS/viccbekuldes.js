@@ -11,10 +11,22 @@ document.getElementById('joke-form').addEventListener('submit', async (e) => {
     const joke = document.getElementById('joke').value;
     const category = document.getElementById('category').value;
 
-    // Vicc beküldése a Supabase táblába
+    // Ellenőrizzük, hogy a felhasználónév létezik-e a "users" táblában
+    const { data: userData, error: userError } = await supabaseClient
+        .from('users')
+        .select('*')
+        .eq('felhasználónev', username)
+        .single();
+
+    if (userError || !userData) {
+        alert('Hiba: A megadott felhasználónév nem létezik a "users" táblában.');
+        return;
+    }
+
+    // Vicc beküldése a "Beküldőtt viccek" táblába
     const { error } = await supabaseClient
-        .from('Beküldött viccek') // Az adatbázis tábla neve
-        .insert([{ felhasznalonev: username, vicc: joke, vickategoria: category }]);
+        .from('Beküldőtt viccek') // Az adatbázis tábla neve
+        .insert([{ felhasználónev: username, vicc: joke, vicckategoria: category }]);
 
     if (error) {
         alert('Hiba történt a vicc beküldése során: ' + error.message);
