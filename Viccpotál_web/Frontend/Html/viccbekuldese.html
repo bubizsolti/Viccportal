@@ -7,28 +7,41 @@
     <link rel="stylesheet" href="../Css/viccbekuldes.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Küldj be egy viccet!</h1>
-        <p>Oszd meg velünk a kedvenc viccedet!</p>
-        
-        <!-- Vicc beküldési űrlap -->
-        <form action="/submit-joke" method="POST">
+<div class="joke-container">
+    <div class="joke-box">
+        <h2>Vicc beküldése</h2>
+        <form id="joke-form">
             <div class="input-group">
-                <label for="name">Neved:</label>
-                <input type="text" id="name" name="name" placeholder="Add meg a neved" required>
+                <input type="text" id="username" name="username" placeholder="Felhasználónév" required>
             </div>
             <div class="input-group">
-                <label for="joke">Vicc:</label>
-                <textarea id="joke" name="joke" rows="5" placeholder="Írd be a vicced" required></textarea>
+                <textarea id="joke" name="joke" rows="5" placeholder="Írd be a vicced..." required></textarea>
             </div>
-            <button type="submit">Vicc beküldése</button>
+            <div class="input-group">
+                <label for="category">Vicc kategóriája:</label>
+                <select id="category" name="category" required>
+                    <option value="Anyós viccek">Anyós viccek</option>
+                    <option value="Chuck Norris viccek">Chuck Norris viccek</option>
+                    <option value="Cigány viccek">Cigány viccek</option>
+                    <option value="Erotikus viccek">Erotikus viccek</option>
+                    <option value="Fárasztó viccek">Fárasztó viccek</option>
+                    <option value="Morbid viccek">Morbid viccek</option>
+                    <option value="Munkahely viccek">Munkahely viccek</option>
+                    <option value="Móricka viccek">Móricka viccek</option>
+                    <option value="Néger viccek viccek">Néger viccek viccek</option>
+                    <option value="Rendőr viccek">Rendőr viccek</option>
+                    <option value="Szóviccek">Szóviccek</option>
+                    <option value="Szőke nős viccek">Szőke nős viccek</option>
+                    <option value="Állatos viccek">Állatos viccek</option>
+                </select>
+            </div>
+            <button type="submit">Beküldés</button>
         </form>
-        
-        <!-- Viccek listája -->
-        <h2>Beküldött viccek</h2>
-        <ul id="jokes-list">
-            <!-- Itt jelennek meg a beküldött viccek -->
-        </ul>
+        <p>Viccet beküldtél már? <a href="vicclista.html">Nézd meg a vicceket!</a>.</p>
     </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> <!-- Supabase JS könyvtár -->
+<script src="../JS/viccbekuldes.js"></script> <!-- Külső JavaScript fájl -->
 </body>
 </html>
