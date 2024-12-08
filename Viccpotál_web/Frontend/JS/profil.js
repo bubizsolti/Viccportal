@@ -10,7 +10,7 @@ async function loadUserData() {
 
     if (!felhasználónev) {
         alert('Nem található felhasználó. Kérlek, jelentkezz be újra!');
-        window.location.href = 'login.html'; // Átirányítás a bejelentkezési oldalra
+        window.location.href = '../Html/belepes.html'; // Átirányítás a bejelentkezési oldalra
         return;
     }
 
