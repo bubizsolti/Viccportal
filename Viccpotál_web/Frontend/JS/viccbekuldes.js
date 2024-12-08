@@ -7,9 +7,9 @@ const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 document.getElementById('joke-form').addEventListener('submit', async (e) => {
     e.preventDefault(); // Alapértelmezett form-küldés megakadályozása
 
-    const username = document.getElementById('felhasználónev').value;
-    const joke = document.getElementById('vicc').value;
-    const category = document.getElementById('kategoria').value;
+    const username = document.getElementById('username').value;
+    const joke = document.getElementById('joke').value;
+    const category = document.getElementById('category').value;
 
     // Vicc beküldése a Supabase táblába
     const { error } = await supabaseClient
