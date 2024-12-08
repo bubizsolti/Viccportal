@@ -1,6 +1,8 @@
 // 1. Teszt: displayTopJokes funkció megjelenítése
 function displayTopJokes() {
-    const jokes = JSON.parse(localStorage.getItem('jokes')) || [];
+    const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
     const sortedJokes = jokes.sort((a, b) => b.rating - a.rating).slice(0, 10);
 
     const topJokesList = document.getElementById('top-jokes-list');
@@ -56,7 +58,9 @@ function displayTopJokes() {
     }
     // 5. Teszt: Egy vicc véletlenszerű kiválasztása és megjelenítése
     function getRandomJoke() {
-        const allJokes = JSON.parse(localStorage.getItem('jokes')) || [];
+        const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
         if (allJokes.length === 0) {
             alert('Nincsenek viccek a rendszerben!');
             return;
@@ -69,7 +73,9 @@ function displayTopJokes() {
     //6. Teszt: Viccek tárolása és betöltése a localStorage-ból
 
     function testRandomJokesStorage() {
-        localStorage.removeItem('randomJokes'); // Üres localStorage
+        const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
         // Generálj új vicceket és tárold el
         const randomJokes = [
@@ -93,7 +99,9 @@ function displayTopJokes() {
         const jokes = [
             { id: 1, title: 'Vicc 1', content: 'Ez az első vicc.', rating: 3, votes: 0 }
         ];
-        localStorage.setItem('jokes', JSON.stringify(jokes));
+        const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
         try {
             updateJokeRating(2, 5); // A vicc ID nem létezik
@@ -112,7 +120,9 @@ function displayTopJokes() {
         const jokes = [
             { id: 5, title: 'Teszt vicc', content: 'Ez egy teszt vicc.', rating: 3, votes: 0 }
         ];
-        localStorage.setItem('jokes', JSON.stringify(jokes));
+        const supabaseUrl = 'https://kgsybjdmbpufucdvvvpb.supabase.co';
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnc3liamRtYnB1ZnVjZHZ2dnBiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzA3Nzk5NSwiZXhwIjoyMDQ4NjUzOTk1fQ.wXA5w3xq6MuwozzdZ8U-WnxY7W-vh5tFu9LlwLiTAhI";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
         // Szavazás több alkalommal
         updateJokeRating(5, 4);
