@@ -119,3 +119,91 @@ Teszt eredmény: Sikeresen HTML oldalt vált, ha rámegyünk a linkre.
 # 10. Teszt: Bejelentkezés
 Elvárt eredmény: Ha korábban már regisztrált felhasználó belép, akkor értékelheti a vicceket és küldhet is be vicceket
 Teszt eredmény: Sikeresen megjelenik a bejelentkezés gomb és kattintásra a bejelentkezési oldalra kerülünk, de nem lehet bejelentkezni.
+---
+# 11. Teszt: Regisztráció
+Elvárt eredmény: Ha a regisztációs gombra kattintunk akkor megjelenik regisztrációs oldal. Lehet regisztrálni emaillel és jelszóval. Ha regisztráltunk vicceket küldhetünk be, értékelhetünk vicceket.
+Teszt eredmény: Sikeresen megjelenik a regisztrációs gomb. Kattintásra a regisztrációs oldalra visz minket. A regisztráció nem működik.
+ 
+
+---
+# #12. Teszt: Nap vicce megjelenítése
+Leírás: Ellenőrzi, hogy a weboldal helyesen választja ki és jeleníti meg a nap viccét, a megadott kritériumok alapján.
+
+Elvárt eredmény:
+
+Egyetlen vicc jelenik meg a „joke-of-the-day” konténerben.
+A vicc címe, szövege, értékelése és szavazatszáma helyesen jelenik meg.
+Minden nap másik vicc kerül kiválasztásra (pl. időbélyeg alapján vagy véletlenszerűen).
+Teszt lépések:
+
+Töltsd fel a rendszerbe legalább 5 viccet eltérő tartalmakkal és értékelésekkel.
+
+Hívd meg a displayJokeOfTheDay függvényt.
+
+Ellenőrizd:
+
+Egyetlen vicc jelenik meg a „joke-of-the-day” konténerben.
+A megjelenített vicc címe, szövege, értékelése és szavazatszáma helyesen látszik.
+A vicc HTML szerkezete megfelel az elvárásoknak (pl. külön cím, tartalom, értékelés és szavazatszám).
+Ellenőrizd, hogy a kiválasztás logikája működik:
+
+Ha időalapú (pl. napi frissítés): Ellenőrizd az időbélyeget, hogy másik vicc jelenik-e meg más napokon.
+Ha véletlenszerű: Teszteld többszöri újratöltéssel, hogy a vicc váltakozik-e.
+Szimulálj üres adatbázist, és ellenőrizd, hogy a rendszer egy „Ma nincs elérhető vicc” üzenetet jelenít-e meg.
+
+
+---
+# #13. Teszt: CSS fájl helyes betöltése és alkalmazása minden oldalon  
+**Leírás:** Ellenőrzi, hogy a közös stílusokat tartalmazó CSS fájl helyesen betöltődik és működik minden weboldalon.  
+
+**Elvárt eredmény:**  
+- A CSS fájl betöltődik minden oldalon.  
+- Az összes stíluselem megfelelően alkalmazásra kerül az adott oldalon.  
+- Nincsenek hiányzó stílusok vagy törött elemek.  
+
+**Teszt lépések:**  
+1. **HTML ellenőrzés:** Győződj meg róla, hogy minden oldal forráskódjában szerepel a CSS fájl helyes hivatkozása:  
+   ```html
+   <link rel="stylesheet" href="styles.css">
+   ```  
+
+2. **Betöltés ellenőrzése:**  
+   - Nyisd meg a weboldalt a böngészőben.  
+   - A böngésző fejlesztői eszközeivel ellenőrizd a CSS fájl betöltésének állapotát (pl. nincs 404-es hiba).  
+
+3. **Stílusok ellenőrzése minden oldalon:**  
+   - Nyisd meg a weboldal összes oldalát.  
+   - Ellenőrizd, hogy a közös elemek (pl. fejléc, lábléc, menük, gombok) megfelelő stílusokat kaptak.  
+
+4. **Responsiveness tesztelése:**  
+   - Ellenőrizd, hogy a CSS fájl mobil, tablet és asztali eszközökön is megfelelően működik.  
+   - Tesztelj különböző böngészőkben (pl. Chrome, Firefox, Safari).  
+
+5. **Hibák szimulálása:**  
+   - Távolítsd el a CSS hivatkozást az egyik oldalról, és ellenőrizd, hogy az oldal felismeri-e a hiányzó fájlt (pl. hibaüzenet a konzolban).  
+
+6. **Verziókezelés tesztelése:**  
+   - Ha verziózott CSS fájlt használsz (pl. `styles.css?v=1.0`), ellenőrizd, hogy a frissítések automatikusan alkalmazásra kerülnek a gyorsítótár ellenére is.  
+
+**Megjegyzés:**  
+- Győződj meg arról, hogy a CSS fájl relatív vagy abszolút hivatkozása helyesen van beállítva, különösen, ha az oldalak különböző könyvtárstruktúrákban vannak.  
+- Ha több CSS fájl van (pl. globális és oldalspecifikus), ellenőrizd, hogy a fájlok sorrendje megfelelő, és nem írják felül egymást váratlanul.
+ 
+
+---
+
+#  #14. Teszt: Valósidejű frissítések  
+**Leírás:** Ellenőrzi, hogy a weboldal valósidejű frissítéseket kap-e a szervertől.  
+**Elvárt eredmény:** Új adatok automatikusan frissülnek az oldalon.  
+**Teszt lépések:**  
+1. Indítsd el a valósidejű kapcsolatot.  
+2. Ellenőrizd, hogy az új adatok megjelennek-e a frissítés nélkül.  
+
+---
+
+#  #15. Teszt: Szerver üzemidejének monitorozása  
+**Leírás:** Ellenőrzi, hogy a weboldal naplózza-e a szerver leállásait.  
+**Elvárt eredmény:** A szerver leállásairól naplóbejegyzések készülnek.  
+**Teszt lépések:**  
+1. Szimulálj szerverleállást.  
+2. Ellenőrizd a naplózás eredményét.  
