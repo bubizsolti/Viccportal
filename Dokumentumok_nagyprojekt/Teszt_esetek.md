@@ -117,12 +117,12 @@ Teszt eredmény: Sikeresen HTML oldalt vált, ha rámegyünk a linkre.
 
 ---
 # 10. Teszt: Bejelentkezés
-Elvárt eredmény: Ha korábban már regisztrált felhasználó belép, akkor értékelheti a vicceket és küldhet is be vicceket
-Teszt eredmény: Sikeresen megjelenik a bejelentkezés gomb és kattintásra a bejelentkezési oldalra kerülünk, de nem lehet bejelentkezni.
+Elvárt eredmény: Ha korábban már regisztrált felhasználó akkor bejelentkezhet.
+Teszt eredmény: Sikeresen megjelenik a bejelentkezés gomb és kattintásra a bejelentkezési oldalra kerülünk, ahol betudunk jelentkezmi.
 ---
 # 11. Teszt: Regisztráció
 Elvárt eredmény: Ha a regisztációs gombra kattintunk akkor megjelenik regisztrációs oldal. Lehet regisztrálni emaillel és jelszóval. Ha regisztráltunk vicceket küldhetünk be, értékelhetünk vicceket.
-Teszt eredmény: Sikeresen megjelenik a regisztrációs gomb. Kattintásra a regisztrációs oldalra visz minket. A regisztráció nem működik.
+Teszt eredmény: Sikeresen megjelenik a regisztrációs gomb. Kattintásra a regisztrációs oldalra visz minket, ahol regisztrálhatunk.
  
 
 ---
@@ -132,7 +132,7 @@ Leírás: Ellenőrzi, hogy a weboldal helyesen választja ki és jeleníti meg a
 Elvárt eredmény:
 
 Egyetlen vicc jelenik meg a „joke-of-the-day” konténerben.
-A vicc címe, szövege, értékelése és szavazatszáma helyesen jelenik meg.
+A vicc címe és szövege helyesen jelenik meg.
 Minden nap másik vicc kerül kiválasztásra (pl. időbélyeg alapján vagy véletlenszerűen).
 Teszt lépések:
 
@@ -143,8 +143,8 @@ Hívd meg a displayJokeOfTheDay függvényt.
 Ellenőrizd:
 
 Egyetlen vicc jelenik meg a „joke-of-the-day” konténerben.
-A megjelenített vicc címe, szövege, értékelése és szavazatszáma helyesen látszik.
-A vicc HTML szerkezete megfelel az elvárásoknak (pl. külön cím, tartalom, értékelés és szavazatszám).
+A megjelenített vicc címe és szövege helyesen látszik.
+A vicc HTML szerkezete megfelel az elvárásoknak (pl. külön cím, tartalom).
 Ellenőrizd, hogy a kiválasztás logikája működik:
 
 Ha időalapú (pl. napi frissítés): Ellenőrizd az időbélyeget, hogy másik vicc jelenik-e meg más napokon.
@@ -238,7 +238,7 @@ Szimulálj hálózati hibát, és ellenőrizd:
 A rendszer megjelenít-e hibaüzenetet („Nem sikerült csatlakozni, próbáld újra”).
 
 
-# #3 Teszt: Viccbeküldési funkció működésének ellenőrzése
+# #17 Teszt: Viccbeküldési funkció működésének ellenőrzése
 **Leírás:** Ellenőrzi, hogy a felhasználó helyes adatokkal tud-e viccet beküldeni, és a rendszer ellenőrzi-e a felhasználónevét és a kategóriát.
 
 **Elvárt eredmény:** A helyes adatokkal a vicc bekerül az adatbázisba, a hiányos vagy hibás adatokra pedig hibaüzenet jelenik meg.
@@ -262,7 +262,7 @@ A rendszer figyelmeztet-e, hogy a kategória érvénytelen.
 **Szimulálj hálózati hibát, és ellenőrizd:**
 A rendszer megjelenít-e figyelmeztető üzenetet („Nem sikerült beküldeni, próbáld újra”).
 
-# #4 Teszt: Regisztrációs funkció helyes működésének ellenőrzése
+# #18 Teszt: Regisztrációs funkció helyes működésének ellenőrzése
 
 **Leírás:** Ellenőrzi, hogy a felhasználó megfelelő adatokkal regisztrálhat-e, és a rendszer biztosítja-e az e-mail és a felhasználónév egyediségét.
 
@@ -284,3 +284,39 @@ Próbáld meg ugyanazzal a felhasználónévvel regisztrálni magad.
 A rendszer figyelmeztet-e, hogy a felhasználónév már foglalt.
 Szimulálj hálózati hibát, és ellenőrizd:
 Megjelenik-e a „Nem sikerült regisztrálni, próbáld újra” üzenet.
+
+# #19 Teszt: Regisztrációs email
+
+**Elvárt eredmény:** Csak email formátummal engedi megadni az emailt, egyéb esetben hibát jelez.
+
+**Kapott eredmény:** Csak helyes email formátummal enged regisztrálni. Egyéb esetben arra kér,hogy email formátumot adjak meg és hibát jelez.
+
+# #20 Teszt: Viccek értékelése bejelentkezés alapján
+
+**Elvárt erdmény:** Csak bejelentkezett felhasználók számára enged vicceket értékelni. Egyéb esetben hibát jelez.
+
+**Kapott eredmény:** Ha nincs bejelentkezve a felhasználó nem enged értékelni és megkér,hogy jelentkezz be a funkció eléréséhez.
+
+# #21 Teszt: Profil név megjelenítése
+
+**Elvárt eredmény:** Ha be van jelentkezve a felhasználó a profil icon alatt megjelenik a a felhasználóneve. Egyéb esetben nincs oda írva semmi.
+
+**Kapott eredmény:** Ha bejelentkezünk sikeresen megjelenik a felhasználónevünk.
+
+# #22 Teszt: Oldalváltó gombok működése
+
+**Elvárt eredmény:** A főoldalon használva a gombot az "Összes viccek" oldalra navigál. Más oldalon betölti a következő 10 viccet és megjelenik az "Előző 10 vicc" gomb ami vissza hozza az előző 10 viccet.
+
+**Kapott eerdmény:** A főoldalról sikeres átnavigál az "Összes viccek" oldalra. Egyéb esetben betölti a következő 10 viccet, valamint az "Előző 10 vicc gombot'. Az "Előző 10 vicc" gomb sikeresen vissza hozza a az előző 10 viccet.
+
+# #23 Teszt: Breadcrumb működése
+
+**Elvárt eredmény:** Az oldalon nyomon tudod követni,hogy melyik Kategória oldalán vagy és hogy hogyan tudtál oda menni. Ha rákattintasz a "Főoldal>>--->>>" breadcrumbra vissza visz a főoldalra.
+
+**Kapott eredmény:** Sikeresen megjelenik a Breadcrumb és jelzi,hogy melyik oldalon vagy. Sikeresen vissza visz a főoldalra, ha rá mész.
+
+# #24 Teszt: Kinézet
+
+**Elvárt eredmény:** Az oldal méretének állításakor megőrzi a stílust és nem csúszik szét, valamint minden Böngészőben (Firefox,Chrome...) ugyan úgy működik.
+
+**Kapott eredmény:** Az oldal stílusa nem esik szét, ha változtatjuk a méretét. Minden böngészőben azonos a sílus és a funkciók.
