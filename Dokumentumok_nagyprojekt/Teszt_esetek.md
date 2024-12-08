@@ -207,3 +207,32 @@ Szimulálj üres adatbázist, és ellenőrizd, hogy a rendszer egy „Ma nincs e
 **Teszt lépések:**  
 1. Szimulálj szerverleállást.  
 2. Ellenőrizd a naplózás eredményét.  
+
+
+#  #16 Teszt: Belépési funkció helyes működésének ellenőrzése
+**Leírás:** Ellenőrzi, hogy a weboldalon a belépési funkció helyesen működik-e, és a felhasználó helyes adatokkal hozzáfér a fiókjához.
+
+**Elvárt eredmény:** A felhasználó helyes adatokkal sikeresen belép, és a rendszer tárolja a belépési információkat (pl. munkamenet létrejön).
+
+**Teszt lépések:**
+1.Nyisd meg a belépési oldalt.
+
+2.Töltsd ki az űrlapot helyes felhasználónévvel és jelszóval.
+
+3.Kattints a "Belépés" gombra.
+
+**Ellenőrizd:**
+
+A felhasználó átirányításra kerül-e a saját fiók felületére.
+
+A rendszer létrehoz-e munkamenetet vagy tokent a belépéshez (ellenőrizd böngészőből vagy szerver naplóiból).
+Próbáld meg hibás jelszóval belépni.
+
+**Ellenőrizd:**
+A rendszer megjelenít-e figyelmeztető üzenetet (pl. „Helytelen felhasználónév vagy jelszó”).
+Próbáld meg nem létező felhasználónévvel belépni.
+
+**Ellenőrizd:**
+A rendszer megfelelően kezeli-e ezt az esetet (pl. „A felhasználó nem található” üzenet).
+Szimulálj hálózati hibát, és ellenőrizd:
+A rendszer megjelenít-e hibaüzenetet („Nem sikerült csatlakozni, próbáld újra”).
