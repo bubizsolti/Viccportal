@@ -66,3 +66,56 @@ Az átlagos értékelés frissül-e, ha többen is értékelik a viccet.
 Próbálj hibás vagy üres értékelést küldeni, és ellenőrizd, hogy hibaüzenet jelenik-e meg (pl. „Érvénytelen értékelés!”).
 
 Ellenőrizd, hogy ugyanaz a felhasználó nem tud-e többször értékelni ugyanazt a viccet (ha ez az elvárás).
+#  #6. Teszt: Felhasználói adatok mentése  
+**Leírás:** Ellenőrzi, hogy a felhasználói űrlapadatok sikeresen elküldhetők és elmenthetők a szerveren.  
+**Elvárt eredmény:** Az űrlap beküldése után a szerver visszaigazoló üzenetet küld, és az adatok mentése megtörténik.  
+**Teszt lépések:**  
+1. Töltsd ki az űrlapot a weboldalon.  
+2. Nyomd meg a „Küldés” gombot.  
+3. Ellenőrizd a szerver visszajelzését és az adatmentés eredményét.  
+
+---
+# #7. Teszt: A legjobb 10 vicc megjelenítése
+Leírás: Ellenőrzi, hogy a weboldalon a legjobban értékelt 10 vicc helyesen jelenik meg, a megfelelő sorrendben és formátumban.
+
+Elvárt eredmény:
+
+A legjobb 10 vicc címe, szövege, értékelése és szavazatszáma helyesen jelenik meg.
+A viccek az értékelésük alapján csökkenő sorrendben vannak rendezve.
+Pontosan 10 vicc jelenik meg a „top-jokes-list” konténerben.
+Teszt lépések:
+
+Töltsd fel a rendszerbe legalább 15 viccet eltérő értékelésekkel és szavazatszámokkal.
+
+Hívd meg a displayTopJokes függvényt.
+
+Ellenőrizd:
+
+Pontosan 10 vicc jelenik meg a „top-jokes-list” elemben.
+A viccek sorrendje az értékelés szerint csökkenő (pl. 5.0, 4.9, 4.8 stb.).
+Minden vicc címe, szövege, értékelése és szavazatszáma helyesen jelenik meg a megfelelő HTML elemekben.
+Ellenőrizd, hogy üres adatbázis esetén a lista helyesen kezeli a hibát, és egy „Nincs elérhető vicc” üzenetet jelenít meg.
+
+Frissíts egy vicc értékelését, és hívd meg újra a displayTopJokes függvényt. Ellenőrizd, hogy a lista frissül-e a helyes sorrendben.
+
+
+---
+# 8. Teszt: Vicc kategóriák kattinthatósága
+Elvárt eredmény: Ha rámegyünk az egyik vicc katgóriára, új HTML oldal jelenik meg.
+
+Teszt eredmény: Sikeresen HTML oldalt vált, ha rámegyünk a linkre.
+
+
+---
+
+#  #9. Teszt: Adatvédelem ellenőrzése  
+**Leírás:** Ellenőrzi, hogy a weboldal biztonságos protokollt használ az érzékeny adatok küldésekor.  
+**Elvárt eredmény:** Az adatok HTTPS-en keresztül titkosítva kerülnek továbbításra.  
+**Teszt lépések:**  
+1. Küldj érzékeny adatokat (pl. jelszót).  
+2. Ellenőrizd a hálózati kérések titkosítását.  
+
+---
+# 10. Teszt: Bejelentkezés
+Elvárt eredmény: Ha korábban már regisztrált felhasználó belép, akkor értékelheti a vicceket és küldhet is be vicceket
+Teszt eredmény: Sikeresen megjelenik a bejelentkezés gomb és kattintásra a bejelentkezési oldalra kerülünk, de nem lehet bejelentkezni.
