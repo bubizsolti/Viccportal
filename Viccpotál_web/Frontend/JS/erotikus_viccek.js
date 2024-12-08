@@ -146,7 +146,7 @@ async function fetchRandomJokes(page = 1) {
     }
 }
 document.getElementById('login-button').addEventListener('click', () => {
-    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+    window.location.href = '../HTML/belepes.html'; // Ide kell a céloldal nevét megadni
 });
 
 // Function to display random jokes

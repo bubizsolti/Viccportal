@@ -295,7 +295,7 @@ async function fetchTopRatedJokes() {
     return data;
 }
 document.getElementById('login-button').addEventListener('click', () => {
-    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+    window.location.href = '../HTML/belepes.html'; // Ide kell a céloldal nevét megadni
 });
 // Call the functions when the page loads
 document.addEventListener('DOMContentLoaded', () => {

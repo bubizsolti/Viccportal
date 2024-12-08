@@ -164,7 +164,7 @@ async function displayRandomJokes() {
     }
 }
 document.getElementById('login-button').addEventListener('click', () => {
-    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+    window.location.href = '../HTML/belepes.html'; // Ide kell a céloldal nevét megadni
 });
 // Function to toggle pagination buttons visibility
 function togglePaginationButtons(currentJokesCount) {

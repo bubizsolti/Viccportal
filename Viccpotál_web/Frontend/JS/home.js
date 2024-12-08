@@ -354,7 +354,7 @@ async function displaySingleJoke(jokeId) {
     }
 }
 document.getElementById('login-button').addEventListener('click', () => {
-    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+    window.location.href = '../HTML/belepes.html'; // Ide kell a céloldal nevét megadni
 });
 
 

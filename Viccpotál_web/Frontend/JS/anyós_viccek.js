@@ -190,7 +190,7 @@ document.getElementById('next-jokes-button')?.addEventListener('click', async ()
     await displayRandomJokes();
 });
 document.getElementById('login-button').addEventListener('click', () => {
-    window.location.href = '../HTML/regisztralas.html'; // Ide kell a céloldal nevét megadni
+    window.location.href = '../HTML/belepes.html'; // Ide kell a céloldal nevét megadni
 });
 // Function to handle the "Previous" button click
 document.getElementById('previous-jokes-button')?.addEventListener('click', async () => {
