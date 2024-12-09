@@ -15,7 +15,7 @@ async function fetchUserProfile() {
     }
 
     const profileNameElement = document.getElementById('profile-name');
-    
+
     if (session && session.user) {
         // Ha van aktív session, folytatjuk a felhasználói adatokat
         const { data: userData, error } = await supabaseClient

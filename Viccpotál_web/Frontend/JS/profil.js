@@ -10,7 +10,7 @@ async function loadUserData() {
 
     if (!felhasználónev) {
         alert('Nem található felhasználó. Kérlek, jelentkezz be újra!');
-        window.location.href = '../Html/belepes.html'; // Átirányítás a bejelentkezési oldalra
+        window.location.href = '../Html/Home.html'; // Átirányítás a bejelentkezési oldalra
         return;
     }
 
@@ -36,7 +36,7 @@ async function loadUserData() {
 document.getElementById('logout-button').addEventListener('click', () => {
     localStorage.removeItem('felhasználónev'); // Felhasználónév eltávolítása
     alert('Kijelentkeztél.');
-    window.location.href = '../Html/belepes.html'; // Átirányítás a bejelentkezési oldalra
+    window.location.href = '../Html/Home.html'; // Átirányítás a bejelentkezési oldalra
 });
 
 // Adatok betöltése az oldal betöltésekor
