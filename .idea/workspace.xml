@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6850817-141a-4d55-97c5-1902123fa759" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/profil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/JS/belepes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/JS/belepes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,39 +24,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.Anyós_viccek.html.executor": "Run",
-    "JavaScript Debug.Chuck_Norris.html.executor": "Run",
-    "JavaScript Debug.Cigány_viccek.html.executor": "Run",
-    "JavaScript Debug.Erotikus_viccek.html.executor": "Run",
-    "JavaScript Debug.Fárasztó_viccek.html.executor": "Run",
-    "JavaScript Debug.Home.html.executor": "Run",
-    "JavaScript Debug.Morbid_viccek.html.executor": "Run",
-    "JavaScript Debug.Munkahely_viccek.html.executor": "Run",
-    "JavaScript Debug.Móricka_viccek.html.executor": "Run",
-    "JavaScript Debug.Néger_viccek.html.executor": "Run",
-    "JavaScript Debug.Rendőr_viccek.html.executor": "Run",
-    "JavaScript Debug.Szóviccek.html.executor": "Run",
-    "JavaScript Debug.Szőke_nő.html.executor": "Run",
-    "JavaScript Debug.belepes.html.executor": "Run",
-    "JavaScript Debug.profil.html.executor": "Run",
-    "JavaScript Debug.Állatos_viccek.html.executor": "Run",
-    "JavaScript Debug.Összes_vicc.html.executor": "Run",
-    "Node.js.home.js.executor": "Run",
-    "Node.js.profil.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.Anyós_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Chuck_Norris.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Cigány_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Erotikus_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Fárasztó_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Home.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Morbid_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Munkahely_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Móricka_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Néger_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Rendőr_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Szóviccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Szőke_nő.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.belepes.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.profil.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Állatos_viccek.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.Összes_vicc.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.home.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.profil.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Egyetem\5. félév\Szoftverfejlesztési módszertanok\Viccportal\Viccpotál_web\Teszt" />
@@ -80,6 +79,7 @@
       <updated>1733684201724</updated>
       <workItem from="1733684204102" duration="11694000" />
       <workItem from="1733703660087" duration="5015000" />
+      <workItem from="1733709313869" duration="144000" />
     </task>
     <servers />
   </component>

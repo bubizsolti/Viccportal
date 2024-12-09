@@ -27,6 +27,6 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         sessionStorage.setItem('username', data.felhasználónev);
 
         // Átirányítás a főoldalra
-        window.location.href = 'Home.html';
+        window.location.href = '../Html/Összes_vicc.html';
     }
 });
