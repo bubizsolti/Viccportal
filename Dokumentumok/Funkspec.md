@@ -1,143 +1,100 @@
-# Jelenlegi helyzet leírása
+# Funkcionális Követelmények
 
-Az internet elterjedésével a humorforrások is átalakultak, és a viccportálok népszerűsége egyre nőtt. Az emberek szívesen keresnek fel ilyen oldalakat, hogy oldják a stresszt és felviduljanak a mindennapokban. 
+## 1. Jelenlegi helyzet leírása
 
-Azonban a viccportálok kezelése, frissítése és karbantartása nem kis feladat. A rendszeres tartalomfeltöltés érdekében az adminisztrátoroknak naponta több órát kell eltölteniük új viccek, mémek és humoros tartalmak keresésével, moderálásával, valamint a felhasználói visszajelzések kezelésével.
+Az internet terjedésével egyre több humorportál jött létre, amelyek a látogatóknak lehetőséget nyújtanak a szórakozásra és a mindennapi stressz oldására. Az ilyen portálok működtetése ugyanakkor összetett feladat, mivel a látogatók elvárják a folyamatos frissítést és a változatos tartalmat.
 
-Mivel az internetes humor gyorsan változik, a trendek követése és az új humorstílusok integrálása elengedhetetlen, hogy a portálok vonzóak maradjanak. A látogatók elvárják:
+A jelenlegi viccportál funkcionális elemei már kialakultak:
 
-- A gyors frissítést,
-- A humoros tartalmak széles választékát
+- **Weblap Stílus**: A portál rendelkezik egységes, könnyen kezelhető felhasználói felülettel.
+- **Navigáció**: A vicc kategóriák között a felhasználó könnyedén válthat, és megtekintheti a top vicceket is.
+- **Oldalváltó gombok**: A gombok megjelennek, de jelenleg funkcióval nem rendelkeznek.
+- **Felhasználói Kezelőfelület**: A regisztrációs és bejelentkezési gombok működnek, új oldalra navigálnak, ahol a regisztráció és a bejelentkezés megtörténik.
+- **Regisztráció és Bejelentkezés**: Jelenleg nem lehet sem regisztrálni, sem bejelentkezni.
 
-A viccportálok közönsége nagyrészt nem csak passzív fogyasztói a tartalomnak, hanem szívesen osztják meg saját humoros alkotásaikat is. A felhasználók részvétele és a közösségi interakciók folyamatos odafigyelést és moderálást igényelnek. 
+## 2. Felhasználói Elvárások és Tartalmak
 
-Mindeközben fontos, hogy a viccportálok:
+A felhasználók naprakész, változatos humorforrást keresnek, amely követi a legújabb trendeket, és biztosítja számukra a következő funkciókat:
 
-- Ne csak humorforrást jelentsenek,
-- Hanem olyan felületet is, ahol a közösség tagjai biztonságban érezhetik magukat,
-- Kerüljék az érzékeny témák megsértését és a nem megfelelő tartalmak megjelenését.
+- **Széleskörű Tartalmi Kínálat**: A rendszernek többféle vicc és humoros tartalom megjelenítésére kell képesnek lennie, ami minden felhasználói igényt kielégít.
+- **Interaktív Funkciók**: A felhasználóknak lehetőséget kell biztosítani saját tartalmak megosztására és értékelésére, amely közösségi élményt nyújt a látogatóknak.
 
-A viccportálok számára a relevancia fenntartása kulcsfontosságú, hiszen az online világban a felhasználók gyorsan elpártolnak, ha egy oldal nem frissül rendszeresen, vagy a tartalmak nem tükrözik a legújabb trendeket. 
+## 3. Kihívások és Tartalomkezelési Igények
 
-Ezért a humoros tartalmak szerkesztőinek:
+A humor gyorsan változó természete állandó figyelmet követel meg, így a következő funkcionális követelményeket is figyelembe kell venni:
 
-- Folyamatosan követniük kell a közösségi média platformokat és az aktuális mémeket,
-- Naprakész anyagokat kell kínálniuk.
+- **Trendek követése**: A rendszernek folyamatosan figyelnie kell a közösségi médiát és új humorforrásokat.
+- **Tartalmi Frissítések**: Az adminisztrátoroknak naponta új vicceket és mémeket kell feltölteniük, és kezelniük kell a felhasználói visszajelzéseket.
 
-Az ilyen portálok hosszú távú fenntarthatóságát befolyásolja az is, hogy miként képesek bevételt generálni, például hirdetéseken keresztül. Ez újabb kihívást jelent, hiszen:
+## 4. Közösségi Biztonság és Moderáció
 
-- Meg kell találni az egyensúlyt a felhasználói élmény és a reklámok mennyisége között,
-- Ügyelni kell arra, hogy a látogatók ne érezzék túlzsúfoltnak az oldalt.
+A portál közösségi élményének biztosítása érdekében a következő funkcionális követelmények szükségesek:
+
+- **Biztonságos Közeg**: A rendszernek biztosítania kell az érzékeny tartalmak megfelelő kezelését és a nem megfelelő anyagok kiszűrését.
+- **Aktív Moderálás**: A felhasználóknak olyan platformot kell biztosítani, ahol szabadon és biztonságosan kommunikálhatnak.
+
+## 5. Bevétel és Fenntarthatóság
+
+A hosszú távú működés érdekében meg kell találni az egyensúlyt a felhasználói élmény és a bevételtermelés között:
+
+- **Hirdetések Integrációja**: A rendszernek úgy kell elhelyeznie a reklámokat, hogy azok ne zavarják a humoros tartalmak fogyasztását.
+- **Következetes Frissítés**: A portálnak rendszeresen frissülnie kell az oldalon, hogy megfeleljen az aktuális humortrendeknek és elvárásoknak.
+
+A fenti funkcionális követelmények figyelembevételével a viccportál képes biztosítani a hosszú távú népszerűséget és relevanciát, mindemellett olyan felhasználói élményt nyújt, amely helyt áll a többi weboldallal szemben is.
 
 
 #  Rendszer Funkcionális Követelmények:
 
-Felhasználói Regisztráció és Bejelentkezés
-- A felhasználók regisztrálhatnak e-mail cím és jelszó megadásával, vagy külső fiókok (pl. Facebook, Google) használatával.
-- E-mail megerősítés a regisztráció során a felhasználók hitelesítéséhez.
-- Jelszó-visszaállítási lehetőség e-mailes értesítéssel.
-- A felhasználók bejelentkezés után személyes profilt hozhatnak létre, ahol     megtekinthetik a beküldött vicceiket és a kapott szavazataikat.
+## 1. Felhasználói Regisztráció és Bejelentkezés
 
-Viccek Beküldése és Kategorizálása
-- A felhasználók beküldhetnek vicceket szöveges formában
-- A beküldött vicceket kategóriákba kell sorolni (pl. "Szőke nős viccek", "Mórickás   viccek", "Felnőtt viccek").
-- A moderátorok átnézik és jóváhagyják a beküldött vicceket, mielőtt azok megjelennek a  portálon.
 
-Viccek Megtekintése és Keresése
-- A felhasználók böngészhetnek a viccek között kategóriák vagy népszerűség szerint.
-- Keresőfunkció, amely lehetővé teszi a felhasználóknak, hogy kulcsszavak alapján   keressenek vicceket.
-- Szűrő opciók: kategória, időszak (pl. "legfrissebb", "legnépszerűbb").
-- Véletlenszerű vicc funkció, amely egy véletlenszerűen kiválasztott viccet jelenít meg a felhasználónak.
+- **Regisztráció e-mail és jelszó megadásával**: A felhasználók új fiókot hozhatnak létre a rendszerben e-mail cím és jelszó megadásával. 
+Az e-mail címek egyediek lesznek, így a rendszer nem engedi, hogy ugyanazt az e-mail címet többször használják.
 
-Viccek Értékelése 
-- A felhasználók szavazhatnak a viccekre (pl. "Tetszik" vagy "Nem tetszik"), ami befolyásolja a vicc láthatóságát.
-- A rendszer képes legyen az értékelések alapján rangsorolni a vicceket, és a legnépszerűbb vicceket kiemelni a főoldalon.
+- **Személyes profil létrehozása**: Bejelentkezés után a felhasználók személyes profilt hozhatnak létre, ahol megtekinthetik és kezelhetik a beküldött vicceiket és
+ az általuk kapott szavazatokat. A profil egy központi helyet biztosít az aktivitásuk nyomon követésére.
 
-Moderátorok számára elérhető felület, ahol jóváhagyhatják, szerkeszthetik, vagy törölhetik a beküldött vicceket.
-- Moderálási eszközök a nem megfelelő tartalmak (pl. sértő, jogsértő viccek) kezelésére, beleértve a felhasználói jelentéseket is.
+## 2. Viccek Beküldése és Kategorizálása
 
-# Megfelelés a jogi szabályoknak
 
-A magyar GDPR-szabályoknak megfelelően a viccportál nem tárol telefonszámokat és e-mail címeket a felhasználó kifejezett hozzájárulása és jogos cél nélkül. A GDPR értelmében az olyan személyes adatok, mint a telefonszámok és az e-mail címek, érzékeny adatnak minősülnek, és csak akkor gyűjthetők, ha azok kifejezetten szükségesek, például a felhasználók regisztrációja vagy értesítése céljából. A viccportál biztosítja, hogy a felhasználók előre tájékoztatást kapjanak arról, hogyan kerülnek felhasználásra az adataik, és a gyűjtés előtt megkapja a szükséges hozzájárulásokat.
+- **Viccek beküldése szöveges formában**: A felhasználók lehetőséget kapnak saját viccek beküldésére. 
+Ezeket szöveges formátumban adhatják meg, amit a rendszer a megfelelő formázással jelenít meg a portálon.
 
-Az adatok védelme érdekében a weboldal szigorú biztonsági intézkedéseket alkalmaz. A felhasználóknak jogukban áll bármikor hozzáférni az adataikhoz, kérhetik azok módosítását vagy törlését. Az adatmegőrzési gyakorlatok a GDPR-irányelveknek megfelelően történnek, így minden elavult vagy már nem szükséges adatot biztonságosan törölnek, miután a céljukat betöltötték.
+- **Viccek kategóriákba sorolása**: Minden vicc egy vagy több kategóriába sorolható. Kategóriák például: "Szőke nős viccek", "Mórickás viccek", "Felnőtt viccek". 
+A kategorizálás lehetővé teszi, hogy a felhasználók könnyebben böngésszenek a számukra érdekes témák között.
 
-# Nem Funkcionális Követelmények
+- **Moderáció és jóváhagyás**: Mielőtt a beküldött viccek megjelennek a portálon, moderátorok ellenőrzik őket. Az ellenőrzés során figyelembe veszik a viccek tartalmának minőségét és megfelelőségét,
+ hogy kiszűrjék a nem megfelelő vagy sértő tartalmakat. Csak a moderátorok által jóváhagyott viccek kerülnek nyilvánosságra.
 
-Teljesítmény
-- Az oldalnak képesnek kell lennie legalább 100 egyidejű felhasználó kiszolgálására.
-- A rendszernek a viccek beküldését, megtekintését, és értékelését 5 másodpercen belül kell feldolgoznia, még csúcsidőben is.
-- Gyors és hatékony keresési és szűrési funkciók, amelyek nagy mennyiségű adat esetén is jól működnek.
+## 3. Viccek Megtekintése és Keresése
 
-Biztonság
-- Az adatokat biztonságosan kell tárolni és titkosítani (pl. jelszavak hash-elése).
-- A felhasználói adatok védelme és GDPR-megfelelés biztosítása.
-- Rendszeres biztonsági mentések és lehetőség az adatok visszaállítására.
 
-Felhasználói Élmény
+- **Böngészés kategóriák és népszerűség alapján**: A felhasználók különböző kategóriák vagy a viccek népszerűsége szerint böngészhetnek. Ez a funkció lehetővé teszi, hogy könnyen megtalálják a legnépszerűbb vagy számukra érdekes vicceket.
 
-- Reszponzív design, amely jól működik asztali gépeken.
-- Egyszerű és átlátható navigáció, gyors hozzáférés a különböző vicckategóriákhoz.
-- Intuitív felület a viccek beküldésére és a közösségi funkciók használatára (pl. szavazás, kommentelés).
+- **Kulcsszavas keresés**: Keresőfunkció is elérhető, amely kulcsszavak alapján listázza ki a releváns vicceket. Ezzel a felhasználók egyszerűen megtalálhatják azokat a vicceket, amelyek megfelelnek konkrét érdeklődési körüknek vagy hangulatuknak.
 
-# Adatbázis és Tárolás
+- **Szűrők és rendezési opciók**: A felhasználók különböző szűrő opciókat használhatnak, például kategóriák és időszakok alapján (pl. "legfrissebb" vagy "legnépszerűbb"), hogy még pontosabban találják meg a keresett vicceket.
 
-Az adatbázis tárolja a felhasználói profilokat, vicceket, kommenteket, értékeléseket, kategóriákat, és a moderációs műveleteket.
-Olyan adatbázis-struktúra kialakítása, amely támogatja a skálázhatóságot és a nagy mennyiségű adat kezelését (pl. MySQL, PostgreSQL).
+- **Véletlenszerű vicc funkció**: A rendszer képes egy véletlenszerű viccet megjeleníteni a felhasználónak, ami azok számára hasznos, akiknek nincs konkrét keresési szándéka, de szeretnének új viccekkel találkozni.
 
-# Viccportál Adatbázis Terv
 
-## Táblák
+## 4. Viccek Értékelése
 
-### 1. `felhasználók`
-Tárolja a regisztrált felhasználók adatait, beleértve az adminokat és moderátorokat is.
-| Oszlop neve  | Típus  | Leírás  |
-|--------------|--------|---------|
-| `felhasznalo_id`    | INT    | Egyedi felhasználói azonosító (Elsődleges kulcs) |
-| `felhasznalonev`   | VARCHAR| A felhasználók által használt név |
-| `email`      | VARCHAR| A felhasználók e-mail címe |
-| `jelszo`   | VARCHAR| A felhasználók jelszava elszó (HASH-elve) |
-| `csoport`       | ENUM   | Felhasználói szerepkör (admin, moderátor, felhasználó) |
-| `mikor_regisztralt` | TIMESTAMP | Regisztráció időpontja |
 
-### 2. `viccek` 
-Tárolja a felhasználók által beküldött vicceket.
-| Oszlop neve  | Típus  | Leírás  |
-|--------------|--------|---------|
-| `vicc_id`    | INT    | Egyedi vicc azonosító (Elsődleges kulcs) |
-| `felhasznalo_id`    | INT    | A viccet beküldő felhasználó (Külső kulcs a `felhasznalok` táblára) |
-| `kategoria_id`| INT    | A vicc kategóriája (Külső kulcs a `kategoriak` táblára) |
-| `vicc_szovege`  | TEXT   | Maga a vicc |
-| `letrehozva` | TIMESTAMP | Beküldés időpontja |
-| `jovahagyott`| BOOLEAN | Jóváhagyás állapota |
-| `jovahagyo_id`| INT    | Moderátor, aki jóváhagyta (Külső kulcs a `felhasznalok` táblára) |
+- **Szavazási lehetőség**: A felhasználók szavazhatnak a viccekre, például "Tetszik" vagy "Nem tetszik" opciókkal. Ez a funkció visszajelzést nyújt a beküldők számára, és segíti a rendszer népszerű viccek rangsorolásában.
 
-### 3. `kategoriak` 
-Tárolja a viccek kategóriáit.
-| Oszlop neve  | Típus  | Leírás  |
-|--------------|--------|---------|
-| `kategoria_id`| INT    | Kategória azonosító (Elsődleges kulcs) |
-| `kategoria_neve` | VARCHAR | A vicc kategóriájának a neve |
+- **Viccek rangsorolása és kiemelése**: A rendszer az értékelések alapján rangsorolja a vicceket. A legnépszerűbb vicceket kiemelheti a főoldalon, ezzel ösztönözve a felhasználókat, hogy szavazataikkal támogassák a legjobb tartalmakat.
 
-### 4. `ertekelesek` 
-A viccekhez adott értékelések (pl. tetszik/nem tetszik).
-| Oszlop neve  | Típus  | Leírás  |
-|--------------|--------|---------|
-| `ertekeles_id`  | INT    | Egyedi értékelés azonosító (Elsődleges kulcs) |
-| `vicc_id`    | INT    | Értékelt vicc (Külső kulcs a `viccek` táblára) |
-| `felhasznalo_id`    | INT    | Értékelést adó felhasználó (Külső kulcs a `felhasznalok` táblára) |
-| `ertekeles` | INT  | Értékelés értéke (1-5) |
-| `ertekeles_idopontja` | TIMESTAMP | Az értékelésnek az időpontja |
 
-Itt látható ERD-diagram formában.
+## 5. Felhasználói Szintű Gamifikáció és Jutalmazás
+- **Jutalmazási rendszer és szintek**: A rendszer egy pont- és jutalmazási rendszert alkalmaz, amelyben a felhasználók pontokat gyűjthetnek különböző tevékenységeikért (pl. viccek beküldése, szavazás, hozzászólás). Ezen pontok alapján különböző szinteket érhetnek el (pl. kezdő, haladó, profi viccmester), amelyeket profiljukban megjeleníthetnek.
 
-![ERD-diagram](Képek/ERD-diagram.png)
+- **Különleges jelvények és kitüntetések**: A felhasználók különféle jelvényeket (pl. "Heti Legjobb Vicc Beküldője", "Vicckedvelő", "Megosztási Mester") szerezhetnek, amelyek motiválják őket a rendszer használatára és aktivitásra. Ezek a jelvények a profiljukon láthatók lesznek.
 
-# Mellékletek és illusztrációk
+## 6. Analitika és Statisztikák
+- **Felhasználói statisztikák**: A felhasználók számára elérhetővé válnak különféle statisztikák, például a beküldött viccek száma, a kapott szavazatok száma és az átlagos értékelésük. Ezek az információk növelik a felhasználói elköteleződést, és lehetőséget adnak számukra, hogy jobban megismerjék saját aktivitásukat.
 
-![Beléptetési felület](Képek/Belépési_minta.png)
-![Vicckategóriák](Képek/kategóriák.png)
+- **Népszerű viccek és kategóriák elemzése**: A rendszer adminisztrátorai számára elemzési eszközök biztosítják a legnépszerűbb viccek és kategóriák nyomon követését, így könnyebben azonosíthatják, hogy mely tartalmak népszerűek és melyek igényelnek több figyelmet.
 
-# Felhasználó szemszög – Viccportál
 
-Ádám egy hosszú munkanap után szeretne egy kicsit kikapcsolódni, ezért fellép a kedvenc viccportáljára. Miután végigböngészi az új vicceket, talál egyet, amin különösen jól szórakozik, és úgy dönt, hogy megosztja barátaival. Mielőtt ezt megtenné, regisztrál a portálra egy gyors folyamat során, majd a bejelentkezés után lájkolja és kommenteli a viccet. Ezután könnyedén megosztja a poént a közösségi média fiókjain keresztül. Annyira megtetszik neki a portál, hogy ő maga is beküld egy viccet, amelyet néhány óra múlva a moderátor jóváhagy, és kikerül a főoldalra. Ádám izgatottan várja, hogy mennyi pozitív visszajelzést kap a viccére!
+
