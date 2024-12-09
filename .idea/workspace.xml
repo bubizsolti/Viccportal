@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6850817-141a-4d55-97c5-1902123fa759" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Chuck_Norris.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Chuck_Norris.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Cigány_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Cigány_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Erotikus_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Erotikus_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Fárasztó_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Fárasztó_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Morbid_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Morbid_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Munkahely_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Munkahely_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Móricka_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Móricka_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Néger_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Néger_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Rendőr_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Rendőr_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Szóviccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Szóviccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Szőke_nő.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Szőke_nő.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Állatos_viccek.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Állatos_viccek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Összes_vicc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/Html/Összes_vicc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Rendszerterv.md" beforeDir="false" afterPath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Rendszerterv.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +59,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Egyetem\5. félév\Szoftverfejlesztési módszertanok\Viccportal\Dokumentumok_nagyprojekt" />
       <recent name="D:\Egyetem\5. félév\Szoftverfejlesztési módszertanok\Viccportal\Viccpotál_web\Teszt" />
     </key>
   </component>
@@ -93,7 +81,7 @@
       <workItem from="1733684204102" duration="11694000" />
       <workItem from="1733703660087" duration="5015000" />
       <workItem from="1733709313869" duration="6794000" />
-      <workItem from="1733737565270" duration="1992000" />
+      <workItem from="1733737565270" duration="2476000" />
     </task>
     <servers />
   </component>
