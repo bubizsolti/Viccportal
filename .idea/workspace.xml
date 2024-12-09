@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6850817-141a-4d55-97c5-1902123fa759" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Dokumentumok/Funkspec.md" beforeDir="false" afterPath="$PROJECT_DIR$/Dokumentumok/Funkspec.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok/KovSpec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok/Képek/ERD-diagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok/Képek/kategóriák.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok/Rendszerterv.md" beforeDir="false" afterPath="$PROJECT_DIR$/Dokumentumok/Rendszerterv.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Funkspec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Képek/Belépési_minta.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Képek/Folyamatábra.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Képek/Hibajelentes.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Képek/Vicc_kategóriák.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Képek/adatbkesz.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Képek/vicc_értékelés.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Kövspec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Rendszerterv.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Teszt_esetek.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentumok_nagyprojekt/Tesztelési_szempontok.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viccpotál_web/Frontend/JS/anyós_viccek.js" beforeDir="false" afterPath="$PROJECT_DIR$/Viccpotál_web/Frontend/JS/anyós_viccek.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +82,8 @@
       <workItem from="1733684204102" duration="11694000" />
       <workItem from="1733703660087" duration="5015000" />
       <workItem from="1733709313869" duration="6794000" />
-      <workItem from="1733737565270" duration="2762000" />
+      <workItem from="1733737565270" duration="2996000" />
+      <workItem from="1733742365707" duration="2976000" />
     </task>
     <servers />
   </component>

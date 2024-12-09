@@ -327,6 +327,72 @@ async function fetchTopRatedJokes() {
 
     return data;
 }
+
+async function displaySingleJoke(jokeId) {
+    try {
+        const { data: jokeData, error } = await supabaseClient
+            .from('Viccportál')
+            .select('*')
+            .eq('id', jokeId)
+            .single();
+
+        if (error) throw error;
+
+        const randomJokeElement = document.getElementById('popular-jokes'); // Ezt módosítjuk
+        if (randomJokeElement) {
+            // Display the selected joke in place of random jokes with the same style
+            randomJokeElement.innerHTML = `
+                <div class="joke"> <!-- Hozzáadva a "joke" osztály -->
+                    <h3>${jokeData.nev}</h3>
+                    <p>${jokeData.vicc.replace("\n", "<br>")}</p>
+                    <p style="text-align: center; margin-top: 20px;"><strong>Értékelés:</strong> <span class="average-rating">${(jokeData.ertekeles || 0).toFixed(1)}</span></p>
+                    <div class="rating" style="text-align: center; margin-top: 10px;">
+                        <span class="rate" data-value="1">1</span>
+                        <span class="rate" data-value="2">2</span>
+                        <span class="rate" data-value="3">3</span>
+                        <span class="rate" data-value="4">4</span>
+                        <span class="rate" data-value="5">5</span>
+                    </div>
+                    <p style="text-align: center; margin-top: 10px;"><strong>Értékelések száma:</strong> <span class="vote-count">${jokeData.ertekelesek_szama || 0}</span></p>
+                </div>
+            `;
+
+            // Add event listeners to the rating buttons for the single joke
+            const rateButtons = randomJokeElement.querySelectorAll('.rate');
+            rateButtons.forEach(button => {
+                button.addEventListener('click', async () => {
+                    const ratingValue = parseInt(button.getAttribute('data-value'));
+
+                    // Handle rating click
+                    await handleRatingClick(jokeId, ratingValue);
+
+                    // After rating, update the rating display in the UI (for the single joke)
+                    const averageRating = randomJokeElement.querySelector('.average-rating');
+                    const voteCount = randomJokeElement.querySelector('.vote-count');
+
+                    if (averageRating && voteCount) {
+                        const { data: updatedJoke, error } = await supabaseClient
+                            .from('Viccportál')
+                            .select('ertekeles, ertekelesek_szama')
+                            .eq('id', jokeId)
+                            .single();
+
+                        if (error) {
+                            console.error('Error fetching updated joke:', error);
+                            return;
+                        }
+
+                        averageRating.textContent = (updatedJoke.ertekeles || 0).toFixed(1);
+                        voteCount.textContent = updatedJoke.ertekelesek_szama || 0;
+                    }
+                });
+            });
+        }
+    } catch (error) {
+        console.error('Hiba a vicc megjelenítésekor:', error);
+    }
+}
+
 // Call the functions when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     fetchDailyJoke();  // A nap vicce
