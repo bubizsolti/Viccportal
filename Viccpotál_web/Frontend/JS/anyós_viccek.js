@@ -69,6 +69,39 @@ function displayUsername() {
 document.addEventListener('DOMContentLoaded', () => {
     displayUsername(); // Felhasználó név megjelenítése a bejelentkezés után
 });
+
+// Function to check if the user is logged in and show/hide the profile button
+async function checkUserLoginStatus() {
+    const { data: session, error: sessionError } = await supabaseClient.auth.getSession();
+
+    if (sessionError) {
+        console.error("Hiba a session lekérésekor:", sessionError);
+        return;
+    }
+    const username = sessionStorage.getItem('username');
+    const profileLink = document.getElementById('profile-link');
+    const profilePicture = document.getElementById('profile-picture');
+    const profileNameElement = document.getElementById('profile-name');
+
+    if (username) {
+        // Ha van aktív session, jelenítse meg a profil részt
+         profileLink.style.display = 'block';
+         profilePicture.style.display = 'block';
+         profileNameElement.style.display = 'block';
+    } else {
+        // Ha nincs aktív session, rejtse el a profil részt
+        profileLink.style.display = 'none';
+        profilePicture.style.display = 'none';
+        profileNameElement.style.display = 'none';
+    }
+}
+
+// Hívjuk meg az oldal betöltődésekor
+document.addEventListener('DOMContentLoaded', () => {
+    checkUserLoginStatus();
+});
+
+
 async function handleRatingClick(jokeId, ratingValue) {
     try {
         // Először ellenőrizzük, hogy be vagyunk-e jelentkezve
